@@ -3,18 +3,35 @@ entries:
   ctb:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-04-14T13:43:44.988407302+03:30"
+    created: "2025-04-14T15:20:43.979482183+03:30"
     dependencies:
     - condition: frontend.enabled
       name: frontend
       repository: file://charts/frontend
       version: 1.0.0
     description: A Helm chart for Kubernetes
-    digest: 6dcd37238618065e5d1e82d5647da4c392977d5074d99ac3c7a42b9fc9d071dd
+    digest: 10d4370fa9718707c7a7c5fcf72a0678cdcbe6363269fc9ed53c0cbcf2ab0fea
     icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
     name: ctb
     type: application
     urls:
     - ctb-1.0.0.tgz
     version: 1.0.0
-generated: "2025-04-14T13:43:44.988050827+03:30"
+  phc:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-04-14T15:20:43.979730665+03:30"
+    dependencies:
+    - condition: frontend.enabled
+      name: frontend
+      repository: file://charts/frontend
+      version: 1.0.0
+    description: A Helm chart for Kubernetes
+    digest: 04024770d4e01f8d1a60624029c31fe05813f6565caaa65a123fdcdd2e5b49d8
+    icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
+    name: phc
+    type: application
+    urls:
+    - phc-1.0.0.tgz
+    version: 1.0.0
+generated: "2025-04-14T15:20:43.97913022+03:30"
