@@ -136,8 +136,10 @@ global:
 
     # Nats
     nats:
+      user: "phc"
+      pass: "phc"
       timeout: 90000
-      servers: "nats://nats2.nats.svc.cluster.local:4222"
+      servers: "nats://nats.nats.svc.cluster.local:4222"
 
     # **********************
     # Telemetry Services

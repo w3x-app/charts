@@ -190,10 +190,14 @@ Create the environments variable
 # Broker Services
 # **********************
 # Nats
+- name: NATS_USER
+  value: {{ .Values.global.environments.nats.user | default "phc" | quote }}
+- name: NATS_PASS
+  value: {{ .Values.global.environments.nats.pass | default "phc" | quote }}
 - name: NATS_TIMEOUT
   value: {{ .Values.global.environments.nats.timeout | default "90000" | quote }}
 - name: NATS_SERVERS
-  value: {{ .Values.global.environments.nats.servers | default "nats://nats.nats2.svc.cluster.local:4222" | quote }}
+  value: {{ .Values.global.environments.nats.servers | default "nats://nats.nats.svc.cluster.local:4222" | quote }}
 # *****************************
 # OAuth Information
 # *****************************
