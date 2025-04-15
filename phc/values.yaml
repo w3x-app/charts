@@ -1,2 +1,168 @@
+replicaCount: 2
+
+fullnameOverride: "phc-gateway"
+
+serviceAccount:
+  create: true
+  automount: true
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 6010
+
+ingress:
+  enabled: false
+
+autoscaling:
+  enabled: false
+
+global:
+  image:
+    repository: registry.w3x.app/w3x/phc-backend
+    pullPolicy: IfNotPresent
+    tag: "latest"
+  imagePullSecrets: []
+
+  secrets:
+    aes: "" # default: random 64 chars
+
+  environments:
+    debug: "clt:*"
+    timeout: 90000
+    nodeEnv: "develop"
+
+    # **********************
+    # Internationalization
+    # **********************
+
+    locale: "fa"
+    region: "IR"
+    tz: "Asia/Tehran"
+
+    google:
+      # *****************************
+      # Security Config
+      # *****************************
+
+      # Google captcha
+      captcha:
+        key: "6LclmSUqAAAAAD0-92B1U9R3GH683BVZ0JlTDDf2"
+        secret: "6LclmSUqAAAAAIUVtI3vcLRUmBcqSOb_qYUZhc7q"
+
+      # *****************************
+      # OAuth Information
+      # *****************************
+
+      # Google
+      client:
+        id: "932594562282-gieefbqm3csgj5k1850uivbbhavfj0ta.apps.googleusercontent.com"
+        secret: "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"
+        redirectUri: "https://phc.w3x.app/oauth"
+
+    # *****************************
+    # Messaging Config
+    # *****************************
+
+    # Kavenegar
+    kavenegar:
+      senders: ""
+      apiKey: "2B376A6D594F764F3156304D6C6D44744A7A2F6C584D6942764C7468714A7070"
+
+    # Melipayamak
+    melipayamak:
+      user: "9039491657"
+      pass: "scu#JKtQT94X5w@6"
+      from: "50002710091657"
+
+    # *****************************
+    # Client Config
+    # *****************************
+
+    strictToken: true
+
+    uid: "6448d5355f9f253a031e9215"
+    cid: "6448d4122ed1fc913e4d4a5a"
+    appId: "6448d41b95359de4ea2fb0fd"
+    clientId: "6448d422740b44bbae58c7f2"
+    clientSecret: "78ceee30eea50df52cf2848c2be3aa3a33d9274c"
+
+    root:
+      domain: "wenex.org"
+      subject: "root@wenex.org"
+
+    platformUrl: "http://platform-gateway.wenex-platform.svc.cluster.local"
+    apiKey: "4U2nh6kBzVvjCoRvxoRiuLXkJAYJ7WR4AM8XnlO0ZZHbKl0zE6Er2iIVupILxPPSJ80cDgXf6XdlcpxeoW9a6qhe4slkh4ETyAHxxIcgdR3djTW0eXNxpgZJplQJu66KbMMa1Nweb61NVqtpJRfjzX5oSPDXe8OEvDSxFJt9KukArf35cvmy8Y5EAYTABLWUrN0t4zqcu1oAhULySiNWdsjryRsayRTBiKJXDyvs2r0mWNUqoXjLEXUPr.5YfPsyCkAZxSsqUYiUOOZE"
+
+    # Backend
+    backend:
+      authorizationCqrs: "1SsUFuq.X67aZIH_C1IjIxezA3/LVIuWc60CGueP@6qBi-MShv"
+
+    # Frontend
+    frontend:
+      baseUrl: "https://phc.w3x.app"
+      assetsUrl: "https://assets.phc.w3x.app"
+
+    # **********************
+    # Logging Services
+    # **********************
+
+    # Sentry
+    sentry: {}
+
+    # **********************
+    # Storage Services
+    # **********************
+
+    # Redis
+    redis:
+      host: "redis-stack-master.redis.svc.cluster.local"
+      port: 6379
+      prefix: "phc"
+      password: "6Xu9rdP1g0267vDR5t6l4A2D9BYAMfUKimFCgBZr"
+
+    # Mongo
+    mongo:
+      host: "psmdb-server-psmdb-db-rs0.mongodb.svc.cluster.local"
+      db: "w3x"
+      prefix: "phc"
+      user: "databaseAdmin"
+      pass: "5outyK4QIGPBE6pX2G"
+      query: "replicaSet=rs0&authSource=admin"
+
+    # **********************
+    # Broker Services
+    # **********************
+
+    # Nats
+    nats:
+      timeout: 90000
+      servers: "nats://nats2.nats.svc.cluster.local:4222"
+
+    # **********************
+    # Telemetry Services
+    # **********************
+
+    # OpenTelemetry
+    otlp: {}
+
+    # **********************
+    # APM Service
+    # **********************
+
+    # Elastic APM
+    apm: {}
+
+assets:
+  enabled: false
+services:
+  enabled: false
+workers:
+  enabled: false
+
 frontend:
   enabled: false
+  image:
+    repository: registry.w3x.app/w3x/phc-frontend
+    tag: "latest"
+  imagePullSecrets: []

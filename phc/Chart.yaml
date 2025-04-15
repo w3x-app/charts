@@ -7,6 +7,20 @@ version: 1.0.0
 appVersion: "1.0.0"
 
 dependencies:
+  - name: services
+    version: 1.0.0
+    condition: services.enabled
+    repository: file://charts/services
+  - name: workers
+    version: 1.0.0
+    condition: workers.enabled
+    repository: file://charts/workers
+
+  - name: assets
+    version: 1.0.0
+    condition: assets.enabled
+    repository: file://charts/assets
+
   - name: frontend
     version: 1.0.0
     condition: frontend.enabled

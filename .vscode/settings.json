@@ -3,6 +3,7 @@
     "automount",
     "nindent",
     "nuxt",
-    "tolerations"
+    "tolerations",
+    "trunc"
   ]
 }

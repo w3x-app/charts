@@ -1,0 +1,20 @@
+enabled: false
+
+replicaCount: 2
+
+fullnameOverride: "client-services"
+
+serviceAccount:
+  create: true
+  automount: true
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 7010
+
+ingress:
+  enabled: false
+
+autoscaling:
+  enabled: false
