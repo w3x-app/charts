@@ -2,7 +2,7 @@ enabled: false
 
 replicaCount: 2
 
-fullnameOverride: "client-services"
+fullnameOverride: "phc-services"
 
 serviceAccount:
   create: true

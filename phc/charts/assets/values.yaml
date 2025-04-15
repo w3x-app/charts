@@ -2,7 +2,7 @@ enabled: false
 
 replicaCount: 2
 
-fullnameOverride: "client-assets"
+fullnameOverride: "phc-assets"
 
 serviceAccount:
   create: true
