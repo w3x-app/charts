@@ -76,7 +76,7 @@ Create the environments variable
 # Security Services
 # *****************************
 - name: NUXT_PUBLIC_ALTCHA_CHALLENGE_URL
-  value: {{ .Values.environments.nuxt.public.altcha.challengeUrl | default "http://phc-gateway.wenex-phc.svc.cluster.local/captcha/challenge" | quote }}
+  value: {{ .Values.environments.nuxt.public.altcha.challengeUrl | default "http://phc-gateway.wenex-phc.svc.cluster.local/challenge" | quote }}
 # *****************************
 # Client Information
 # *****************************

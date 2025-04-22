@@ -57,7 +57,7 @@ environments:
       # Security Services
       # *****************************
       altcha:
-        challengeUrl: "http://phc-backend.wenex-phc.svc.cluster.local/captcha/challenge"
+        challengeUrl: "http://phc-backend.wenex-phc.svc.cluster.local/challenge"
 
       # *****************************
       # OAuth Information
