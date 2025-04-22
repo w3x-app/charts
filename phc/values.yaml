@@ -9,7 +9,7 @@ serviceAccount:
 service:
   type: ClusterIP
   port: 80
-  targetPort: 6010
+  targetPort: 6050
 
 ingress:
   enabled: false
