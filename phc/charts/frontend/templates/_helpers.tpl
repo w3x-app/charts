@@ -67,4 +67,43 @@ Create the environments variable
 {{- define "frontend.environments" -}}
 - name: NUXT_PUBLIC_API_BASE_URL
   value: {{ .Values.environments.nuxt.public.apiBaseUrl | default "http://health-backend-phc.wenex-client.svc.cluster.local" | quote }}
+# *****************************
+# Push Information
+# *****************************
+- name: NUXT_PUBLIC_VAPID_PUBLIC_KEY
+  value: {{ .Values.environments.nuxt.public.vapidPublicKey | default "BI6g0d-QKlNp2wWlCsUS8K49Y82Pc302yw5tcjhhMGaGoJsnjfz9uFp1dYjniJZCb62hdmqY32wcge9ieJI9GHw" | quote }}
+# *****************************
+# Security Services
+# *****************************
+- name: NUXT_PUBLIC_ALTCHA_CHALLENGE_URL
+  value: {{ .Values.environments.nuxt.public.altcha.challengeUrl | default "http://phc-gateway.wenex-phc.svc.cluster.local/captcha/challenge" | quote }}
+# *****************************
+# Client Information
+# *****************************
+- name: NUXT_PUBLIC_APP_ID
+  value: {{ .Values.environments.nuxt.public.appId | default "6448d41b95359de4ea2fb0fd" | quote }}
+- name: NUXT_PUBLIC_CLIENT_ID
+  value: {{ .Values.environments.nuxt.public.phcId | default "6448d422740b44bbae58c7f2" | quote }}
+# MQTT Over WebSocket
+- name: NUXT_PUBLIC_MQTT_WS_URL
+  value: {{ .Values.environments.nuxt.public.mqttWsUrl | default "ws://localhost:8083/mqtt" | quote }}
+# *****************************
+# Logging Services
+# *****************************
+- name: NUXT_PUBLIC_SENTRY_DSN
+  value: {{ .Values.environments.nuxt.public.sentry.dsn | quote }}
+- name: NUXT_PUBLIC_SENTRY_AUTH
+  value: {{ .Values.environments.nuxt.public.sentry.auth | quote }}
+{{- if .Values.environments.nuxt.public.google }}
+# *****************************
+# OAuth Information
+# *****************************
+# Google
+- name: NUXT_PUBLIC_GOOGLE_CLIENT_ID
+  value: {{ .Values.environments.nuxt.public.google.phc.id | default "932594562282-gieefbqm3csgj5k1850uivbbhavfj0ta.apps.googleusercontent.com" | quote }}
+- name: NUXT_PUBLIC_GOOGLE_CLIENT_SCOPE
+  value: {{ .Values.environments.nuxt.public.google.phc.scope | default "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile" | quote }}
+- name: NUXT_PUBLIC_GOOGLE_REDIRECT_URI
+  value: {{ .Values.environments.nuxt.public.google.phc.redirectUri | default "http://localhost:3000/oauth" | quote }}
+{{- end }}
 {{- end }}

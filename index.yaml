@@ -3,7 +3,7 @@ entries:
   phc:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-04-15T19:34:37.463865405+03:30"
+    created: "2025-04-22T12:25:31.572745416+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -22,11 +22,11 @@ entries:
       repository: file://charts/frontend
       version: 1.0.0
     description: A Helm chart for Kubernetes
-    digest: 9c09d17f8db1be9ee30d9cb1daa6e078d05dca7d8dc14bd6012f9b9c288c7cf6
+    digest: 4df8fdc542ee9b3c249d0d7da102316d1618b4176816afafb31ab5b21e77c3bf
     icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
     name: phc
     type: application
     urls:
     - phc-1.0.0.tgz
     version: 1.0.0
-generated: "2025-04-15T19:34:37.462872401+03:30"
+generated: "2025-04-22T12:25:31.571677111+03:30"
