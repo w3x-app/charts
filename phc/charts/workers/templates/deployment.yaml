@@ -47,6 +47,7 @@ spec:
               value: "workers"
             - name: ELASTIC_APM_SERVICE_NAME
               value: "workers"
+            {{- include "phc.global.secrets" . | nindent 12 }}
             {{- include "phc.global.environments" . | nindent 12 }}
           ports:
             - name: http
