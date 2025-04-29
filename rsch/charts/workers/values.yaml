@@ -1,0 +1,20 @@
+enabled: false
+
+replicaCount: 2
+
+fullnameOverride: "rsch-workers"
+
+serviceAccount:
+  create: true
+  automount: true
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8050
+
+ingress:
+  enabled: false
+
+autoscaling:
+  enabled: false

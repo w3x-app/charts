@@ -5,5 +5,5 @@
 3. Update the Helm repository index using:
 
 ```sh
-helm package phc && helm repo index .
+helm package rsch && helm package phc && helm repo index .
 ```

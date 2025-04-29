@@ -1,0 +1,70 @@
+enabled: false
+
+replicaCount: 2
+
+image:
+  repository: registry.w3x.app/w3x/rsch-frontend
+  pullPolicy: IfNotPresent
+  tag: "1.0.0"
+
+fullnameOverride: "rsch-frontend"
+
+serviceAccount:
+  create: true
+  automount: true
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 3005
+
+ingress:
+  enabled: false
+
+autoscaling:
+  enabled: false
+
+environments:
+  nuxt:
+    public:
+      apiBaseUrl: "http://rsch-backend.wenex-client.svc.cluster.local"
+
+      # *****************************
+      # Push Information
+      # *****************************
+
+      vapidPublicKey: "BI6g0d-QKlNp2wWlCsUS8K49Y82Pc302yw5tcjhhMGaGoJsnjfz9uFp1dYjniJZCb62hdmqY32wcge9ieJI9GHw"
+
+      # *****************************
+      # Client Information
+      # *****************************
+
+      appId: "6448d41b95359de4ea2fb0fd"
+      rschId: "6448d422740b44bbae58c7f2"
+
+      # MQTT Over WebSocket
+      mqttWsUrl: "ws://localhost:8083/mqtt"
+
+      # *****************************
+      # Logging Services
+      # *****************************
+
+      sentry:
+        dsn: ""
+        auth: ""
+
+      # *****************************
+      # Security Services
+      # *****************************
+      altcha:
+        challengeUrl: "http://rsch-backend.wenex-rsch.svc.cluster.local/challenge"
+
+      # *****************************
+      # OAuth Information
+      # *****************************
+      google:
+        # Google
+        rsch:
+          id: "932594562282-gieefbqm3csgj5k1850uivbbhavfj0ta.apps.googleusercontent.com"
+          scope: "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
+          redirectUri: "http://frontend.rsch.w3x.app/oauth"
