@@ -2,8 +2,36 @@ apiVersion: v1
 entries:
   phc:
   - apiVersion: v2
+    appVersion: 1.0.1
+    created: "2025-04-30T13:13:41.841460552+03:30"
+    dependencies:
+    - condition: services.enabled
+      name: services
+      repository: file://charts/services
+      version: 1.0.0
+    - condition: workers.enabled
+      name: workers
+      repository: file://charts/workers
+      version: 1.0.0
+    - condition: assets.enabled
+      name: assets
+      repository: file://charts/assets
+      version: 1.0.0
+    - condition: frontend.enabled
+      name: frontend
+      repository: file://charts/frontend
+      version: 1.0.1
+    description: A Helm chart for Kubernetes
+    digest: 10f0d2068cf8c51049e8e63bdc442c20686d2ef03e3b93fab6c7a0a7a5cc862c
+    icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
+    name: phc
+    type: application
+    urls:
+    - phc-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-04-29T15:34:07.442540934+03:30"
+    created: "2025-04-30T13:13:41.83990708+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -31,8 +59,36 @@ entries:
     version: 1.0.0
   rsch:
   - apiVersion: v2
+    appVersion: 1.0.1
+    created: "2025-04-30T13:13:41.843357363+03:30"
+    dependencies:
+    - condition: services.enabled
+      name: services
+      repository: file://charts/services
+      version: 1.0.0
+    - condition: workers.enabled
+      name: workers
+      repository: file://charts/workers
+      version: 1.0.0
+    - condition: assets.enabled
+      name: assets
+      repository: file://charts/assets
+      version: 1.0.0
+    - condition: frontend.enabled
+      name: frontend
+      repository: file://charts/frontend
+      version: 1.0.1
+    description: A Helm chart for Kubernetes
+    digest: a178fdbeebd404df4fe6cb7e7cb10178f33495c7f5b7498d3dc67b15da686cfd
+    icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
+    name: rsch
+    type: application
+    urls:
+    - rsch-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-04-29T15:34:07.443350736+03:30"
+    created: "2025-04-30T13:13:41.842523382+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -58,4 +114,4 @@ entries:
     urls:
     - rsch-1.0.0.tgz
     version: 1.0.0
-generated: "2025-04-29T15:34:07.44155775+03:30"
+generated: "2025-04-30T13:13:41.838548276+03:30"

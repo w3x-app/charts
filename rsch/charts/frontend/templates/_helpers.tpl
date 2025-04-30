@@ -65,6 +65,11 @@ Create the name of the service account to use
 Create the environments variable
 */}}
 {{- define "frontend.environments" -}}
+- name: APP_VERSION
+  value: {{ .Values.image.tag | quote }}
+- name: NUXT_PUBLIC_APP_VERSION
+  value: {{ .Values.image.tag | quote }}
+# *****************************
 - name: NUXT_PUBLIC_API_BASE_URL
   value: {{ .Values.environments.nuxt.public.apiBaseUrl | default "http://health-backend-rsch.wenex-client.svc.cluster.local" | quote }}
 # *****************************
