@@ -3,8 +3,8 @@ name: rsch
 description: A Helm chart for Kubernetes
 
 type: application
-version: 1.0.1
-appVersion: "1.0.1"
+version: 1.0.2
+appVersion: "1.0.2"
 
 dependencies:
   - name: services
@@ -22,7 +22,7 @@ dependencies:
     repository: file://charts/assets
 
   - name: frontend
-    version: 1.0.1
+    version: 1.0.2
     condition: frontend.enabled
     repository: file://charts/frontend
 
