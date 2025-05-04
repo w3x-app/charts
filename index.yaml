@@ -2,8 +2,36 @@ apiVersion: v1
 entries:
   phc:
   - apiVersion: v2
+    appVersion: 1.0.3
+    created: "2025-05-04T18:46:41.558198811+03:30"
+    dependencies:
+    - condition: services.enabled
+      name: services
+      repository: file://charts/services
+      version: 1.0.0
+    - condition: workers.enabled
+      name: workers
+      repository: file://charts/workers
+      version: 1.0.0
+    - condition: assets.enabled
+      name: assets
+      repository: file://charts/assets
+      version: 1.0.0
+    - condition: frontend.enabled
+      name: frontend
+      repository: file://charts/frontend
+      version: 1.0.3
+    description: A Helm chart for Kubernetes
+    digest: a40c057fe2fb7194615797ba484166420041fe6d84e20c5f1e6647cb45a5e158
+    icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
+    name: phc
+    type: application
+    urls:
+    - phc-1.0.3.tgz
+    version: 1.0.3
+  - apiVersion: v2
     appVersion: 1.0.2
-    created: "2025-05-04T14:44:28.190371022+03:30"
+    created: "2025-05-04T18:46:41.557175469+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -31,7 +59,7 @@ entries:
     version: 1.0.2
   - apiVersion: v2
     appVersion: 1.0.1
-    created: "2025-05-04T14:44:28.189503766+03:30"
+    created: "2025-05-04T18:46:41.555958965+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -59,7 +87,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-05-04T14:44:28.188576518+03:30"
+    created: "2025-05-04T18:46:41.554657467+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -87,8 +115,36 @@ entries:
     version: 1.0.0
   rsch:
   - apiVersion: v2
+    appVersion: 1.0.3
+    created: "2025-05-04T18:46:41.564231765+03:30"
+    dependencies:
+    - condition: services.enabled
+      name: services
+      repository: file://charts/services
+      version: 1.0.0
+    - condition: workers.enabled
+      name: workers
+      repository: file://charts/workers
+      version: 1.0.0
+    - condition: assets.enabled
+      name: assets
+      repository: file://charts/assets
+      version: 1.0.0
+    - condition: frontend.enabled
+      name: frontend
+      repository: file://charts/frontend
+      version: 1.0.3
+    description: A Helm chart for Kubernetes
+    digest: 5e1e7eaa26d6937753847f38b6b8e5277cf689c2b9f23f70ba2b78965ed5c641
+    icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
+    name: rsch
+    type: application
+    urls:
+    - rsch-1.0.3.tgz
+    version: 1.0.3
+  - apiVersion: v2
     appVersion: 1.0.2
-    created: "2025-05-04T14:44:28.192889936+03:30"
+    created: "2025-05-04T18:46:41.562800075+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -116,7 +172,7 @@ entries:
     version: 1.0.2
   - apiVersion: v2
     appVersion: 1.0.1
-    created: "2025-05-04T14:44:28.192080683+03:30"
+    created: "2025-05-04T18:46:41.561404964+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -144,7 +200,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-05-04T14:44:28.191198112+03:30"
+    created: "2025-05-04T18:46:41.559932935+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -170,4 +226,4 @@ entries:
     urls:
     - rsch-1.0.0.tgz
     version: 1.0.0
-generated: "2025-05-04T14:44:28.187597924+03:30"
+generated: "2025-05-04T18:46:41.553261041+03:30"

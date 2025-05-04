@@ -104,10 +104,10 @@ Create the environments variable
 # OAuth Information
 # *****************************
 # Google
+- name: NUXT_PUBLIC_GOOGLE_SCOPE
+  value: {{ .Values.environments.nuxt.public.google.client.scope | default "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile" | quote }}
 - name: NUXT_PUBLIC_GOOGLE_CLIENT_ID
   value: {{ .Values.environments.nuxt.public.google.client.id | default "932594562282-gieefbqm3csgj5k1850uivbbhavfj0ta.apps.googleusercontent.com" | quote }}
-- name: NUXT_PUBLIC_GOOGLE_CLIENT_SCOPE
-  value: {{ .Values.environments.nuxt.public.google.client.scope | default "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile" | quote }}
 - name: NUXT_PUBLIC_GOOGLE_REDIRECT_URI
   value: {{ .Values.environments.nuxt.public.google.client.redirectUri | default "http://localhost:3000/oauth" | quote }}
 {{- end }}
