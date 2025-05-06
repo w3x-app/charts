@@ -154,6 +154,12 @@ global:
 
     coworkers: [] # list of coworkers: /^([a-z]+:\w+,)+(\w+)$/
 
+  configuration:
+    services:
+      host: phc-services.wenex-client.svc.cluster.local
+    workers:
+      host: phc-workers.wenex-client.svc.cluster.local
+
 assets:
   enabled: false
 services:

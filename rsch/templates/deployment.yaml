@@ -49,6 +49,7 @@ spec:
               value: "gateway"
             {{- include "rsch.global.secrets" . | nindent 12 }}
             {{- include "rsch.global.environments" . | nindent 12 }}
+            {{- include "rsch.global.configuration" . | nindent 12 }}
           ports:
             - name: http
               containerPort: {{ .Values.service.targetPort }}
