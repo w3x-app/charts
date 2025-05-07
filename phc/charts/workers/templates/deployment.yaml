@@ -52,7 +52,7 @@ spec:
             {{- include "phc.global.configuration" . | nindent 12 }}
           ports:
             - name: http
-              containerPort: {{ .Values.service.targetPort }}
+              containerPort: {{ .Values.global.configuration.workers.api | default 80 | int }}
               protocol: TCP
           {{- with .Values.livenessProbe }}
           livenessProbe:
