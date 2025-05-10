@@ -95,10 +95,14 @@ Create the environments variable
 # *****************************
 # Logging Services
 # *****************************
+- name: SENTRY_URL
+  value: {{ .Values.environments.nuxt.public.sentry.url | quote }}
+- name: SENTRY_AUTH_TOKEN
+  value: {{ .Values.environments.nuxt.public.sentry.authToken | quote }}
 - name: NUXT_PUBLIC_SENTRY_DSN
   value: {{ .Values.environments.nuxt.public.sentry.dsn | quote }}
-- name: NUXT_PUBLIC_SENTRY_AUTH
-  value: {{ .Values.environments.nuxt.public.sentry.auth | quote }}
+- name: NUXT_PUBLIC_SENTRY_TRACES_SAMPLE_RATE
+  value: {{ .Values.environments.nuxt.public.sentry.tracesSampleRate | default "0.1" | quote }}
 {{- if .Values.environments.nuxt.public.google }}
 # *****************************
 # OAuth Information
