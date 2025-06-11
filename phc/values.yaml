@@ -43,9 +43,9 @@ global:
     locale: "fa"
     region: "IR"
     tz: "Asia/Tehran"
-    # *****************************
+    # **********************
     # Messaging Config
-    # *****************************
+    # **********************
     # Kavenegar
     kavenegar:
       senders: ""
@@ -55,9 +55,9 @@ global:
       user: ""
       pass: ""
       from: ""
-    # *****************************
+    # **********************
     # Client Config
-    # *****************************
+    # **********************
     strictToken: true
     # Client
     uid: ""
