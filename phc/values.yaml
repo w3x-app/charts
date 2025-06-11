@@ -19,157 +19,150 @@ autoscaling:
 
 global:
   image:
-    repository: registry.w3x.app/w3x/phc-backend
+    repository: registry.wenex.org/w3x/phc-backend
     pullPolicy: IfNotPresent
-    tag: "latest"
+    tag: "1.1.0"
   imagePullSecrets: []
-
+  # **********************
+  # Secrets
+  # **********************
   secrets:
     aes: "" # default: random 64 chars
     altcha:
       hmacKey: "" # default: random 64 chars
-
+  # **********************
+  # Environment Variables
+  # **********************
   environments:
     debug: "clt:*"
-    timeout: 90000
+    timeout: "90000"
     nodeEnv: "develop"
-
     # **********************
     # Internationalization
     # **********************
-
     locale: "fa"
     region: "IR"
     tz: "Asia/Tehran"
-
-    google:
-      # *****************************
-      # OAuth Information
-      # *****************************
-
-      # Google
-      client:
-        id: "932594562282-gieefbqm3csgj5k1850uivbbhavfj0ta.apps.googleusercontent.com"
-        secret: "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"
-        redirectUri: "https://phc.w3x.app/oauth"
-
     # *****************************
     # Messaging Config
     # *****************************
-
     # Kavenegar
     kavenegar:
       senders: ""
-      apiKey: "2B376A6D594F764F3156304D6C6D44744A7A2F6C584D6942764C7468714A7070"
-
+      apiKey: ""
     # Melipayamak
     melipayamak:
-      user: "9039491657"
-      pass: "scu#JKtQT94X5w@6"
-      from: "50002710091657"
-
+      user: ""
+      pass: ""
+      from: ""
     # *****************************
     # Client Config
     # *****************************
-
     strictToken: true
-
-    uid: "6448d5355f9f253a031e9215"
-    cid: "6448d4122ed1fc913e4d4a5a"
-    appId: "6448d41b95359de4ea2fb0fd"
-    clientId: "6448d422740b44bbae58c7f2"
-    clientSecret: "78ceee30eea50df52cf2848c2be3aa3a33d9274c"
-
+    # Client
+    uid: ""
+    cid: ""
+    appId: ""
+    clientId: ""
+    clientSecret: ""
+    # Platform
     root:
-      domain: "wenex.org"
-      subject: "root@wenex.org"
-
+      domain: "phc.w3x.app"
+      subject: "root@phc.w3x.app"
     platformUrl: "http://platform-gateway.wenex-platform.svc.cluster.local"
-    apiKey: "4U2nh6kBzVvjCoRvxoRiuLXkJAYJ7WR4AM8XnlO0ZZHbKl0zE6Er2iIVupILxPPSJ80cDgXf6XdlcpxeoW9a6qhe4slkh4ETyAHxxIcgdR3djTW0eXNxpgZJplQJu66KbMMa1Nweb61NVqtpJRfjzX5oSPDXe8OEvDSxFJt9KukArf35cvmy8Y5EAYTABLWUrN0t4zqcu1oAhULySiNWdsjryRsayRTBiKJXDyvs2r0mWNUqoXjLEXUPr.5YfPsyCkAZxSsqUYiUOOZE"
-
     # Backend
     backend:
-      authorizationCqrs: "1SsUFuq.X67aZIH_C1IjIxezA3/LVIuWc60CGueP@6qBi-MShv"
-
+      authorizationCqrs: ""
+    apiKey: ""
     # Frontend
     frontend:
       baseUrl: "https://phc.w3x.app"
       assetsUrl: "https://assets.phc.w3x.app"
-
     # **********************
     # Logging Services
     # **********************
-
     # Sentry
-    sentry: {}
-
+    sentry:
+      dsn: ""
+      maxBreadcrumbs: "100"
+      tracesSampleRate: "0.8"
     # **********************
     # Storage Services
     # **********************
-
     # Redis
     redis:
       host: "redis-stack-master.redis.svc.cluster.local"
       port: 6379
       prefix: "phc"
-      password: "6Xu9rdP1g0267vDR5t6l4A2D9BYAMfUKimFCgBZr"
-
+      password: ""
     # Mongo
     mongo:
       host: "psmdb-server-psmdb-db-rs0.mongodb.svc.cluster.local"
       db: "w3x"
       prefix: "phc"
       user: "databaseAdmin"
-      pass: "5outyK4QIGPBE6pX2G"
+      pass: ""
       query: "replicaSet=rs0&authSource=admin"
-
     # **********************
     # Broker Services
     # **********************
-
     # Nats
     nats:
       user: "phc"
       pass: "phc"
-      timeout: 90000
+      timeout: "90000"
       servers: "nats://nats.nats.svc.cluster.local:4222"
-
+    # **********************
+    # OAuth Information
+    # **********************
+    # Google
+    google:
+      client:
+        id: ""
+        secret: ""
+        redirectUri: "https://phc.w3x.app/oauth"
     # **********************
     # Telemetry Services
     # **********************
-
     # OpenTelemetry
-    otlp: {}
-
+    otlp:
+      port: "4318"
+      host: "jaeger-instance-collector.opentelemetry.svc.cluster.local"
     # **********************
     # APM Service
     # **********************
-
     # Elastic APM
-    apm: {}
-
+    apm:
+      serverUrl: ""
+      secretToken: ""
+      verifyServerCert: "false"
     # **********************
     # Wenex Coworkers
     # **********************
-
-    coworkers: [] # list of coworkers: /^([a-z]+:\w+,)+(\w+)$/
-
+    coworkers: [] # list of coworkers
+  # **********************
+  # Client Configuration
+  # **********************
   configuration:
     services:
       host: phc-services.wenex-client.svc.cluster.local
     workers:
       host: phc-workers.wenex-client.svc.cluster.local
-
+# **********************
+# Client Backend
+# **********************
 assets:
   enabled: false
 services:
   enabled: false
 workers:
   enabled: false
-
+# **********************
+# Client Frontend
+# **********************
 frontend:
   enabled: false
   image:
-    repository: registry.w3x.app/w3x/phc-frontend
-    tag: "latest"
+    repository: registry.wenex.org/w3x/phc-frontend
+    tag: "1.1.0"
   imagePullSecrets: []

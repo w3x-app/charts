@@ -3,9 +3,9 @@ enabled: false
 replicaCount: 2
 
 image:
-  repository: registry.w3x.app/w3x/rsch-frontend
+  repository: registry.wenex.org/w3x/rsch-frontend
   pullPolicy: IfNotPresent
-  tag: "latest"
+  tag: "1.1.0"
 
 fullnameOverride: "rsch-frontend"
 
@@ -26,45 +26,45 @@ autoscaling:
 
 environments:
   nuxt:
+    # *****************************
+    # Logging Services
+    # *****************************
+    sentry:
+      url: ""
+      authToken: ""
+    # *****************************
+    # Public Information
+    # *****************************
     public:
-      apiBaseUrl: "http://rsch-backend.wenex-client.svc.cluster.local"
-
+      apiBaseUrl: "https://api.rsch.w3x.app"
       # *****************************
       # Push Information
       # *****************************
-
-      vapidPublicKey: "BI6g0d-QKlNp2wWlCsUS8K49Y82Pc302yw5tcjhhMGaGoJsnjfz9uFp1dYjniJZCb62hdmqY32wcge9ieJI9GHw"
-
-      # *****************************
-      # Client Information
-      # *****************************
-
-      appId: "6448d41b95359de4ea2fb0fd"
-      rschId: "6448d422740b44bbae58c7f2"
-
-      # MQTT Over WebSocket
-      mqttWsUrl: "ws://localhost:8083/mqtt"
-
-      # *****************************
-      # Logging Services
-      # *****************************
-
-      sentry:
-        dsn: ""
-        auth: ""
-
+      vapidPublicKey: ""
       # *****************************
       # Security Services
       # *****************************
       altcha:
-        challengeUrl: "http://rsch-backend.wenex-rsch.svc.cluster.local/challenge"
-
+        challengeUrl: "https://api.rsch.w3x.app/challenge"
+      # *****************************
+      # Client Information
+      # *****************************
+      appId: ""
+      clientId: ""
+      # MQTT Over WebSocket
+      mqttWsUrl: "wss://emqx.wenex.org/mqtt"
+      # *****************************
+      # Logging Services
+      # *****************************
+      sentry:
+        dsn: ""
+        tracesSampleRate: "0.8"
       # *****************************
       # OAuth Information
       # *****************************
+      # Google
       google:
-        # Google
         client:
-          id: "932594562282-gieefbqm3csgj5k1850uivbbhavfj0ta.apps.googleusercontent.com"
+          id: ""
           scope: "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
-          redirectUri: "http://frontend.rsch.w3x.app/oauth"
+          redirectUri: "https://rsch.w3x.app/oauth"

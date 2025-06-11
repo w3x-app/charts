@@ -127,40 +127,40 @@ Create the environments variable
 - name: KAVENEGAR_SENDERS
   value: {{ .Values.global.environments.kavenegar.senders | quote }}
 - name: KAVENEGAR_API_KEY
-  value: {{ .Values.global.environments.kavenegar.apiKey | default "2B376A6D594F764F3156304D6C6D44744A7A2F6C584D6942764C7468714A7070" | quote }}
+  value: {{ .Values.global.environments.kavenegar.apiKey | quote }}
 # Melipayamak
 - name: MELIPAYAMAK_USER
-  value: {{ .Values.global.environments.melipayamak.user | default "9039491657" | quote }}
+  value: {{ .Values.global.environments.melipayamak.user | quote }}
 - name: MELIPAYAMAK_PASS
-  value: {{ .Values.global.environments.melipayamak.pass | default "scu#JKtQT94X5w@6" | quote }}
+  value: {{ .Values.global.environments.melipayamak.pass | quote }}
 - name: MELIPAYAMAK_FROM
-  value: {{ .Values.global.environments.melipayamak.from | default "50002710091657" | quote }}
+  value: {{ .Values.global.environments.melipayamak.from | quote }}
 # *****************************
 # Client Config
 # *****************************
 - name: STRICT_TOKEN
   value: {{ .Values.global.environments.strictToken | default "true" | quote }}
 - name: UID
-  value: {{ .Values.global.environments.uid | default "6448d5355f9f253a031e9215" | quote }}
+  value: {{ .Values.global.environments.uid | quote }}
 - name: CID
-  value: {{ .Values.global.environments.cid | default "6448d4122ed1fc913e4d4a5a" | quote }}
+  value: {{ .Values.global.environments.cid | quote }}
 - name: APP_ID
-  value: {{ .Values.global.environments.appId | default "6448d41b95359de4ea2fb0fd" | quote }}
+  value: {{ .Values.global.environments.appId | quote }}
 - name: CLIENT_ID
-  value: {{ .Values.global.environments.clientId | default "6448d422740b44bbae58c7f2" | quote }}
+  value: {{ .Values.global.environments.clientId | quote }}
 - name: CLIENT_SECRET
-  value: {{ .Values.global.environments.clientSecret | default "78ceee30eea50df52cf2848c2be3aa3a33d9274c" | quote }}
+  value: {{ .Values.global.environments.clientSecret | quote }}
 - name: ROOT_DOMAIN
-  value: {{ .Values.global.environments.root.domain | default "wenex.org" | quote }}
+  value: {{ .Values.global.environments.root.domain | default "rsch.w3x.app" | quote }}
 - name: ROOT_SUBJECT
-  value: {{ .Values.global.environments.root.subject | default "root@wenex.org" | quote }}
+  value: {{ .Values.global.environments.root.subject | default "root@rsch.w3x.app" | quote }}
 - name: PLATFORM_URL
   value: {{ .Values.global.environments.platformUrl | default "http://platform-gateway.wenex-platform.svc.cluster.local" | quote }}
-- name: API_KEY
-  value: {{ .Values.global.environments.apiKey | default "4U2nh6kBzVvjCoRvxoRiuLXkJAYJ7WR4AM8XnlO0ZZHbKl0zE6Er2iIVupILxPPSJ80cDgXf6XdlcpxeoW9a6qhe4slkh4ETyAHxxIcgdR3djTW0eXNxpgZJplQJu66KbMMa1Nweb61NVqtpJRfjzX5oSPDXe8OEvDSxFJt9KukArf35cvmy8Y5EAYTABLWUrN0t4zqcu1oAhULySiNWdsjryRsayRTBiKJXDyvs2r0mWNUqoXjLEXUPr.5YfPsyCkAZxSsqUYiUOOZE" | quote }}
 # Backend
 - name: CLIENT_AUTHORIZATION_CQRS
-  value: {{ .Values.global.environments.backend.authorizationCqrs | default "1SsUFuq.X67aZIH_C1IjIxezA3/LVIuWc60CGueP@6qBi-MShv" | quote }}
+  value: {{ .Values.global.environments.backend.authorizationCqrs | quote }}
+- name: API_KEY
+  value: {{ .Values.global.environments.apiKey | quote }}
 # Frontend
 - name: CLIENT_BASE_URL
   value: {{ .Values.global.environments.frontend.baseUrl | default "https://rsch.w3x.app" | quote }}
@@ -171,11 +171,11 @@ Create the environments variable
 # **********************
 # Sentry
 - name: SENTRY_DSN
-  value: {{ .Values.global.environments.sentry.dsn | default "" | quote }}
+  value: {{ .Values.global.environments.sentry.dsn | quote }}
 - name: SENTRY_MAX_BREADCRUMBS
-  value: {{ .Values.global.environments.sentry.maxBreadcrumbs | default "10" | quote }}
+  value: {{ .Values.global.environments.sentry.maxBreadcrumbs | default "100" | quote }}
 - name: SENTRY_TRACES_SAMPLE_RATE
-  value: {{ .Values.global.environments.sentry.tracesSampleRate | default "1.0" | quote }}
+  value: {{ .Values.global.environments.sentry.tracesSampleRate | default "0.8" | quote }}
 # **********************
 # Storage Services
 # **********************
@@ -218,9 +218,9 @@ Create the environments variable
 # *****************************
 # Google
 - name: GOOGLE_CLIENT_ID
-  value: {{ .Values.global.environments.google.client.id | default "932594562282-gieefbqm3csgj5k1850uivbbhavfj0ta.apps.googleusercontent.com" | quote }}
+  value: {{ .Values.global.environments.google.client.id | quote }}
 - name: GOOGLE_CLIENT_SECRET
-  value: {{ .Values.global.environments.google.client.secret | default "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" | quote }}
+  value: {{ .Values.global.environments.google.client.secret | quote }}
 - name: GOOGLE_REDIRECT_URI
   value: {{ .Values.global.environments.google.client.redirectUri | default "https://rsch.w3x.app/oauth" | quote }}
 # **********************
@@ -230,15 +230,15 @@ Create the environments variable
 - name: OTLP_PORT
   value: {{ .Values.global.environments.otlp.port | default "4318" | quote }}
 - name: OTLP_HOST
-  value: {{ .Values.global.environments.otlp.host | default "localhost" | quote }}
+  value: {{ .Values.global.environments.otlp.host | default "jaeger-instance-collector.opentelemetry.svc.cluster.local" | quote }}
 # **********************
 # APM Service
 # **********************
 # Elastic APM
 - name: ELASTIC_APM_SERVER_URL
-  value: {{ .Values.global.environments.apm.serverUrl | default "https://localhost:8200" | quote }}
+  value: {{ .Values.global.environments.apm.serverUrl | quote }}
 - name: ELASTIC_APM_SECRET_TOKEN
-  value: {{ .Values.global.environments.apm.secretToken | default "secrettokengoeshere" | quote }}
+  value: {{ .Values.global.environments.apm.secretToken | quote }}
 - name: ELASTIC_APM_VERIFY_SERVER_CERT
   value: {{ .Values.global.environments.apm.verifyServerCert | default "false" | quote }}
 # **********************

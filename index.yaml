@@ -2,452 +2,60 @@ apiVersion: v1
 entries:
   phc:
   - apiVersion: v2
-    appVersion: 1.0.7
-    created: "2025-05-10T13:41:59.866827404+03:30"
+    appVersion: 1.1.0
+    created: "2025-06-11T09:10:33.631225906+03:30"
     dependencies:
     - condition: services.enabled
       name: services
       repository: file://charts/services
-      version: 1.0.3
+      version: 1.1.0
     - condition: workers.enabled
       name: workers
       repository: file://charts/workers
-      version: 1.0.3
+      version: 1.1.0
     - condition: assets.enabled
       name: assets
       repository: file://charts/assets
-      version: 1.0.0
+      version: 1.1.0
     - condition: frontend.enabled
       name: frontend
       repository: file://charts/frontend
-      version: 1.0.4
+      version: 1.1.0
     description: A Helm chart for Kubernetes
-    digest: 24aaefca05422c7655a1f11b80fbe910d3307399ad41fb2b9900ad4c0f6343be
+    digest: 4e9ccbbe189876d70734b65ca108fea68402c006a1bc828e44b1d2c2ff9306f3
     icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
     name: phc
     type: application
     urls:
-    - phc-1.0.7.tgz
-    version: 1.0.7
-  - apiVersion: v2
-    appVersion: 1.0.6
-    created: "2025-05-10T13:41:59.865842506+03:30"
-    dependencies:
-    - condition: services.enabled
-      name: services
-      repository: file://charts/services
-      version: 1.0.3
-    - condition: workers.enabled
-      name: workers
-      repository: file://charts/workers
-      version: 1.0.3
-    - condition: assets.enabled
-      name: assets
-      repository: file://charts/assets
-      version: 1.0.0
-    - condition: frontend.enabled
-      name: frontend
-      repository: file://charts/frontend
-      version: 1.0.3
-    description: A Helm chart for Kubernetes
-    digest: c6e320babdeba250b9fc6db4b09dec4e305800a4229483221a2e2f4125f04175
-    icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
-    name: phc
-    type: application
-    urls:
-    - phc-1.0.6.tgz
-    version: 1.0.6
-  - apiVersion: v2
-    appVersion: 1.0.5
-    created: "2025-05-10T13:41:59.864593385+03:30"
-    dependencies:
-    - condition: services.enabled
-      name: services
-      repository: file://charts/services
-      version: 1.0.2
-    - condition: workers.enabled
-      name: workers
-      repository: file://charts/workers
-      version: 1.0.2
-    - condition: assets.enabled
-      name: assets
-      repository: file://charts/assets
-      version: 1.0.0
-    - condition: frontend.enabled
-      name: frontend
-      repository: file://charts/frontend
-      version: 1.0.3
-    description: A Helm chart for Kubernetes
-    digest: 6692f98815bfbf6c582f287cb1524be6c49cdd681b966d0b4b69a16584e86642
-    icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
-    name: phc
-    type: application
-    urls:
-    - phc-1.0.5.tgz
-    version: 1.0.5
-  - apiVersion: v2
-    appVersion: 1.0.4
-    created: "2025-05-10T13:41:59.863621838+03:30"
-    dependencies:
-    - condition: services.enabled
-      name: services
-      repository: file://charts/services
-      version: 1.0.1
-    - condition: workers.enabled
-      name: workers
-      repository: file://charts/workers
-      version: 1.0.1
-    - condition: assets.enabled
-      name: assets
-      repository: file://charts/assets
-      version: 1.0.0
-    - condition: frontend.enabled
-      name: frontend
-      repository: file://charts/frontend
-      version: 1.0.3
-    description: A Helm chart for Kubernetes
-    digest: 834b9829bf974542cd299009746a05198674ef179a75290d2b80070da03c892d
-    icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
-    name: phc
-    type: application
-    urls:
-    - phc-1.0.4.tgz
-    version: 1.0.4
-  - apiVersion: v2
-    appVersion: 1.0.3
-    created: "2025-05-10T13:41:59.862653448+03:30"
-    dependencies:
-    - condition: services.enabled
-      name: services
-      repository: file://charts/services
-      version: 1.0.0
-    - condition: workers.enabled
-      name: workers
-      repository: file://charts/workers
-      version: 1.0.0
-    - condition: assets.enabled
-      name: assets
-      repository: file://charts/assets
-      version: 1.0.0
-    - condition: frontend.enabled
-      name: frontend
-      repository: file://charts/frontend
-      version: 1.0.3
-    description: A Helm chart for Kubernetes
-    digest: a40c057fe2fb7194615797ba484166420041fe6d84e20c5f1e6647cb45a5e158
-    icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
-    name: phc
-    type: application
-    urls:
-    - phc-1.0.3.tgz
-    version: 1.0.3
-  - apiVersion: v2
-    appVersion: 1.0.2
-    created: "2025-05-10T13:41:59.861605541+03:30"
-    dependencies:
-    - condition: services.enabled
-      name: services
-      repository: file://charts/services
-      version: 1.0.0
-    - condition: workers.enabled
-      name: workers
-      repository: file://charts/workers
-      version: 1.0.0
-    - condition: assets.enabled
-      name: assets
-      repository: file://charts/assets
-      version: 1.0.0
-    - condition: frontend.enabled
-      name: frontend
-      repository: file://charts/frontend
-      version: 1.0.2
-    description: A Helm chart for Kubernetes
-    digest: 2848dbcfb3832d4f061480aff17e03eaf0d05e09251bc01cbc0eb1d42e3eb8bf
-    icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
-    name: phc
-    type: application
-    urls:
-    - phc-1.0.2.tgz
-    version: 1.0.2
-  - apiVersion: v2
-    appVersion: 1.0.1
-    created: "2025-05-10T13:41:59.860395643+03:30"
-    dependencies:
-    - condition: services.enabled
-      name: services
-      repository: file://charts/services
-      version: 1.0.0
-    - condition: workers.enabled
-      name: workers
-      repository: file://charts/workers
-      version: 1.0.0
-    - condition: assets.enabled
-      name: assets
-      repository: file://charts/assets
-      version: 1.0.0
-    - condition: frontend.enabled
-      name: frontend
-      repository: file://charts/frontend
-      version: 1.0.1
-    description: A Helm chart for Kubernetes
-    digest: 10f0d2068cf8c51049e8e63bdc442c20686d2ef03e3b93fab6c7a0a7a5cc862c
-    icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
-    name: phc
-    type: application
-    urls:
-    - phc-1.0.1.tgz
-    version: 1.0.1
-  - apiVersion: v2
-    appVersion: 1.0.0
-    created: "2025-05-10T13:41:59.858896491+03:30"
-    dependencies:
-    - condition: services.enabled
-      name: services
-      repository: file://charts/services
-      version: 1.0.0
-    - condition: workers.enabled
-      name: workers
-      repository: file://charts/workers
-      version: 1.0.0
-    - condition: assets.enabled
-      name: assets
-      repository: file://charts/assets
-      version: 1.0.0
-    - condition: frontend.enabled
-      name: frontend
-      repository: file://charts/frontend
-      version: 1.0.0
-    description: A Helm chart for Kubernetes
-    digest: 7a27077cb2f7d5a798761e7dc68977b19c48ba09d41ee947e40171f79aa970bb
-    icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
-    name: phc
-    type: application
-    urls:
-    - phc-1.0.0.tgz
-    version: 1.0.0
+    - phc-1.1.0.tgz
+    version: 1.1.0
   rsch:
   - apiVersion: v2
-    appVersion: 1.0.7
-    created: "2025-05-10T13:41:59.874810189+03:30"
+    appVersion: 1.1.0
+    created: "2025-06-11T09:10:33.63205583+03:30"
     dependencies:
     - condition: services.enabled
       name: services
       repository: file://charts/services
-      version: 1.0.3
+      version: 1.1.0
     - condition: workers.enabled
       name: workers
       repository: file://charts/workers
-      version: 1.0.3
+      version: 1.1.0
     - condition: assets.enabled
       name: assets
       repository: file://charts/assets
-      version: 1.0.0
+      version: 1.1.0
     - condition: frontend.enabled
       name: frontend
       repository: file://charts/frontend
-      version: 1.0.4
+      version: 1.1.0
     description: A Helm chart for Kubernetes
-    digest: 072e8cc02fb8abc516d8357c85dc9b156f2bdf7b712d52add7e27c2c9170c93b
+    digest: dc0493a9f3da5b60aca5128fb8c67991c05c844770c631afe887d6ba97b27dab
     icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
     name: rsch
     type: application
     urls:
-    - rsch-1.0.7.tgz
-    version: 1.0.7
-  - apiVersion: v2
-    appVersion: 1.0.6
-    created: "2025-05-10T13:41:59.873922528+03:30"
-    dependencies:
-    - condition: services.enabled
-      name: services
-      repository: file://charts/services
-      version: 1.0.3
-    - condition: workers.enabled
-      name: workers
-      repository: file://charts/workers
-      version: 1.0.3
-    - condition: assets.enabled
-      name: assets
-      repository: file://charts/assets
-      version: 1.0.0
-    - condition: frontend.enabled
-      name: frontend
-      repository: file://charts/frontend
-      version: 1.0.3
-    description: A Helm chart for Kubernetes
-    digest: 3a4013fc8de0921412e301c143129d556721fad1c9575e256f9354d574f92d37
-    icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
-    name: rsch
-    type: application
-    urls:
-    - rsch-1.0.6.tgz
-    version: 1.0.6
-  - apiVersion: v2
-    appVersion: 1.0.5
-    created: "2025-05-10T13:41:59.872899729+03:30"
-    dependencies:
-    - condition: services.enabled
-      name: services
-      repository: file://charts/services
-      version: 1.0.2
-    - condition: workers.enabled
-      name: workers
-      repository: file://charts/workers
-      version: 1.0.2
-    - condition: assets.enabled
-      name: assets
-      repository: file://charts/assets
-      version: 1.0.0
-    - condition: frontend.enabled
-      name: frontend
-      repository: file://charts/frontend
-      version: 1.0.3
-    description: A Helm chart for Kubernetes
-    digest: 03afeb289792933b56154e2497b4b57512d51572e9670816bc9c74191e4f52f4
-    icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
-    name: rsch
-    type: application
-    urls:
-    - rsch-1.0.5.tgz
-    version: 1.0.5
-  - apiVersion: v2
-    appVersion: 1.0.4
-    created: "2025-05-10T13:41:59.871499768+03:30"
-    dependencies:
-    - condition: services.enabled
-      name: services
-      repository: file://charts/services
-      version: 1.0.1
-    - condition: workers.enabled
-      name: workers
-      repository: file://charts/workers
-      version: 1.0.1
-    - condition: assets.enabled
-      name: assets
-      repository: file://charts/assets
-      version: 1.0.0
-    - condition: frontend.enabled
-      name: frontend
-      repository: file://charts/frontend
-      version: 1.0.3
-    description: A Helm chart for Kubernetes
-    digest: d5f5a3d86ebfc631688d0cfad3638cb56a1bffe98a92c7a6b47087ddb086978c
-    icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
-    name: rsch
-    type: application
-    urls:
-    - rsch-1.0.4.tgz
-    version: 1.0.4
-  - apiVersion: v2
-    appVersion: 1.0.3
-    created: "2025-05-10T13:41:59.870559526+03:30"
-    dependencies:
-    - condition: services.enabled
-      name: services
-      repository: file://charts/services
-      version: 1.0.0
-    - condition: workers.enabled
-      name: workers
-      repository: file://charts/workers
-      version: 1.0.0
-    - condition: assets.enabled
-      name: assets
-      repository: file://charts/assets
-      version: 1.0.0
-    - condition: frontend.enabled
-      name: frontend
-      repository: file://charts/frontend
-      version: 1.0.3
-    description: A Helm chart for Kubernetes
-    digest: 5e1e7eaa26d6937753847f38b6b8e5277cf689c2b9f23f70ba2b78965ed5c641
-    icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
-    name: rsch
-    type: application
-    urls:
-    - rsch-1.0.3.tgz
-    version: 1.0.3
-  - apiVersion: v2
-    appVersion: 1.0.2
-    created: "2025-05-10T13:41:59.869637797+03:30"
-    dependencies:
-    - condition: services.enabled
-      name: services
-      repository: file://charts/services
-      version: 1.0.0
-    - condition: workers.enabled
-      name: workers
-      repository: file://charts/workers
-      version: 1.0.0
-    - condition: assets.enabled
-      name: assets
-      repository: file://charts/assets
-      version: 1.0.0
-    - condition: frontend.enabled
-      name: frontend
-      repository: file://charts/frontend
-      version: 1.0.2
-    description: A Helm chart for Kubernetes
-    digest: 7467670dcd09fddd87c6103f5596c40f1c806ec1b849d7657af1fe52800928cb
-    icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
-    name: rsch
-    type: application
-    urls:
-    - rsch-1.0.2.tgz
-    version: 1.0.2
-  - apiVersion: v2
-    appVersion: 1.0.1
-    created: "2025-05-10T13:41:59.868667918+03:30"
-    dependencies:
-    - condition: services.enabled
-      name: services
-      repository: file://charts/services
-      version: 1.0.0
-    - condition: workers.enabled
-      name: workers
-      repository: file://charts/workers
-      version: 1.0.0
-    - condition: assets.enabled
-      name: assets
-      repository: file://charts/assets
-      version: 1.0.0
-    - condition: frontend.enabled
-      name: frontend
-      repository: file://charts/frontend
-      version: 1.0.1
-    description: A Helm chart for Kubernetes
-    digest: a178fdbeebd404df4fe6cb7e7cb10178f33495c7f5b7498d3dc67b15da686cfd
-    icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
-    name: rsch
-    type: application
-    urls:
-    - rsch-1.0.1.tgz
-    version: 1.0.1
-  - apiVersion: v2
-    appVersion: 1.0.0
-    created: "2025-05-10T13:41:59.86778776+03:30"
-    dependencies:
-    - condition: services.enabled
-      name: services
-      repository: file://charts/services
-      version: 1.0.0
-    - condition: workers.enabled
-      name: workers
-      repository: file://charts/workers
-      version: 1.0.0
-    - condition: assets.enabled
-      name: assets
-      repository: file://charts/assets
-      version: 1.0.0
-    - condition: frontend.enabled
-      name: frontend
-      repository: file://charts/frontend
-      version: 1.0.0
-    description: A Helm chart for Kubernetes
-    digest: efacd49694739fca6ea3586239aa673c61a42567ff842d9ca15d21e97808adc5
-    icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
-    name: rsch
-    type: application
-    urls:
-    - rsch-1.0.0.tgz
-    version: 1.0.0
-generated: "2025-05-10T13:41:59.857615179+03:30"
+    - rsch-1.1.0.tgz
+    version: 1.1.0
+generated: "2025-06-11T09:10:33.630232107+03:30"
