@@ -91,9 +91,9 @@ Create the secrets variable
 # Altcha
 - name: ALTCHA_HMAC_KEY
   valueFrom:
-      secretKeyRef:
-        name: phc-secrets
-        key: HMAC_KEY
+    secretKeyRef:
+      name: phc-secrets
+      key: HMAC_KEY
 {{- end }}
 
 {{/*
