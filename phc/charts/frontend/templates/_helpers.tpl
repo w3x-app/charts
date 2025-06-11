@@ -115,4 +115,9 @@ Create the environments variable
 - name: NUXT_PUBLIC_GOOGLE_REDIRECT_URI
   value: {{ .Values.environments.nuxt.public.google.client.redirectUri | quote }}
 {{- end }}
+# *****************************
+# OSM Services
+# *****************************
+- name: NUXT_PUBLIC_MAPTILE_SERVER_PATH
+  value: {{ .Values.environments.nuxt.public.mapTileServerPath | default "https://tile.openstreetmap.org/{z}/{x}/{y}.png" | quote }}
 {{- end }}

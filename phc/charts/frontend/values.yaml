@@ -68,3 +68,7 @@ environments:
           id: ""
           scope: "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
           redirectUri: "https://phc.w3x.app/oauth"
+      # *****************************
+      # OSM Services
+      # *****************************
+      mapTileServerPath: "https://tile.openstreetmap.org/{z}/{x}/{y}.png"
