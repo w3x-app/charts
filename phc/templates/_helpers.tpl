@@ -111,6 +111,8 @@ Create the environments variable
   value: {{ .Values.global.environments.debug | default "clt:*" | quote }}
 - name: TIMEOUT
   value: {{ .Values.global.environments.timeout | default "90000" | quote }}
+- name: GRAPHQL_MUTATION_SUPPORT
+  value: {{ .Values.global.environments.graphqlMutationSupport | quote }}
 # **********************
 # Internationalization
 # **********************

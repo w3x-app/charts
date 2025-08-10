@@ -37,6 +37,8 @@ global:
     debug: "clt:*"
     timeout: "90000"
     nodeEnv: "develop"
+    # GraphQl mutation support
+    graphqlMutationSupport: false
     # **********************
     # Internationalization
     # **********************
