@@ -3,7 +3,39 @@ entries:
   phc:
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-09-21T10:04:41.162785371+03:30"
+    created: "2025-10-06T14:39:49.892866282+03:30"
+    dependencies:
+    - condition: services.enabled
+      name: services
+      repository: file://charts/services
+      version: 1.1.1
+    - condition: workers.enabled
+      name: workers
+      repository: file://charts/workers
+      version: 1.1.1
+    - condition: assets.enabled
+      name: assets
+      repository: file://charts/assets
+      version: 1.1.1
+    - condition: frontend.enabled
+      name: frontend
+      repository: file://charts/frontend
+      version: 1.1.2
+    - condition: landing.enabled
+      name: landing
+      repository: file://charts/landing
+      version: 1.0.2
+    description: A Helm chart for Kubernetes
+    digest: abb02ea01d18651c913348fa4a78ea5cbd2e83647f382f8d4fafc4e59a25899e
+    icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
+    name: phc
+    type: application
+    urls:
+    - phc-1.1.5.tgz
+    version: 1.1.5
+  - apiVersion: v2
+    appVersion: 1.1.0
+    created: "2025-10-06T14:39:49.891828764+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -35,7 +67,7 @@ entries:
     version: 1.1.4
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-09-21T10:04:41.161809701+03:30"
+    created: "2025-10-06T14:39:49.890820013+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -67,7 +99,7 @@ entries:
     version: 1.1.3
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-09-21T10:04:41.16080536+03:30"
+    created: "2025-10-06T14:39:49.889670865+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -95,7 +127,7 @@ entries:
     version: 1.1.2
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-09-21T10:04:41.159927276+03:30"
+    created: "2025-10-06T14:39:49.888753449+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -123,7 +155,7 @@ entries:
     version: 1.1.1
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-09-21T10:04:41.158603807+03:30"
+    created: "2025-10-06T14:39:49.887172784+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -152,7 +184,35 @@ entries:
   rsch:
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-09-21T10:04:41.164752343+03:30"
+    created: "2025-10-06T14:39:49.895945435+03:30"
+    dependencies:
+    - condition: services.enabled
+      name: services
+      repository: file://charts/services
+      version: 1.1.1
+    - condition: workers.enabled
+      name: workers
+      repository: file://charts/workers
+      version: 1.1.1
+    - condition: assets.enabled
+      name: assets
+      repository: file://charts/assets
+      version: 1.1.1
+    - condition: frontend.enabled
+      name: frontend
+      repository: file://charts/frontend
+      version: 1.1.1
+    description: A Helm chart for Kubernetes
+    digest: 63e94e792aed82a1c07566677594eaf07364a456077d24c21fce8ebf8d33f675
+    icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
+    name: rsch
+    type: application
+    urls:
+    - rsch-1.1.2.tgz
+    version: 1.1.2
+  - apiVersion: v2
+    appVersion: 1.1.0
+    created: "2025-10-06T14:39:49.895050701+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -180,7 +240,7 @@ entries:
     version: 1.1.1
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-09-21T10:04:41.163567402+03:30"
+    created: "2025-10-06T14:39:49.893778523+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -206,4 +266,4 @@ entries:
     urls:
     - rsch-1.1.0.tgz
     version: 1.1.0
-generated: "2025-09-21T10:04:41.157680457+03:30"
+generated: "2025-10-06T14:39:49.885779553+03:30"

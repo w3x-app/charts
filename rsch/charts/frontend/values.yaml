@@ -1,6 +1,6 @@
 enabled: false
 
-replicaCount: 2
+replicaCount: 3
 
 image:
   repository: registry.wenex.org/w3x/rsch-frontend

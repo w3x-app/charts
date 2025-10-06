@@ -1,6 +1,6 @@
 enabled: false
 
-replicaCount: 2
+replicaCount: 3
 
 fullnameOverride: "phc-workers"
 
