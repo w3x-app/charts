@@ -11,6 +11,22 @@ service:
   port: 80
   targetPort: 6050
 
+livenessProbe:
+  httpGet:
+    path: /status
+    port: http
+  initialDelaySeconds: 90
+  periodSeconds: 30
+  failureThreshold: 3
+
+readinessProbe:
+  httpGet:
+    path: /status
+    port: http
+  initialDelaySeconds: 45
+  periodSeconds: 15
+  failureThreshold: 3
+
 ingress:
   enabled: false
 
