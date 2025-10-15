@@ -15,5 +15,6 @@
     "tolerations",
     "trunc",
     "wenex"
-  ]
+  ],
+  "editor.formatOnSave": false
 }
