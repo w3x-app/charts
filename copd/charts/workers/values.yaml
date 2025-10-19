@@ -1,0 +1,19 @@
+enabled: false
+
+replicaCount: 3
+
+fullnameOverride: "copd-workers"
+
+serviceAccount:
+  create: true
+  automount: true
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+
+autoscaling:
+  enabled: false

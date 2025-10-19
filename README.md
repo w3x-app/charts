@@ -5,5 +5,17 @@
 3. Update the Helm repository index using:
 
 ```sh
-helm package rsch && helm package phc && helm repo index .
+helm lint copd
+helm lint phc
+helm lint rsch
+
+helm template copd
+helm template phc
+helm template rsch
+
+helm package copd
+helm package phc
+helm package rsch
+
+helm repo index .
 ```
