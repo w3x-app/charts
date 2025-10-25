@@ -72,6 +72,8 @@ Create the environments variable
 # *****************************
 - name: NUXT_PUBLIC_API_BASE_URL
   value: {{ .Values.environments.nuxt.public.apiBaseUrl | quote }}
+- name: NUXT_PUBLIC_PLATFORM_API_BASE_URL
+  value: {{ .Values.environments.nuxt.public.platformApiBaseUrl | quote }}
 # *****************************
 # Push Information
 # *****************************

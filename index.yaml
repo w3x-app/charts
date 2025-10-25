@@ -3,7 +3,7 @@ entries:
   copd:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-10-19T16:54:43.969929731+03:30"
+    created: "2025-10-25T13:27:35.119121708+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -32,7 +32,7 @@ entries:
   phc:
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-10-19T16:54:43.978546806+03:30"
+    created: "2025-10-25T13:27:35.136824942+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -49,13 +49,13 @@ entries:
     - condition: frontend.enabled
       name: frontend
       repository: file://charts/frontend
-      version: 1.1.2
+      version: 1.1.3
     - condition: landing.enabled
       name: landing
       repository: file://charts/landing
       version: 1.0.2
     description: A Helm chart for Kubernetes
-    digest: 685ab364b67555a628773a33ad1d0072439761fdb1fec0df558eed8da1c58476
+    digest: 9fb0855e627932ed66aed4900c7ac3208fafda6af0d31211cc8a4a544bd47927
     icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
     name: phc
     type: application
@@ -64,7 +64,7 @@ entries:
     version: 1.1.7
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-10-19T16:54:43.977491834+03:30"
+    created: "2025-10-25T13:27:35.134007602+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -96,7 +96,7 @@ entries:
     version: 1.1.6
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-10-19T16:54:43.976456165+03:30"
+    created: "2025-10-25T13:27:35.13185943+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -128,7 +128,7 @@ entries:
     version: 1.1.5
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-10-19T16:54:43.974852856+03:30"
+    created: "2025-10-25T13:27:35.12981146+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -160,7 +160,7 @@ entries:
     version: 1.1.4
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-10-19T16:54:43.973900683+03:30"
+    created: "2025-10-25T13:27:35.127688488+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -192,7 +192,7 @@ entries:
     version: 1.1.3
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-10-19T16:54:43.972960886+03:30"
+    created: "2025-10-25T13:27:35.125698692+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -220,7 +220,7 @@ entries:
     version: 1.1.2
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-10-19T16:54:43.972097423+03:30"
+    created: "2025-10-25T13:27:35.122413146+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -248,7 +248,7 @@ entries:
     version: 1.1.1
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-10-19T16:54:43.971266102+03:30"
+    created: "2025-10-25T13:27:35.120726614+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -277,7 +277,7 @@ entries:
   rsch:
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-10-19T16:54:43.981013201+03:30"
+    created: "2025-10-25T13:27:35.141934143+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -305,7 +305,7 @@ entries:
     version: 1.1.2
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-10-19T16:54:43.980151754+03:30"
+    created: "2025-10-25T13:27:35.140144371+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -333,7 +333,7 @@ entries:
     version: 1.1.1
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-10-19T16:54:43.979368429+03:30"
+    created: "2025-10-25T13:27:35.138497828+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -359,4 +359,4 @@ entries:
     urls:
     - rsch-1.1.0.tgz
     version: 1.1.0
-generated: "2025-10-19T16:54:43.968922379+03:30"
+generated: "2025-10-25T13:27:35.117240337+03:30"

@@ -37,6 +37,7 @@ environments:
     # *****************************
     public:
       apiBaseUrl: "https://api.phc.w3x.app"
+      platformApiBaseUrl: "https://gateway.wenex.org"
       # *****************************
       # Push Information
       # *****************************
