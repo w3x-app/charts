@@ -74,6 +74,14 @@ global:
       pass: ""
       from: ""
     # **********************
+    # IPG Config
+    # **********************
+    zarinpal:
+      url: "https://payment.zarinpal.com/pg/v4"
+      merchantId: ""
+      callbackUrl: ""
+      redirectUrl: "https://payment.zarinpal.com/pg/StartPay/{}"
+    # **********************
     # Client Config
     # **********************
     strictToken: true
