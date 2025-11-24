@@ -137,6 +137,13 @@ Create the environments variable
   value: {{ .Values.global.environments.melipayamak.pass | quote }}
 - name: MELIPAYAMAK_FROM
   value: {{ .Values.global.environments.melipayamak.from | quote }}
+{{- if .Values.global.environments.ai }}
+# **********************
+# AI Config
+# **********************
+- name: RAHSA_BASE_URL
+  value: {{ .Values.global.environments.ai.baseUrl | default "https://rahsa.ifsh-kmu.ir" | quote }}
+{{- end }}
 {{- if .Values.global.environments.zarinpal }}
 # **********************
 # IPG Config

@@ -74,6 +74,11 @@ global:
       pass: ""
       from: ""
     # **********************
+    # AI Config
+    # **********************
+    ai:
+      baseUrl: "https://rahsa.ifsh-kmu.ir"
+    # **********************
     # IPG Config
     # **********************
     zarinpal:
