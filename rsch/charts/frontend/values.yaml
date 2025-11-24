@@ -54,6 +54,10 @@ environments:
       # MQTT Over WebSocket
       mqttWsUrl: "wss://emqx.wenex.org/mqtt"
       # *****************************
+      # Map Services
+      # *****************************
+      maptilerKey: "IMsJk4mfV3Q22PG5zTgB"
+      # *****************************
       # Logging Services
       # *****************************
       sentry:
