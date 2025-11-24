@@ -93,6 +93,11 @@ Create the environments variable
 - name: NUXT_PUBLIC_MQTT_WS_URL
   value: {{ .Values.environments.nuxt.public.mqttWsUrl | default "ws://emqx.wenex.org/mqtt" | quote }}
 # *****************************
+# Map Services
+# *****************************
+- name: NUXT_PUBLIC_MAPTILER_KEY
+  value: {{ .Values.environments.nuxt.public.maptilerKey | quote }}
+# *****************************
 # Logging Services
 # *****************************
 - name: SENTRY_URL
