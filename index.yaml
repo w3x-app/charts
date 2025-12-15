@@ -3,7 +3,7 @@ entries:
   copd:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-11-24T18:21:51.72464515+03:30"
+    created: "2025-12-15T21:09:13.904491078+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -31,7 +31,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-11-24T18:21:51.723652573+03:30"
+    created: "2025-12-15T21:09:13.903089867+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -60,7 +60,7 @@ entries:
   phc:
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-11-24T18:21:51.729243062+03:30"
+    created: "2025-12-15T21:09:13.9074143+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -92,7 +92,7 @@ entries:
     version: 1.1.10
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-11-24T18:21:51.740193746+03:30"
+    created: "2025-12-15T21:09:13.916212367+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -124,7 +124,7 @@ entries:
     version: 1.1.9
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-11-24T18:21:51.738794147+03:30"
+    created: "2025-12-15T21:09:13.914406777+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -156,7 +156,7 @@ entries:
     version: 1.1.8
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-11-24T18:21:51.737443532+03:30"
+    created: "2025-12-15T21:09:13.913432645+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -188,7 +188,7 @@ entries:
     version: 1.1.7
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-11-24T18:21:51.735624381+03:30"
+    created: "2025-12-15T21:09:13.912371857+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -220,7 +220,7 @@ entries:
     version: 1.1.6
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-11-24T18:21:51.734470212+03:30"
+    created: "2025-12-15T21:09:13.911422284+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -252,7 +252,7 @@ entries:
     version: 1.1.5
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-11-24T18:21:51.73330109+03:30"
+    created: "2025-12-15T21:09:13.909969805+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -284,7 +284,7 @@ entries:
     version: 1.1.4
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-11-24T18:21:51.732182847+03:30"
+    created: "2025-12-15T21:09:13.909079054+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -316,7 +316,7 @@ entries:
     version: 1.1.3
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-11-24T18:21:51.730842983+03:30"
+    created: "2025-12-15T21:09:13.908221777+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -344,7 +344,7 @@ entries:
     version: 1.1.2
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-11-24T18:21:51.727703013+03:30"
+    created: "2025-12-15T21:09:13.906371182+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -372,7 +372,7 @@ entries:
     version: 1.1.1
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-11-24T18:21:51.725567813+03:30"
+    created: "2025-12-15T21:09:13.905569798+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -398,10 +398,37 @@ entries:
     urls:
     - phc-1.1.0.tgz
     version: 1.1.0
+  porsyar:
+  - apiVersion: v2
+    created: "2025-12-15T21:09:13.925448991+03:30"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 16.4.16
+    - condition: redis.enabled
+      name: redis
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 20.11.2
+    description: A Helm chart for Porsyar with PostgreSQL, Redis
+    digest: 404e3c48623df75d7908fa8e5de4093b3eb5a7987e0863415d75174ba1beb665
+    icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
+    keywords:
+    - porsyar
+    - postgresql
+    - redis
+    maintainers:
+    - email: info@phaicare.com
+      name: Porsyar
+    name: porsyar
+    type: application
+    urls:
+    - porsyar-1.0.0.tgz
+    version: 1.0.0
   rsch:
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-11-24T18:21:51.747058028+03:30"
+    created: "2025-12-15T21:09:13.930086305+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -429,7 +456,7 @@ entries:
     version: 1.1.4
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-11-24T18:21:51.746216553+03:30"
+    created: "2025-12-15T21:09:13.929334425+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -457,7 +484,7 @@ entries:
     version: 1.1.3
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-11-24T18:21:51.744956467+03:30"
+    created: "2025-12-15T21:09:13.928544613+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -485,7 +512,7 @@ entries:
     version: 1.1.2
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-11-24T18:21:51.743381072+03:30"
+    created: "2025-12-15T21:09:13.927762976+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -513,7 +540,7 @@ entries:
     version: 1.1.1
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2025-11-24T18:21:51.741117426+03:30"
+    created: "2025-12-15T21:09:13.926418179+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -539,4 +566,4 @@ entries:
     urls:
     - rsch-1.1.0.tgz
     version: 1.1.0
-generated: "2025-11-24T18:21:51.722438771+03:30"
+generated: "2025-12-15T21:09:13.900904977+03:30"

@@ -1,0 +1,163 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "porsyar.name" . }}
+  labels:
+    {{- include "porsyar.labels" . | nindent 4 }}
+    {{- if .Values.deployment.additionalLabels }}
+    {{- toYaml .Values.deployment.additionalLabels | nindent 4 }}
+    {{- end }}
+  {{- if or .Values.deployment.annotations .Values.deployment.reloadOnChange }}
+  annotations:
+    {{- if .Values.deployment.annotations }}
+    {{- toYaml .Values.deployment.annotations | nindent 4 }}
+    {{- end }}
+  {{- if .Values.deployment.reloadOnChange }}
+    reloader.stakater.com/auto: "true"
+  {{- end }}
+  {{- end }}
+spec:
+  {{- if .Values.deployment.replicas }}
+  replicas: {{ .Values.deployment.replicas }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "porsyar.selectorLabels" . | nindent 6 }}
+  {{- if .Values.deployment.strategy }}
+  strategy:
+    {{- toYaml .Values.deployment.strategy | nindent 4 }}
+  {{- end }}
+  {{- if not (kindIs "invalid" .Values.deployment.revisionHistoryLimit) }}
+  revisionHistoryLimit: {{ .Values.deployment.revisionHistoryLimit }}
+  {{- end }}
+  template:
+    metadata:
+      labels:
+        {{- include "porsyar.selectorLabels" . | nindent 8 }}
+        {{- if .Values.deployment.additionalPodLabels }}
+        {{- toYaml .Values.deployment.additionalPodLabels | nindent 8 }}
+        {{- end }}
+        {{- if .Values.deployment.disableIstioInject }}
+        sidecar.istio.io/inject: "false"
+        {{- end }}
+      {{- if .Values.deployment.additionalPodAnnotations }}
+      annotations:
+        {{- toYaml .Values.deployment.additionalPodAnnotations | nindent 8 }}
+      {{- end }}
+    spec:
+      {{- if .Values.deployment.nodeSelector }}
+      nodeSelector:
+        {{- toYaml .Values.deployment.nodeSelector | nindent 8 }}
+      {{- end }}
+      {{- if .Values.deployment.tolerations }}
+      tolerations:
+        {{- toYaml .Values.deployment.tolerations | nindent 8 }}
+      {{- end }}
+      {{- if .Values.deployment.affinity }}
+      affinity:
+        {{- toYaml .Values.deployment.affinity | nindent 8 }}
+      {{- end }}
+      {{- if .Values.deployment.topologySpreadConstraints }}
+      topologySpreadConstraints:
+        {{- toYaml .Values.deployment.topologySpreadConstraints | nindent 10 }}
+      {{- end }}
+      {{- if or .Values.deployment.imagePullSecrets (and .Values.deployment.image.pullSecret .Values.deployment.image.pullSecret.enabled) }}
+      imagePullSecrets:
+        {{- if .Values.deployment.imagePullSecrets }}
+        {{- toYaml .Values.deployment.imagePullSecrets | nindent 8 }}
+        {{- else if (and .Values.deployment.image.pullSecret .Values.deployment.image.pullSecret.enabled) }}
+        - name: {{ .Values.deployment.image.pullSecret.name }}
+        {{- end }}
+      {{- end }}
+      {{- if .Values.deployment.hostNetwork }}
+      hostNetwork: true
+      {{- end }}
+      {{- if .Values.rbac.serviceAccount.enabled }}
+      serviceAccountName: {{ .Values.rbac.serviceAccount.name | default (include "porsyar.name" .) }}
+      {{- end }}
+      {{- if .Values.deployment.securityContext }}
+      securityContext:
+        {{ toYaml .Values.deployment.securityContext | indent 8 }}
+      {{- end }}
+      terminationGracePeriodSeconds: {{ .Values.deployment.terminationGracePeriodSeconds | default 30 }}
+      containers:
+        - name: {{ template "porsyar.name" . }}
+          {{- if .Values.deployment.image.registry }}
+          image: {{ .Values.deployment.image.registry }}/{{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag | default .Chart.AppVersion | default "latest" }}
+          {{- else }}
+          image: {{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag | default .Chart.AppVersion | default "latest" }}
+          {{- end }}
+          imagePullPolicy: {{ .Values.deployment.image.pullPolicy }}
+          {{- if .Values.deployment.command }}
+          command:
+            {{- toYaml .Values.deployment.command | nindent 12 }}
+          {{- end }}
+          {{- if .Values.deployment.args }}
+          args:
+            {{- toYaml .Values.deployment.args | nindent 12 }}
+          {{- end }}
+          {{- if .Values.deployment.ports }}
+          ports:
+            {{- range $name, $config := .Values.deployment.ports }}
+            - name: {{ $name | quote }}
+              containerPort: {{ $config.containerPort | default $config.port }}
+              protocol: {{ $config.protocol | default "TCP" | quote }}
+            {{- end }}
+          {{- end }}
+          {{- if or .Values.deployment.envFrom (or (and .Values.externalSecret.enabled (index .Values.externalSecret.files "app-secrets")) .Values.secret.enabled) }}
+          envFrom:
+          {{- if or .Values.secret.enabled (and .Values.externalSecret.enabled (index .Values.externalSecret.files "app-secrets")) }}
+          - secretRef:
+              name: {{ template "porsyar.name" . }}-app-secrets
+          {{- end }}
+          {{- range $value := .Values.deployment.envFrom }}
+          {{- if (eq .type "configmap") }}
+          - configMapRef:
+              {{- if .name }}
+              name: {{ include "porsyar.tplvalues.render" ( dict "value" $value.name "context" $ ) }}
+              {{- else if .nameSuffix }}
+              name: {{ template "porsyar.name" $ }}-{{ include "porsyar.tplvalues.render" ( dict "value" $value.nameSuffix "context" $ ) }}
+              {{- else }}
+              name: {{ template "porsyar.name" $ }}
+              {{- end }}
+          {{- end }}
+          {{- if (eq .type "secret") }}
+          - secretRef:
+              {{- if .name }}
+              name: {{ include "porsyar.tplvalues.render" ( dict "value" $value.name "context" $ ) }}
+              {{- else if .nameSuffix }}
+              name: {{ template "porsyar.name" $ }}-{{ include "porsyar.tplvalues.render" ( dict "value" $value.nameSuffix "context" $ ) }}
+              {{- else }}
+              name: {{ template "porsyar.name" $ }}
+              {{- end }}
+          {{- end }}
+          {{- end }}
+          {{- end }}
+          env:
+            {{- range $key, $value := .Values.deployment.env }}
+            - name: {{ include "porsyar.tplvalues.render" ( dict "value" $key "context" $ ) }}
+              {{- if kindIs "string" $value }}
+              value: {{ include "porsyar.tplvalues.render" ( dict "value" $value "context" $ ) | quote }}
+              {{- else }}
+              {{- toYaml $value | nindent 14 }}
+              {{- end }}
+            {{- end }}
+          {{- if .Values.deployment.resources }}
+          resources:
+              {{- toYaml .Values.deployment.resources | nindent 12 }}
+          {{- end }}
+          {{- with .Values.deployment.probes }}
+          {{- if .livenessProbe }}
+          livenessProbe:
+            {{- toYaml .livenessProbe | nindent 12 }}
+          {{- end }}
+          {{- if .readinessProbe }}
+          readinessProbe:
+            {{- toYaml .readinessProbe | nindent 12 }}
+          {{- end }}
+          {{- if .startupProbe }}
+          startupProbe:
+            {{- toYaml .startupProbe | nindent 12 }}
+          {{- end }}
+          {{- end }}

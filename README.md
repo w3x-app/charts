@@ -8,14 +8,17 @@
 helm lint copd
 helm lint phc
 helm lint rsch
+helm lint porsyar
 
 helm template copd
 helm template phc
 helm template rsch
+helm template porsyar
 
 helm package copd
 helm package phc
 helm package rsch
+helm package porsyar
 
 helm repo index .
 ```
