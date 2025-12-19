@@ -1,0 +1,18 @@
+dependencies:
+- name: services
+  repository: file://charts/services
+  version: 1.0.0
+- name: workers
+  repository: file://charts/workers
+  version: 1.0.0
+- name: assets
+  repository: file://charts/assets
+  version: 1.0.0
+- name: frontend
+  repository: file://charts/frontend
+  version: 1.0.1
+- name: porsyar
+  repository: file://charts/porsyar
+  version: 1.0.0
+digest: sha256:47c9eefb8a529986edaaa112e38840b64a2712690d61e3913d23e247fce479cf
+generated: "2025-12-19T12:23:13.078706545+03:30"
