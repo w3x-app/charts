@@ -94,6 +94,15 @@ Create the secrets variable
     secretKeyRef:
       name: copd-secrets
       key: HMAC_KEY
+# **********************
+# Analytics Services
+# **********************
+# Metabase
+- name: METABASE_SECRET_KEY
+  valueFrom:
+    secretKeyRef:
+      name: copd-secrets
+      key: METABASE_SECRET_KEY
 {{- end }}
 
 {{/*
@@ -113,6 +122,12 @@ Create the environments variable
   value: {{ .Values.global.environments.timeout | default "90000" | quote }}
 - name: GRAPHQL_MUTATION_SUPPORT
   value: {{ .Values.global.environments.graphqlMutationSupport | quote }}
+# **********************
+# Analytics Services
+# **********************
+# Metabase
+- name: METABASE_SITE_URL
+  value: {{ .Values.global.environments.metabase.siteUrl | default "https://metabase.wenex.tech" | quote }}
 # **********************
 # Internationalization
 # **********************
