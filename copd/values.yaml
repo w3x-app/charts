@@ -30,6 +30,8 @@ global:
     aes: "" # default: random 64 chars
     altcha:
       hmacKey: "" # default: random 64 chars
+    metabase:
+      secretKey: "" # Metabase secret key for JWT token generation
   # **********************
   # Environment Variables
   # **********************
@@ -39,6 +41,12 @@ global:
     nodeEnv: "develop"
     # GraphQl mutation support
     graphqlMutationSupport: false
+    # **********************
+    # Analytics Services
+    # **********************
+    # Metabase
+    metabase:
+      siteUrl: "https://metabase.wenex.tech"
     # **********************
     # Internationalization
     # **********************
@@ -172,7 +180,7 @@ frontend:
 # Porsyar Survey Platform
 # **********************
 porsyar:
-  enabled: false
+  enabled: true
   # Image configuration
   deployment:
     replicas: 1
