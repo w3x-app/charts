@@ -1,0 +1,22 @@
+apiVersion: v2
+dependencies:
+- condition: postgresql.enabled
+  name: postgresql
+  repository: oci://registry-1.docker.io/bitnamicharts
+  version: 16.4.16
+- condition: redis.enabled
+  name: redis
+  repository: oci://registry-1.docker.io/bitnamicharts
+  version: 20.11.2
+description: A Helm chart for Porsyar with PostgreSQL, Redis
+icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
+keywords:
+- porsyar
+- postgresql
+- redis
+maintainers:
+- email: info@phaicare.com
+  name: Porsyar
+name: porsyar
+type: application
+version: 1.0.0

@@ -168,3 +168,121 @@ frontend:
     repository: registry.wenex.org/w3x/copd-frontend
     tag: "1.1.0"
   imagePullSecrets: []
+# **********************
+# Porsyar Survey Platform
+# **********************
+porsyar:
+  enabled: false
+  # Image configuration
+  deployment:
+    replicas: 1
+    image:
+      registry: "registry.wenex.tech"
+      repository: "porsyar-enterprise"
+      tag: "v4"
+      pullPolicy: IfNotPresent
+    # Environment variables
+    env:
+      WEBAPP_URL:
+        value: "https://porsyar.wenex.tech"
+      NEXTAUTH_URL:
+        value: "https://porsyar.wenex.tech"
+      EMAIL_VERIFICATION_DISABLED:
+        value: "1"
+      PASSWORD_RESET_DISABLED:
+        value: "1"
+      TELEMETRY_DISABLED:
+        value: "1"
+      REDIS_KEY_PREFIX:
+        value: "copd"
+    # Resources
+    resources:
+      limits:
+        memory: 4Gi
+        cpu: "2"
+      requests:
+        memory: 2Gi
+        cpu: "1"
+  # Autoscaling
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 20
+    metrics:
+      - type: Resource
+        resource:
+          name: cpu
+          target:
+            type: Utilization
+            averageUtilization: 60
+      - type: Resource
+        resource:
+          name: memory
+          target:
+            type: Utilization
+            averageUtilization: 60
+  # Service
+  service:
+    enabled: true
+    type: ClusterIP
+  # Ingress
+  ingress:
+    enabled: false
+  # Secrets configuration
+  secret:
+    enabled: true
+    # Generate these with: openssl rand -hex 32
+    NEXTAUTH_SECRET: "e629374d9dfdaf63f001802e8956f38a72d2d755c906f0e3f135851ac14d1701"
+    ENCRYPTION_KEY: "fd6ef9157d662400c7bbd540789a1bce325d8c5bf9c207e96eb4274f3d73e662"
+    CRON_SECRET: "340311f1f9ee5925d520e9257ae7f3a6bce93e1491a97e89c91ab4c60ff5a0e2"
+  # PostgreSQL dependency
+  postgresql:
+    enabled: true
+    fullnameOverride: "porsyar-postgresql"
+    image:
+      repository: pgvector/pgvector
+      tag: 0.8.0-pg17
+    auth:
+      username: porsyar
+      database: porsyar
+      existingSecret: "porsyar-app-secrets"
+      secretKeys:
+        adminPasswordKey: "POSTGRES_ADMIN_PASSWORD"
+        userPasswordKey: "POSTGRES_USER_PASSWORD"
+    primary:
+      persistence:
+        enabled: true
+        size: 100Gi
+      resources:
+        limits:
+          memory: 4Gi
+          cpu: "2"
+        requests:
+          memory: 2Gi
+          cpu: "1"
+  # Redis dependency - Using global Redis instance
+  redis:
+    enabled: false # Disabled: using global Redis with key prefix isolation
+    externalRedisUrl: "redis://redis-stack-master.redis.svc.cluster.local:6379"
+    fullnameOverride: "porsyar-redis"
+    architecture: standalone
+    auth:
+      enabled: false
+    master:
+      persistence:
+        enabled: true
+        size: 8Gi
+      resources:
+        limits:
+          memory: 1Gi
+          cpu: 500m
+        requests:
+          memory: 512Mi
+          cpu: 250m
+  # Service Monitor
+  serviceMonitor:
+    enabled: true
+    endpoints:
+      - interval: 5s
+        path: /metrics
+        port: metrics

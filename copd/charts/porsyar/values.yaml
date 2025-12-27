@@ -1,0 +1,388 @@
+# Override the name for the application.
+# If not set, the chart name will be used.
+nameOverride: ""
+
+# Override the name of the application component.
+# Defaults to the same value as nameOverride.
+componentOverride: ""
+
+# Override the application "part-of" label.
+# Defaults to the chart name if not set.
+partOfOverride: ""
+
+##########################################################
+# Enterprise Configuration
+##########################################################
+enterprise:
+  enabled: false
+  licenseKey: ""
+
+##########################################################
+# Deployment Configuration
+##########################################################
+deployment:
+  # Deployment strategy configuration
+  strategy:
+    type: RollingUpdate # Type of deployment strategy (RollingUpdate/Recreate)
+    # rollingUpdate:
+    #   maxSurge: 25%
+    #   maxUnavailable: 25%
+
+  # Automatically reload deployment when ConfigMaps or Secrets change
+  reloadOnChange: false
+
+  # NodeSelector for scheduling pods on specific nodes
+  nodeSelector: {}
+
+  # Additional labels for Deployment
+  additionalLabels: {}
+
+  # Additional pod labels to be used in the Service's label selector
+  additionalPodLabels: {}
+
+  # Deployment annotations
+  annotations: {}
+
+  # Additional pod annotations
+  additionalPodAnnotations: {}
+
+  # Number of replicas
+  replicas: 1
+
+  # Image pull secrets for private container registries
+  imagePullSecrets: ""
+
+  # Environment variables from ConfigMaps or Secrets
+  envFrom:
+    # app-secrets:
+    #   type: secret
+    #   nameSuffix: app-secrets
+
+  # Environment variables passed to the app container
+  env:
+    # REQUIRED: Base URL of your application (e.g., https://yourdomain.com)
+    WEBAPP_URL:
+      value: "https://porsyar.wenex.tech"  # CHANGE THIS to your actual domain
+    
+    # REQUIRED: NextAuth URL (should be the same as WEBAPP_URL)
+    NEXTAUTH_URL:
+      value: "https://porsyar.wenex.tech"  # CHANGE THIS to your actual domain
+    
+    # OPTIONAL: Public URL for surveys/public content (defaults to WEBAPP_URL if not set)
+    # PUBLIC_URL:
+    #   value: "https://yourdomain.com"
+    
+    # Email verification is disabled by default (set to "1")
+    # Set to "0" or remove this env var to enable email verification
+    EMAIL_VERIFICATION_DISABLED:
+      value: "1"
+    
+    # Password reset is disabled by default (set to "1")
+    # Set to "0" or remove this env var to enable password reset
+    PASSWORD_RESET_DISABLED:
+      value: "1"
+    
+    ##########################################################
+    # Email/SMTP Configuration (Optional)
+    ##########################################################
+    # Uncomment and configure to enable email functionality
+    # MAIL_FROM:
+    #   value: "noreply@yourdomain.com"
+    # MAIL_FROM_NAME:
+    #   value: "Porsyar"
+    # SMTP_HOST:
+    #   value: "smtp.yourprovider.com"
+    # SMTP_PORT:
+    #   value: "587"
+    # SMTP_USER:
+    #   value: "your_username"
+    # SMTP_PASSWORD:
+    #   value: "your_password"
+    # SMTP_SECURE_ENABLED:
+    #   value: "0"  # Set to "1" for TLS (port 465)
+    # SMTP_AUTHENTICATED:
+    #   value: "1"  # Set to "0" if server doesn't require auth
+    # SMTP_REJECT_UNAUTHORIZED_TLS:
+    #   value: "1"  # Set to "0" to accept connections without CA verification
+    
+    ##########################################################
+    # S3 Storage Configuration (Optional)
+    ##########################################################
+    # Uncomment and configure for S3-compatible storage
+    # S3_ACCESS_KEY:
+    #   value: "your-access-key"
+    # S3_SECRET_KEY:
+    #   value: "your-secret-key"
+    # S3_REGION:
+    #   value: "us-east-1"
+    # S3_BUCKET_NAME:
+    #   value: "your-bucket-name"
+    # S3_ENDPOINT_URL:
+    #   value: ""  # Leave empty for AWS S3, set for S3-compatible services (e.g., StorJ, MinIO)
+    # S3_FORCE_PATH_STYLE:
+    #   value: "0"  # Set to "1" for S3-compatible services that require path-style URLs
+    
+    # OPTIONAL: Additional environment variables can be added here
+    # Example:
+    # LOG_LEVEL:
+    #   value: "info"
+    TELEMETRY_DISABLED:
+      value: "1"
+
+  # Tolerations for scheduling pods on tainted nodes
+  tolerations: []
+
+  # Pod affinity and anti-affinity rules
+  affinity: {}
+
+  # Topology spread constraints for better scheduling
+  topologySpreadConstraints: []
+
+  # Number of previous ReplicaSet versions to retain
+  revisionHistoryLimit: 2
+
+  # Application container image
+  image:
+    registry: "registry.wenex.tech"
+    repository: "porsyar-enterprise"
+    tag: "v4"
+    digest: "" # If set, digest takes precedence over the tag
+    pullPolicy: IfNotPresent
+
+  # Health probes configuration
+  probes:
+    startupProbe:
+      failureThreshold: 30
+      periodSeconds: 10
+      tcpSocket:
+        port: 3000
+
+    readinessProbe:
+      failureThreshold: 5
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 5
+      initialDelaySeconds: 10
+      httpGet:
+        path: /health
+        port: 3000
+
+    livenessProbe:
+      failureThreshold: 5
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 5
+      initialDelaySeconds: 10
+      httpGet:
+        path: /health
+        port: 3000
+
+  # Resource requests and limits
+  # Production-tuned: Higher limits for stability and performance
+  resources:
+    limits:
+      memory: 4Gi
+      cpu: "2"
+    requests:
+      memory: 2Gi
+      cpu: "1"
+
+  # Container security context
+  containerSecurityContext:
+    readOnlyRootFilesystem: true
+    runAsNonRoot: true
+
+  # Pod security context
+  securityContext: {}
+
+  # Command override
+  command: []
+
+  # Arguments override
+  args: []
+
+  # Container ports
+  ports:
+    http:
+      containerPort: 3000
+      protocol: TCP
+      exposed: true
+    metrics:
+      containerPort: 9464
+      protocol: TCP
+      exposed: true
+
+##########################################################
+# Horizontal Pod Autoscaler (HPA)
+##########################################################
+autoscaling:
+  enabled: true # Enable/disable HPA
+  additionalLabels: {} # Additional labels for the HPA resource
+  annotations: {} # Annotations for HPA
+  minReplicas: 2 # Minimum number of replicas (Production: HA with 2+ replicas)
+  maxReplicas: 20 # Maximum number of replicas (Production: Higher ceiling for scale)
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 60
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 60
+
+##########################################################
+# Service Configuration
+##########################################################
+service:
+  enabled: true # Enable/disable Kubernetes Service
+  additionalLabels: {} # Additional labels for Service
+  annotations: {} # Annotations for Service
+  type: ClusterIP # Service type (ClusterIP, NodePort, LoadBalancer)
+  ports: [] # Additional ports
+
+##########################################################
+# Role-Based Access Control (RBAC)
+##########################################################
+rbac:
+  enabled: false # Enable/disable RBAC
+  serviceAccount:
+    enabled: false # Enable/disable ServiceAccount
+    name: "" # Custom ServiceAccount name
+    additionalLabels: {} # Additional labels
+    annotations: {} # Annotations
+
+##########################################################
+# Kubernetes Secret Configuration (Quick Start)
+##########################################################
+secret:
+  enabled: true
+  # Explicitly set secrets to prevent regeneration (recommended for production)
+  # If not set, secrets will be auto-generated or looked up from existing secret
+  # WARNING: Changing these values will invalidate existing sessions/tokens
+  NEXTAUTH_SECRET: "e629374d9dfdaf63f001802e8956f38a72d2d755c906f0e3f135851ac14d1701"  # Generated with: openssl rand -hex 32
+  ENCRYPTION_KEY: "fd6ef9157d662400c7bbd540789a1bce325d8c5bf9c207e96eb4274f3d73e662"   # Generated with: openssl rand -hex 32
+  CRON_SECRET: "340311f1f9ee5925d520e9257ae7f3a6bce93e1491a97e89c91ab4c60ff5a0e2"      # Generated with: openssl rand -hex 32
+
+##########################################################
+# External Secrets Configuration
+##########################################################
+externalSecret:
+  enabled: false # Enable/disable ExternalSecrets
+  secretStore:
+    name: aws-secrets-manager # Secret store reference name
+    kind: ClusterSecretStore # Type of secret store
+  refreshInterval: "1h" # Frequency of secret sync
+  files: {}
+
+##########################################################
+# Ingress Configuration
+##########################################################
+ingress:
+  enabled: false # Enable/disable Ingress
+  ingressClassName: alb # Specify the Ingress class
+  hosts:
+    - host: k8s.porsyar.com
+      paths:
+        - path: /
+          pathType: "Prefix"
+          serviceName: "porsyar"
+  annotations: {} # Ingress annotations
+
+##########################################################
+# Redis Configuration
+##########################################################
+redis:
+  enabled: true # Enable/disable Redis
+  externalRedisUrl: ""
+  fullnameOverride: "porsyar-redis"
+  global:
+    security:
+      allowInsecureImages: true
+  image:
+    repository: bitnamilegacy/redis
+    tag: "7.4.2-debian-12-r4"
+  architecture: standalone
+  auth:
+    enabled: false # Set to true to enable Redis password authentication
+    existingSecret: "porsyar-app-secrets"
+    existingSecretPasswordKey: "REDIS_PASSWORD"
+  networkPolicy:
+    enabled: false
+  master:
+    persistence:
+      enabled: true
+      size: 8Gi
+    resources:
+      limits:
+        memory: 1Gi
+        cpu: 500m
+      requests:
+        memory: 512Mi
+        cpu: 250m
+
+##########################################################
+# Service Monitor to collect Prometheus metrices
+##########################################################
+serviceMonitor:
+  enabled: true
+
+  # Additional labels
+  additionalLabels:
+  # key: value
+
+  # Additional annotations
+  annotations:
+  # key: value
+
+  # List of the endpoints of service from which prometheus will scrape data
+  endpoints:
+    - interval: 5s
+      path: /metrics
+      port: metrics
+
+##########################################################
+# PostgreSQL Configuration
+##########################################################
+postgresql:
+  enabled: true # Enable/disable PostgreSQL
+  externalDatabaseUrl: ""
+  global:
+    security:
+      allowInsecureImages: true
+  fullnameOverride: "porsyar-postgresql"
+  image:
+    repository: pgvector/pgvector
+    tag: 0.8.0-pg17
+  auth:
+    username: porsyar
+    database: porsyar
+    existingSecret: "porsyar-app-secrets"
+    secretKeys:
+      adminPasswordKey: "POSTGRES_ADMIN_PASSWORD"
+      userPasswordKey: "POSTGRES_USER_PASSWORD"
+  primary:
+    networkPolicy:
+      enabled: false
+    persistence:
+      enabled: true
+      size: 100Gi
+    resources:
+      limits:
+        memory: 4Gi
+        cpu: "2"
+      requests:
+        memory: 2Gi
+        cpu: "1"
+    podSecurityContext:
+      enabled: true
+      fsGroup: 1001
+      runAsUser: 1001
+    containerSecurityContext:
+      enabled: true
+      runAsUser: 1001
+      readOnlyRootFilesystem: false
