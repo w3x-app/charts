@@ -21,7 +21,7 @@ global:
   image:
     repository: registry.wenex.org/w3x/copd-backend
     pullPolicy: IfNotPresent
-    tag: "1.1.0"
+    tag: "latest"
   imagePullSecrets: []
   # **********************
   # Secrets
@@ -166,7 +166,7 @@ frontend:
   enabled: false
   image:
     repository: registry.wenex.org/w3x/copd-frontend
-    tag: "1.1.0"
+    tag: "latest"
   imagePullSecrets: []
 # **********************
 # Porsyar Survey Platform
