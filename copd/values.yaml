@@ -245,8 +245,9 @@ porsyar:
     CRON_SECRET: "340311f1f9ee5925d520e9257ae7f3a6bce93e1491a97e89c91ab4c60ff5a0e2"
   # PostgreSQL dependency
   postgresql:
-    enabled: true
+    enabled: false
     fullnameOverride: "porsyar-postgresql"
+    externalDatabaseUrl: "postgresql://postgres:postgres@postgres-cluster-rw.cnpg-system.svc.cluster.local:5432/porsyar"
     image:
       repository: pgvector/pgvector
       tag: 0.8.0-pg17
