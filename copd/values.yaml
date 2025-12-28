@@ -185,8 +185,7 @@ porsyar:
   deployment:
     replicas: 1
     image:
-      registry: "registry.wenex.tech"
-      repository: "porsyar-enterprise"
+      repository: "registry.wenex.tech/w3x/porsyar-enterprise"
       tag: "v4"
       pullPolicy: IfNotPresent
     # Environment variables

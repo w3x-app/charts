@@ -79,11 +79,7 @@ spec:
       terminationGracePeriodSeconds: {{ .Values.deployment.terminationGracePeriodSeconds | default 30 }}
       containers:
         - name: {{ template "porsyar.name" . }}
-          {{- if .Values.deployment.image.registry }}
-          image: {{ .Values.deployment.image.registry }}/{{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag | default .Chart.AppVersion | default "latest" }}
-          {{- else }}
-          image: {{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag | default .Chart.AppVersion | default "latest" }}
-          {{- end }}
+          image: "{{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.deployment.image.pullPolicy }}
           {{- if .Values.deployment.command }}
           command:

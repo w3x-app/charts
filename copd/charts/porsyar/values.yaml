@@ -144,8 +144,7 @@ deployment:
 
   # Application container image
   image:
-    registry: "registry.wenex.tech"
-    repository: "porsyar-enterprise"
+    repository: "registry.wenex.tech/w3x/porsyar-enterprise"
     tag: "v4"
     digest: "" # If set, digest takes precedence over the tag
     pullPolicy: IfNotPresent
