@@ -17,6 +17,10 @@ enterprise:
   enabled: false
   licenseKey: ""
 
+# Image pull secrets for private container registries
+imagePullSecrets:
+  - name: regcred
+
 ##########################################################
 # Deployment Configuration
 ##########################################################
@@ -48,9 +52,6 @@ deployment:
 
   # Number of replicas
   replicas: 1
-
-  # Image pull secrets for private container registries
-  imagePullSecrets: ""
 
   # Environment variables from ConfigMaps or Secrets
   envFrom:

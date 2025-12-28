@@ -46,6 +46,10 @@ spec:
         {{- toYaml .Values.deployment.additionalPodAnnotations | nindent 8 }}
       {{- end }}
     spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       {{- if .Values.deployment.nodeSelector }}
       nodeSelector:
         {{- toYaml .Values.deployment.nodeSelector | nindent 8 }}
@@ -61,14 +65,6 @@ spec:
       {{- if .Values.deployment.topologySpreadConstraints }}
       topologySpreadConstraints:
         {{- toYaml .Values.deployment.topologySpreadConstraints | nindent 10 }}
-      {{- end }}
-      {{- if or .Values.deployment.imagePullSecrets (and .Values.deployment.image.pullSecret .Values.deployment.image.pullSecret.enabled) }}
-      imagePullSecrets:
-        {{- if .Values.deployment.imagePullSecrets }}
-        {{- toYaml .Values.deployment.imagePullSecrets | nindent 8 }}
-        {{- else if (and .Values.deployment.image.pullSecret .Values.deployment.image.pullSecret.enabled) }}
-        - name: {{ .Values.deployment.image.pullSecret.name }}
-        {{- end }}
       {{- end }}
       {{- if .Values.deployment.hostNetwork }}
       hostNetwork: true
