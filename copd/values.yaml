@@ -200,6 +200,8 @@ porsyar:
         value: "1"
       TELEMETRY_DISABLED:
         value: "1"
+      GLOBAL_ADMIN_EMAILS:
+        value: ""
       REDIS_KEY_PREFIX:
         value: "copd"
     # Resources

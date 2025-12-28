@@ -72,6 +72,11 @@ deployment:
     # OPTIONAL: Public URL for surveys/public content (defaults to WEBAPP_URL if not set)
     # PUBLIC_URL:
     #   value: "https://yourdomain.com"
+
+    # Global administrator emails (comma-separated list)
+    # Users with these emails get elevated privileges across all organizations
+    # GLOBAL_ADMIN_EMAILS:
+    #   value: "admin@example.com,another-admin@example.com"
     
     # Email verification is disabled by default (set to "1")
     # Set to "0" or remove this env var to enable email verification
