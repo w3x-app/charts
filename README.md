@@ -6,16 +6,19 @@
 
 ```sh
 # Lint charts
+helm lint hai
 helm lint copd
 helm lint phc
 helm lint rsch
 
 # Test template rendering
+helm template hai
 helm template copd
 helm template phc
 helm template rsch
 
 # Package charts
+helm package hai
 helm package copd
 helm package phc
 helm package rsch
@@ -29,6 +32,7 @@ helm repo index .
 - [PHC](#phc)
 - [COPD](#copd)
 - [RSCH](#rsch)
+- [HAI](#hai)
 
 ### PHC
 
@@ -51,3 +55,7 @@ helm install my-copd copd --set porsyar.enabled=true
 ### RSCH
 
 Research chart.
+
+### HAI
+
+HAI client chart.
