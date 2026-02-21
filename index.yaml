@@ -3,7 +3,7 @@ entries:
   copd:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-02-20T20:05:15.841188513+03:30"
+    created: "2026-02-21T11:24:31.23330812+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -35,7 +35,7 @@ entries:
     version: 1.0.5
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-02-20T20:05:15.806586598+03:30"
+    created: "2026-02-21T11:24:31.213903602+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -67,7 +67,7 @@ entries:
     version: 1.0.4
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-02-20T20:05:15.785702414+03:30"
+    created: "2026-02-21T11:24:31.19505359+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -99,7 +99,7 @@ entries:
     version: 1.0.3
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-02-20T20:05:15.767308475+03:30"
+    created: "2026-02-21T11:24:31.174650582+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -131,7 +131,7 @@ entries:
     version: 1.0.2
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-02-20T20:05:15.748337733+03:30"
+    created: "2026-02-21T11:24:31.155400676+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -159,7 +159,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-02-20T20:05:15.746543638+03:30"
+    created: "2026-02-21T11:24:31.153435464+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -188,7 +188,31 @@ entries:
   hai:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-02-20T20:05:15.845271241+03:30"
+    created: "2026-02-21T11:24:31.235878366+03:30"
+    dependencies:
+    - condition: services.enabled
+      name: services
+      repository: file://charts/services
+      version: 1.0.0
+    - condition: workers.enabled
+      name: workers
+      repository: file://charts/workers
+      version: 1.0.0
+    - condition: assets.enabled
+      name: assets
+      repository: file://charts/assets
+      version: 1.0.0
+    description: A Helm chart for Kubernetes
+    digest: a2da93ccee5428b578be0d86e051d3c73aa744d2f338d01fcb5cf7b57072194d
+    icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
+    name: hai
+    type: application
+    urls:
+    - hai-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-02-21T11:24:31.234585377+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -213,7 +237,7 @@ entries:
   phc:
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-02-20T20:05:15.862486482+03:30"
+    created: "2026-02-21T11:24:31.241027906+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -245,7 +269,7 @@ entries:
     version: 1.1.10
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-02-20T20:05:15.917213383+03:30"
+    created: "2026-02-21T11:24:31.257340876+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -277,7 +301,7 @@ entries:
     version: 1.1.9
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-02-20T20:05:15.908285323+03:30"
+    created: "2026-02-21T11:24:31.255155865+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -309,7 +333,7 @@ entries:
     version: 1.1.8
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-02-20T20:05:15.901701454+03:30"
+    created: "2026-02-21T11:24:31.253137526+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -341,7 +365,7 @@ entries:
     version: 1.1.7
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-02-20T20:05:15.894602579+03:30"
+    created: "2026-02-21T11:24:31.251123723+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -373,7 +397,7 @@ entries:
     version: 1.1.6
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-02-20T20:05:15.887996327+03:30"
+    created: "2026-02-21T11:24:31.249140432+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -405,7 +429,7 @@ entries:
     version: 1.1.5
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-02-20T20:05:15.881546126+03:30"
+    created: "2026-02-21T11:24:31.246672815+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -437,7 +461,7 @@ entries:
     version: 1.1.4
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-02-20T20:05:15.874290245+03:30"
+    created: "2026-02-21T11:24:31.24461326+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -469,7 +493,7 @@ entries:
     version: 1.1.3
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-02-20T20:05:15.867783629+03:30"
+    created: "2026-02-21T11:24:31.242630684+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -497,7 +521,7 @@ entries:
     version: 1.1.2
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-02-20T20:05:15.855594375+03:30"
+    created: "2026-02-21T11:24:31.239018715+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -525,7 +549,7 @@ entries:
     version: 1.1.1
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-02-20T20:05:15.850376273+03:30"
+    created: "2026-02-21T11:24:31.23743103+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -554,7 +578,7 @@ entries:
   rsch:
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-02-20T20:05:15.940794283+03:30"
+    created: "2026-02-21T11:24:31.266733648+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -582,7 +606,7 @@ entries:
     version: 1.1.4
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-02-20T20:05:15.937329252+03:30"
+    created: "2026-02-21T11:24:31.265008245+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -610,7 +634,7 @@ entries:
     version: 1.1.3
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-02-20T20:05:15.932921136+03:30"
+    created: "2026-02-21T11:24:31.263031657+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -638,7 +662,7 @@ entries:
     version: 1.1.2
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-02-20T20:05:15.927988852+03:30"
+    created: "2026-02-21T11:24:31.261364871+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -666,7 +690,7 @@ entries:
     version: 1.1.1
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-02-20T20:05:15.922365536+03:30"
+    created: "2026-02-21T11:24:31.259669319+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -692,4 +716,4 @@ entries:
     urls:
     - rsch-1.1.0.tgz
     version: 1.1.0
-generated: "2026-02-20T20:05:15.744558876+03:30"
+generated: "2026-02-21T11:24:31.151079195+03:30"
