@@ -212,6 +212,10 @@ Create the environments variable
   value: {{ .Values.global.environments.postgres.user | default "postgres" | quote }}
 - name: POSTGRES_PASSWORD
   value: {{ .Values.global.environments.postgres.password | quote }}
+- name: POSTGRES_PORT
+  value: {{ .Values.global.environments.postgres.port | default "5432" | quote }}
+- name: POSTGRES_HOST
+  value: {{ .Values.global.environments.postgres.host | default "postgres-cluster-rw.cnpg-system.svc.cluster.local" | quote }}
 # **********************
 # Broker Services
 # **********************

@@ -111,6 +111,8 @@ global:
       prefix: "hai"
       user: "postgres"
       password: ""
+      port: "5432"
+      host: "postgres-cluster-rw.cnpg-system.svc.cluster.local"
     # **********************
     # Broker Services
     # **********************
