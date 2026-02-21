@@ -105,6 +105,12 @@ global:
       user: "databaseAdmin"
       pass: ""
       query: "replicaSet=rs0&authSource=admin"
+    # PostgreSQL
+    postgres:
+      db: "w3x"
+      prefix: "hai"
+      user: "postgres"
+      password: ""
     # **********************
     # Broker Services
     # **********************

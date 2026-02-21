@@ -203,6 +203,15 @@ Create the environments variable
   value: {{ .Values.global.environments.mongo.pass | quote }}
 - name: MONGO_QUERY
   value: {{ .Values.global.environments.mongo.query | default "replicaSet=rs0&authSource=admin" | quote }}
+# PostgreSQL
+- name: POSTGRES_DB
+  value: {{ .Values.global.environments.postgres.db | default "w3x" | quote }}
+- name: POSTGRES_PREFIX
+  value: {{ .Values.global.environments.postgres.prefix | default "hai" | quote }}
+- name: POSTGRES_USER
+  value: {{ .Values.global.environments.postgres.user | default "postgres" | quote }}
+- name: POSTGRES_PASSWORD
+  value: {{ .Values.global.environments.postgres.password | quote }}
 # **********************
 # Broker Services
 # **********************
