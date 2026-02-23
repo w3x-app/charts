@@ -267,5 +267,5 @@ Create the environments variable
 # Wenex Coworkers
 # **********************
 - name: COWORKERS
-  value: {{ .Values.global.environments.coworkers | toJson | quote }}
+  value: {{ join "," .Values.global.environments.coworkers | quote }}
 {{- end }}
