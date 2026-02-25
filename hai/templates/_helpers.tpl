@@ -163,6 +163,11 @@ Create the environments variable
   value: {{ .Values.global.environments.backend.authorizationCqrs | quote }}
 - name: API_KEY
   value: {{ .Values.global.environments.apiKey | quote }}
+# Sharif LLM
+- name: SHARIF_LLM_BASE_URL
+  value: {{ .Values.global.environments.sharifLlm.baseUrl | quote }}
+- name: SHARIF_LLM_BEARER_TOKEN
+  value: {{ .Values.global.environments.sharifLlm.bearerToken | quote }}
 # Frontend
 - name: CLIENT_BASE_URL
   value: {{ .Values.global.environments.frontend.baseUrl | default "https://hai.w3x.app" | quote }}

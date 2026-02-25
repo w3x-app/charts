@@ -76,6 +76,10 @@ global:
     backend:
       authorizationCqrs: ""
     apiKey: ""
+    # Sharif LLM
+    sharifLlm:
+      baseUrl: "https://alphapi.aip.sharif.ir"
+      bearerToken: "sk-Q3mDeTwwqsqOaKJvrtT1Ug"
     # Frontend
     frontend:
       baseUrl: "https://hai.w3x.app"
