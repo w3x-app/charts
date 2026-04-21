@@ -1,6 +1,6 @@
 enabled: false
 
-replicaCount: 3
+replicaCount: 1
 
 fullnameOverride: "hai-workers"
 
