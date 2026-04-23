@@ -117,7 +117,7 @@ Create the environments variable
 # Internationalization
 # **********************
 - name: LOCALE
-  value: {{ .Values.global.environments.locale | default "fa" | quote }}
+  value: {{ .Values.global.environments.locale | default "en" | quote }}
 - name: REGION
   value: {{ .Values.global.environments.region | default "IR" | quote }}
 - name: TZ
@@ -137,6 +137,41 @@ Create the environments variable
   value: {{ .Values.global.environments.melipayamak.pass | quote }}
 - name: MELIPAYAMAK_FROM
   value: {{ .Values.global.environments.melipayamak.from | quote }}
+# **********************
+# AI Config
+# **********************
+- name: LLM_PROVIDER
+  value: {{ .Values.global.environments.llm.provider | quote }}
+- name: LLM_FALLBACK_PROVIDER
+  value: {{ .Values.global.environments.llm.fallbackProvider | quote }}
+- name: LLM_FALLBACK_OPERATIONS
+  value: {{ .Values.global.environments.llm.fallbackOperations | quote }}
+- name: SHARIF_LLM_BASE_URL
+  value: {{ .Values.global.environments.sharifLlm.baseUrl | quote }}
+- name: SHARIF_LLM_BEARER_TOKEN
+  value: {{ .Values.global.environments.sharifLlm.bearerToken | quote }}
+- name: OLLAMA_BASE_URL
+  value: {{ .Values.global.environments.ollama.baseUrl | quote }}
+- name: OLLAMA_CHAT_MODEL
+  value: {{ .Values.global.environments.ollama.chatModel | quote }}
+- name: OLLAMA_EMBEDDING_MODEL
+  value: {{ .Values.global.environments.ollama.embeddingModel | quote }}
+{{- with .Values.global.environments.rag.provider }}
+- name: RAG_PROVIDER
+  value: {{ . | quote }}
+{{- end }}
+- name: RAG_EMBEDDING_MODEL
+  value: {{ .Values.global.environments.rag.embeddingModel | quote }}
+- name: RAG_ASK_LIMIT
+  value: {{ .Values.global.environments.rag.askLimit | quote }}
+{{- with .Values.global.environments.rag.ollama.chatModel }}
+- name: RAG_OLLAMA_CHAT_MODEL
+  value: {{ . | quote }}
+{{- end }}
+{{- with .Values.global.environments.rag.ollama.embeddingModel }}
+- name: RAG_OLLAMA_EMBEDDING_MODEL
+  value: {{ . | quote }}
+{{- end }}
 # *****************************
 # Client Config
 # *****************************
@@ -153,26 +188,21 @@ Create the environments variable
 - name: CLIENT_SECRET
   value: {{ .Values.global.environments.clientSecret | quote }}
 - name: ROOT_DOMAIN
-  value: {{ .Values.global.environments.root.domain | default "hai.w3x.app" | quote }}
+  value: {{ .Values.global.environments.root.domain | default "hai.behayand.ir" | quote }}
 - name: ROOT_SUBJECT
-  value: {{ .Values.global.environments.root.subject | default "root@hai.w3x.app" | quote }}
+  value: {{ .Values.global.environments.root.subject | default "root@hai.behayand.ir" | quote }}
 - name: PLATFORM_URL
-  value: {{ .Values.global.environments.platformUrl | default "http://platform-gateway.wenex-platform.svc.cluster.local" | quote }}
+  value: {{ .Values.global.environments.platformUrl | default "http://localhost:3010" | quote }}
 # Backend
 - name: CLIENT_AUTHORIZATION_CQRS
   value: {{ .Values.global.environments.backend.authorizationCqrs | quote }}
 - name: API_KEY
   value: {{ .Values.global.environments.apiKey | quote }}
-# Sharif LLM
-- name: SHARIF_LLM_BASE_URL
-  value: {{ .Values.global.environments.sharifLlm.baseUrl | quote }}
-- name: SHARIF_LLM_BEARER_TOKEN
-  value: {{ .Values.global.environments.sharifLlm.bearerToken | quote }}
 # Frontend
 - name: CLIENT_BASE_URL
-  value: {{ .Values.global.environments.frontend.baseUrl | default "https://hai.w3x.app" | quote }}
+  value: {{ .Values.global.environments.frontend.baseUrl | default "http://localhost:3005" | quote }}
 - name: CLIENT_ASSETS_URL
-  value: {{ .Values.global.environments.frontend.assetsUrl | default "https://assets.hai.w3x.app" | quote }}
+  value: {{ .Values.global.environments.frontend.assetsUrl | default "http://localhost:8088" | quote }}
 # **********************
 # Logging Services
 # **********************
@@ -180,9 +210,9 @@ Create the environments variable
 - name: SENTRY_DSN
   value: {{ .Values.global.environments.sentry.dsn | quote }}
 - name: SENTRY_MAX_BREADCRUMBS
-  value: {{ .Values.global.environments.sentry.maxBreadcrumbs | default "100" | quote }}
+  value: {{ .Values.global.environments.sentry.maxBreadcrumbs | default "10" | quote }}
 - name: SENTRY_TRACES_SAMPLE_RATE
-  value: {{ .Values.global.environments.sentry.tracesSampleRate | default "0.8" | quote }}
+  value: {{ .Values.global.environments.sentry.tracesSampleRate | default "1.0" | quote }}
 # **********************
 # Storage Services
 # **********************
@@ -199,7 +229,7 @@ Create the environments variable
 - name: MONGO_HOST
   value: {{ .Values.global.environments.mongo.host | quote }}
 - name: MONGO_DB
-  value: {{ .Values.global.environments.mongo.db | default "w3x" | quote }}
+  value: {{ .Values.global.environments.mongo.db | default "client" | quote }}
 - name: MONGO_PREFIX
   value: {{ .Values.global.environments.mongo.prefix | default "hai" | quote }}
 - name: MONGO_USER
@@ -207,10 +237,10 @@ Create the environments variable
 - name: MONGO_PASS
   value: {{ .Values.global.environments.mongo.pass | quote }}
 - name: MONGO_QUERY
-  value: {{ .Values.global.environments.mongo.query | default "replicaSet=rs0&authSource=admin" | quote }}
+  value: {{ .Values.global.environments.mongo.query | default "replicaSet=rs0&retryWrites=true&authSource=admin" | quote }}
 # PostgreSQL
 - name: POSTGRES_DB
-  value: {{ .Values.global.environments.postgres.db | default "w3x" | quote }}
+  value: {{ .Values.global.environments.postgres.db | default "client" | quote }}
 - name: POSTGRES_PREFIX
   value: {{ .Values.global.environments.postgres.prefix | default "hai" | quote }}
 - name: POSTGRES_USER
@@ -226,13 +256,13 @@ Create the environments variable
 # **********************
 # Nats
 - name: NATS_USER
-  value: {{ .Values.global.environments.nats.user | default "hai" | quote }}
+  value: {{ .Values.global.environments.nats.user | default "tenant30" | quote }}
 - name: NATS_PASS
-  value: {{ .Values.global.environments.nats.pass | default "hai" | quote }}
+  value: {{ .Values.global.environments.nats.pass | default "tenant30" | quote }}
 - name: NATS_TIMEOUT
   value: {{ .Values.global.environments.nats.timeout | default "90000" | quote }}
 - name: NATS_SERVERS
-  value: {{ .Values.global.environments.nats.servers | default "nats://nats.nats.svc.cluster.local:4222" | quote }}
+  value: {{ .Values.global.environments.nats.servers | default "nats://localhost:4222" | quote }}
 # *****************************
 # OAuth Information
 # *****************************
@@ -242,7 +272,15 @@ Create the environments variable
 - name: GOOGLE_CLIENT_SECRET
   value: {{ .Values.global.environments.google.client.secret | quote }}
 - name: GOOGLE_REDIRECT_URI
-  value: {{ .Values.global.environments.google.client.redirectUri | default "https://hai.w3x.app/oauth" | quote }}
+  value: {{ .Values.global.environments.google.client.redirectUri | default "/oauth" | quote }}
+# **********************
+# Push Information
+# **********************
+# VAPID
+- name: VAPID_PUBLIC_KEY
+  value: {{ .Values.global.environments.vapid.publicKey | quote }}
+- name: VAPID_PRIVATE_KEY
+  value: {{ .Values.global.environments.vapid.privateKey | quote }}
 # **********************
 # Telemetry Services
 # **********************
@@ -250,7 +288,7 @@ Create the environments variable
 - name: OTLP_PORT
   value: {{ .Values.global.environments.otlp.port | default "4318" | quote }}
 - name: OTLP_HOST
-  value: {{ .Values.global.environments.otlp.host | default "jaeger-instance-collector.opentelemetry.svc.cluster.local" | quote }}
+  value: {{ .Values.global.environments.otlp.host | default "localhost" | quote }}
 # **********************
 # APM Service
 # **********************
@@ -261,6 +299,8 @@ Create the environments variable
   value: {{ .Values.global.environments.apm.secretToken | quote }}
 - name: ELASTIC_APM_VERIFY_SERVER_CERT
   value: {{ .Values.global.environments.apm.verifyServerCert | default "false" | quote }}
+- name: MACHINE_ID
+  value: {{ .Values.global.environments.machineId | quote }}
 # **********************
 # Wenex Coworkers
 # **********************

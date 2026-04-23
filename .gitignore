@@ -1,0 +1,3 @@
+# Local Helm overrides that may contain secrets
+*/values.local.yaml
+*/values.private.yaml

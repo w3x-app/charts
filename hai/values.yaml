@@ -26,6 +26,7 @@ global:
   # **********************
   # Secrets
   # **********************
+  # Keep real secrets in an untracked local override file.
   secrets:
     aes: "" # default: random 64 chars
     altcha:
@@ -42,7 +43,7 @@ global:
     # **********************
     # Internationalization
     # **********************
-    locale: "fa"
+    locale: "en"
     region: "IR"
     tz: "Asia/Tehran"
     # **********************
@@ -56,62 +57,82 @@ global:
     melipayamak:
       user: ""
       pass: ""
-      from: ""
+      from: "50002710091657"
+    # **********************
+    # AI Config
+    # **********************
+    llm:
+      provider: "sharif"
+      fallbackProvider: "ollama"
+      fallbackOperations: "models,chatCompletions"
+    # Sharif LLM
+    sharifLlm:
+      baseUrl: "https://alphapi.aip.sharif.ir"
+      bearerToken: ""
+    # Ollama
+    ollama:
+      baseUrl: "http://10.16.0.110:11434"
+      chatModel: "qwen2.5:32b"
+      embeddingModel: "qwen3-embedding:8b"
+    # RAG
+    rag:
+      provider: ""
+      embeddingModel: "baai-bge-m3"
+      askLimit: 5
+      ollama:
+        chatModel: ""
+        embeddingModel: ""
     # **********************
     # Client Config
     # **********************
     strictToken: true
     # Client
-    uid: ""
-    cid: ""
-    appId: ""
-    clientId: ""
+    uid: "696243e966914baa77f23029"
+    cid: "696243c95c286ae81cf99283"
+    appId: "696244985a9adb822a9e82c2"
+    clientId: "696243f5e66fe27741623caf"
     clientSecret: ""
     # Platform
     root:
-      domain: "hai.w3x.app"
-      subject: "root@hai.w3x.app"
-    platformUrl: "http://platform-gateway.wenex-platform.svc.cluster.local"
+      domain: "hai.behayand.ir"
+      subject: "root@hai.behayand.ir"
+    platformUrl: "http://localhost:3010"
     # Backend
     backend:
       authorizationCqrs: ""
     apiKey: ""
-    # Sharif LLM
-    sharifLlm:
-      baseUrl: "https://alphapi.aip.sharif.ir"
-      bearerToken: "sk-Q3mDeTwwqsqOaKJvrtT1Ug"
     # Frontend
     frontend:
-      baseUrl: "https://hai.w3x.app"
-      assetsUrl: "https://assets.hai.w3x.app"
+      baseUrl: "http://localhost:3005"
+      assetsUrl: "http://localhost:8088"
     # **********************
     # Logging Services
     # **********************
     # Sentry
     sentry:
       dsn: ""
-      maxBreadcrumbs: "100"
-      tracesSampleRate: "0.8"
+      maxBreadcrumbs: 10
+      tracesSampleRate: 1.0
     # **********************
     # Storage Services
     # **********************
     # Redis
     redis:
-      host: "redis-stack-master.redis.svc.cluster.local"
+      host: "localhost"
       port: 6379
       prefix: "hai"
       password: ""
     # Mongo
     mongo:
-      host: "psmdb-server-psmdb-db-rs0.mongodb.svc.cluster.local"
-      db: "w3x"
+      host: "mongodb-primary:27017,mongodb-secondary:27018"
+      db: "client"
       prefix: "hai"
-      user: "databaseAdmin"
+      user: "root"
       pass: ""
-      query: "replicaSet=rs0&authSource=admin"
+      query: "replicaSet=rs0&retryWrites=true&authSource=admin"
     # PostgreSQL
     postgres:
-      db: "w3x"
+      db: "client"
       prefix: "hai"
       user: "postgres"
       password: ""
@@ -122,10 +143,10 @@ global:
     # **********************
     # Nats
     nats:
-      user: "hai"
-      pass: "hai"
+      user: ""
+      pass: ""
       timeout: "90000"
-      servers: "nats://nats.nats.svc.cluster.local:4222"
+      servers: "nats://localhost:4222"
     # **********************
     # OAuth Information
     # **********************
@@ -134,22 +155,30 @@ global:
       client:
         id: ""
         secret: ""
-        redirectUri: "https://hai.w3x.app/oauth"
+        redirectUri: "/oauth"
+    # **********************
+    # Push Information
+    # **********************
+    # VAPID
+    vapid:
+      publicKey: "BPH_WDhPo9M8wRpcMpHZD9_O1ba2t4hsrerYv35nWTCTCfOSb2G4TWXnj1EBZV1AkkidFuSZeZ0Kq_hDGoPfJtw"
+      privateKey: ""
     # **********************
     # Telemetry Services
     # **********************
     # OpenTelemetry
     otlp:
       port: "4318"
-      host: "jaeger-instance-collector.opentelemetry.svc.cluster.local"
+      host: "localhost"
     # **********************
     # APM Service
     # **********************
     # Elastic APM
     apm:
-      serverUrl: ""
+      serverUrl: "https://localhost:8200"
       secretToken: ""
       verifyServerCert: "false"
+    machineId: ""
     # **********************
     # Wenex Coworkers
     # **********************
