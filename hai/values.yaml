@@ -62,12 +62,12 @@ global:
     # AI Config
     # **********************
     llm:
-      provider: "ollama"
+      provider: "ollama" # staging default
       fallbackProvider: ""
       fallbackOperations: ""
     sharifLlm:
       baseUrl: "https://alphapi.aip.sharif.ir"
-      bearerToken: ""
+      bearerToken: "" # optional for staging; set only when provider/fallback is sharif
     # Ollama
     ollama:
       baseUrl: "http://10.16.0.110:11434"

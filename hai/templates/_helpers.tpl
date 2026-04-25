@@ -150,8 +150,10 @@ Create the environments variable
   value: {{ .Values.global.environments.llm.fallbackOperations | quote }}
 - name: SHARIF_LLM_BASE_URL
   value: {{ .Values.global.environments.sharifLlm.baseUrl | quote }}
+{{- with .Values.global.environments.sharifLlm.bearerToken }}
 - name: SHARIF_LLM_BEARER_TOKEN
-  value: {{ .Values.global.environments.sharifLlm.bearerToken | quote }}
+  value: {{ . | quote }}
+{{- end }}
 - name: OLLAMA_BASE_URL
   value: {{ .Values.global.environments.ollama.baseUrl | quote }}
 - name: OLLAMA_CHAT_MODEL
