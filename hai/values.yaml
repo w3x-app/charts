@@ -62,10 +62,9 @@ global:
     # AI Config
     # **********************
     llm:
-      provider: "sharif"
-      fallbackProvider: "ollama"
-      fallbackOperations: "models,chatCompletions"
-    # Sharif LLM
+      provider: "ollama"
+      fallbackProvider: ""
+      fallbackOperations: ""
     sharifLlm:
       baseUrl: "https://alphapi.aip.sharif.ir"
       bearerToken: ""
@@ -76,15 +75,12 @@ global:
       embeddingModel: "qwen3-embedding:8b"
     # RAG
     rag:
-      provider: ""
-      embeddingModel: "baai-bge-m3"
+      provider: "ollama"
+      embeddingModel: "qwen3-embedding:8b"
       askLimit: 5
       ollama:
-        chatModel: ""
-        embeddingModel: ""
-    # **********************
-    # Client Config
-    # **********************
+        chatModel: "qwen2.5:32b"
+        embeddingModel: "qwen3-embedding:8b"
     strictToken: true
     # Client
     uid: "696243e966914baa77f23029"
