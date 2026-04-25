@@ -65,7 +65,9 @@ Create the name of the service account to use
 Create the configuration variables
 */}}
 {{- define "hai.global.configuration" -}}
-{{- range $service, $config := .Values.global.configuration }}
+{{- $configuration := .Values.global.configuration | default dict -}}
+{{- range $service := keys $configuration | sortAlpha }}
+{{- $config := index $configuration $service }}
 - name: {{ $service | upper }}_HOST
   value: {{ $config.host | quote }}
 - name: {{ $service | upper }}_API_PORT
@@ -251,6 +253,12 @@ Create the environments variable
   value: {{ .Values.global.environments.postgres.port | default "5432" | quote }}
 - name: POSTGRES_HOST
   value: {{ .Values.global.environments.postgres.host | default "postgres-cluster-rw.cnpg-system.svc.cluster.local" | quote }}
+- name: POSTGRES_POOL_MAX
+  value: {{ .Values.global.environments.postgres.pool.max | default "5" | quote }}
+- name: POSTGRES_IDLE_TIMEOUT
+  value: {{ .Values.global.environments.postgres.pool.idleTimeoutMillis | default "30000" | quote }}
+- name: POSTGRES_CONNECTION_TIMEOUT
+  value: {{ .Values.global.environments.postgres.pool.connectionTimeoutMillis | default "10000" | quote }}
 # **********************
 # Broker Services
 # **********************

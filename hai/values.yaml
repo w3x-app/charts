@@ -134,6 +134,8 @@ global:
       password: ""
       port: "5432"
       host: "postgres-cluster-rw.cnpg-system.svc.cluster.local"
+      pool:
+        max: 5
     # **********************
     # Broker Services
     # **********************
