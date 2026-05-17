@@ -36,7 +36,7 @@ environments:
     # Public Information
     # *****************************
     public:
-      apiBaseUrl: "https://api.phc.w3x.app"
+      apiBaseUrl: "https://api.phc.w3x.app/-"
       # *****************************
       # Site Information
       # *****************************
