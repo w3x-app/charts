@@ -82,8 +82,8 @@ global:
     platformUrl: "http://platform-gateway.wenex-platform.svc.cluster.local"
     # Backend
     backend:
-      authorizationCqrs: ""
-    apiKey: ""
+      authorizationCqrs: "qB!-dsafgIjIx.rEdaZIH-C2Gue@PezA3LVluWc59Z_7dSfdkmdfmfd"
+    apiKey: "lgohLxajFWfZbcCQOMkFRut9jPDbzt8WWskdhLnwzftdPN8GvOryS45Jln4vrlaDDtqj7l9ogmnkkdHaYOOwc6930uS3VpGBKxvSDx5fz4TSl1graFFEbJvU0UpLFk8tEkRSGHDYsLtRUgzXY8cau7tcsNnqZhbJK7QWBM4kQwWf3AfWz9KUVK8wKd8PzYwiQcydFjXR.2IDnzuFSRvgmpcbsudWLk8"
     # Frontend
     frontend:
       baseUrl: "https://copd.w3x.app"
