@@ -78,6 +78,9 @@ global:
     # **********************
     ai:
       baseUrl: "https://rahsa.ifsh-kmu.ir"
+    hai:
+      apiBaseUrl: "https://api.dev.hfai.ir"
+      apiKey: ""
     # **********************
     # IPG Config
     # **********************

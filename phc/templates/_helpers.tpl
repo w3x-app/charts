@@ -144,6 +144,12 @@ Create the environments variable
 - name: RAHSA_BASE_URL
   value: {{ .Values.global.environments.ai.baseUrl | default "https://rahsa.ifsh-kmu.ir" | quote }}
 {{- end }}
+{{- if .Values.global.environments.hai }}
+- name: HAI_API_BASE_URL
+  value: {{ .Values.global.environments.hai.apiBaseUrl | default "https://api.dev.hfai.ir" | quote }}
+- name: HAI_API_KEY
+  value: {{ .Values.global.environments.hai.apiKey | quote }}
+{{- end }}
 {{- if .Values.global.environments.zarinpal }}
 # **********************
 # IPG Config
