@@ -145,10 +145,23 @@ Create the environments variable
   value: {{ .Values.global.environments.ai.baseUrl | default "https://rahsa.ifsh-kmu.ir" | quote }}
 {{- end }}
 {{- if .Values.global.environments.hai }}
+# **********************
+# HAI API
+# **********************
 - name: HAI_API_BASE_URL
-  value: {{ .Values.global.environments.hai.apiBaseUrl | default "https://api.dev.hfai.ir" | quote }}
-- name: HAI_API_KEY
-  value: {{ .Values.global.environments.hai.apiKey | quote }}
+  value: {{ .Values.global.environments.hai.apiBaseUrl | default "http://127.0.0.1:6053" | quote }}
+- name: HAI_API_TOKEN
+  value: {{ .Values.global.environments.hai.token | quote }}
+- name: HAI_CID
+  value: {{ .Values.global.environments.hai.cid | quote }}
+- name: HAI_DOMAIN
+  value: {{ .Values.global.environments.hai.domain | quote }}
+- name: HAI_PROVIDER
+  value: {{ .Values.global.environments.hai.provider | quote }}
+- name: HAI_MODEL
+  value: {{ .Values.global.environments.hai.model | quote }}
+- name: HAI_EMBEDDING_MODEL
+  value: {{ .Values.global.environments.hai.embeddingModel | quote }}
 {{- end }}
 {{- if .Values.global.environments.zarinpal }}
 # **********************

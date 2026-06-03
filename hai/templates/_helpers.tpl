@@ -142,40 +142,43 @@ Create the environments variable
 # **********************
 # AI Config
 # **********************
-- name: LLM_PROVIDER
-  value: {{ .Values.global.environments.llm.provider | quote }}
-- name: LLM_FALLBACK_PROVIDER
-  value: {{ .Values.global.environments.llm.fallbackProvider | quote }}
-- name: LLM_FALLBACK_OPERATIONS
-  value: {{ .Values.global.environments.llm.fallbackOperations | quote }}
-- name: SHARIF_LLM_BASE_URL
-  value: {{ .Values.global.environments.sharifLlm.baseUrl | quote }}
-{{- with .Values.global.environments.sharifLlm.bearerToken }}
-- name: SHARIF_LLM_BEARER_TOKEN
-  value: {{ . | quote }}
-{{- end }}
+- name: AI_DEFAULT_PROVIDER
+  value: {{ .Values.global.environments.ai.defaultProvider | default "ollama" | quote }}
+- name: AI_DEFAULT_CHAT_MODEL
+  value: {{ .Values.global.environments.ai.defaultChatModel | quote }}
+- name: AI_DEFAULT_EMBEDDING_MODEL
+  value: {{ .Values.global.environments.ai.defaultEmbeddingModel | quote }}
+# Ollama
 - name: OLLAMA_BASE_URL
   value: {{ .Values.global.environments.ollama.baseUrl | quote }}
-- name: OLLAMA_CHAT_MODEL
-  value: {{ .Values.global.environments.ollama.chatModel | quote }}
-- name: OLLAMA_EMBEDDING_MODEL
-  value: {{ .Values.global.environments.ollama.embeddingModel | quote }}
-{{- with .Values.global.environments.rag.provider }}
-- name: RAG_PROVIDER
-  value: {{ . | quote }}
-{{- end }}
-- name: RAG_EMBEDDING_MODEL
-  value: {{ .Values.global.environments.rag.embeddingModel | quote }}
-- name: RAG_ASK_LIMIT
-  value: {{ .Values.global.environments.rag.askLimit | quote }}
-{{- with .Values.global.environments.rag.ollama.chatModel }}
-- name: RAG_OLLAMA_CHAT_MODEL
-  value: {{ . | quote }}
-{{- end }}
-{{- with .Values.global.environments.rag.ollama.embeddingModel }}
-- name: RAG_OLLAMA_EMBEDDING_MODEL
-  value: {{ . | quote }}
-{{- end }}
+- name: OLLAMA_CHAT_MODELS
+  value: {{ .Values.global.environments.ollama.chatModels | quote }}
+- name: OLLAMA_EMBEDDING_MODELS
+  value: {{ .Values.global.environments.ollama.embeddingModels | quote }}
+- name: OLLAMA_RERANK_MODELS
+  value: {{ .Values.global.environments.ollama.rerankModels | quote }}
+# Sharif
+- name: SHARIF_BASE_URL
+  value: {{ .Values.global.environments.sharif.baseUrl | quote }}
+- name: SHARIF_API_KEY
+  value: {{ .Values.global.environments.sharif.apiKey | quote }}
+- name: SHARIF_CHAT_MODELS
+  value: {{ .Values.global.environments.sharif.chatModels | quote }}
+- name: SHARIF_EMBEDDING_MODELS
+  value: {{ .Values.global.environments.sharif.embeddingModels | quote }}
+- name: SHARIF_RERANK_MODELS
+  value: {{ .Values.global.environments.sharif.rerankModels | quote }}
+# ChatGPT
+- name: CHATGPT_BASE_URL
+  value: {{ .Values.global.environments.chatgpt.baseUrl | quote }}
+- name: CHATGPT_API_KEY
+  value: {{ .Values.global.environments.chatgpt.apiKey | quote }}
+- name: CHATGPT_CHAT_MODELS
+  value: {{ .Values.global.environments.chatgpt.chatModels | quote }}
+- name: CHATGPT_EMBEDDING_MODELS
+  value: {{ .Values.global.environments.chatgpt.embeddingModels | quote }}
+- name: CHATGPT_RERANK_MODELS
+  value: {{ .Values.global.environments.chatgpt.rerankModels | quote }}
 # *****************************
 # Client Config
 # *****************************
