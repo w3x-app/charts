@@ -87,8 +87,8 @@ global:
       cid: "696243c95c286ae81cf99283"
       domain: "hai.behayand.ir"
       provider: "ollama"
-      model: ""
-      embeddingModel: ""
+      model: "qwen3.6:35b"
+      embeddingModel: "qwen3-embedding:8b"
     # **********************
     # IPG Config
     # **********************
