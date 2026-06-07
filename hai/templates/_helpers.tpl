@@ -142,37 +142,74 @@ Create the environments variable
 # **********************
 # AI Config
 # **********************
+{{- $env := .Values.global.environments | default dict }}
+- name: AI_DEFAULT_PROVIDER
+  value: {{ dig "ai" "defaultProvider" (dig "llm" "provider" "" $env) $env | quote }}
+- name: AI_DEFAULT_CHAT_MODEL
+  value: {{ dig "ai" "defaultChatModel" (dig "ollama" "chatModel" "" $env) $env | quote }}
+- name: AI_DEFAULT_EMBEDDING_MODEL
+  value: {{ dig "ai" "defaultEmbeddingModel" (dig "ollama" "embeddingModel" "" $env) $env | quote }}
+- name: AI_DEFAULT_RERANK_PROVIDER
+  value: {{ dig "ai" "defaultRerankProvider" "" $env | quote }}
+- name: AI_DEFAULT_RERANK_MODEL
+  value: {{ dig "ai" "defaultRerankModel" "" $env | quote }}
 - name: LLM_PROVIDER
-  value: {{ .Values.global.environments.llm.provider | quote }}
+  value: {{ dig "llm" "provider" (dig "ai" "defaultProvider" "" $env) $env | quote }}
 - name: LLM_FALLBACK_PROVIDER
-  value: {{ .Values.global.environments.llm.fallbackProvider | quote }}
+  value: {{ dig "llm" "fallbackProvider" "" $env | quote }}
 - name: LLM_FALLBACK_OPERATIONS
-  value: {{ .Values.global.environments.llm.fallbackOperations | quote }}
+  value: {{ dig "llm" "fallbackOperations" "" $env | quote }}
 - name: SHARIF_LLM_BASE_URL
-  value: {{ .Values.global.environments.sharifLlm.baseUrl | quote }}
-{{- with .Values.global.environments.sharifLlm.bearerToken }}
+  value: {{ dig "sharifLlm" "baseUrl" (dig "sharif" "baseUrl" "" $env) $env | quote }}
+{{- with (dig "sharifLlm" "bearerToken" "" $env) }}
 - name: SHARIF_LLM_BEARER_TOKEN
   value: {{ . | quote }}
 {{- end }}
+- name: SHARIF_BASE_URL
+  value: {{ dig "sharif" "baseUrl" (dig "sharifLlm" "baseUrl" "" $env) $env | quote }}
+- name: SHARIF_API_KEY
+  value: {{ dig "sharif" "apiKey" (dig "sharifLlm" "bearerToken" "" $env) $env | quote }}
+- name: SHARIF_CHAT_MODELS
+  value: {{ dig "sharif" "chatModels" "" $env | quote }}
+- name: SHARIF_EMBEDDING_MODELS
+  value: {{ dig "sharif" "embeddingModels" "" $env | quote }}
+- name: SHARIF_RERANK_MODELS
+  value: {{ dig "sharif" "rerankModels" "" $env | quote }}
+- name: CHATGPT_BASE_URL
+  value: {{ dig "chatgpt" "baseUrl" "https://api.openai.com" $env | quote }}
+- name: CHATGPT_API_KEY
+  value: {{ dig "chatgpt" "apiKey" "" $env | quote }}
+- name: CHATGPT_CHAT_MODELS
+  value: {{ dig "chatgpt" "chatModels" "" $env | quote }}
+- name: CHATGPT_EMBEDDING_MODELS
+  value: {{ dig "chatgpt" "embeddingModels" "" $env | quote }}
+- name: CHATGPT_RERANK_MODELS
+  value: {{ dig "chatgpt" "rerankModels" "" $env | quote }}
 - name: OLLAMA_BASE_URL
-  value: {{ .Values.global.environments.ollama.baseUrl | quote }}
+  value: {{ dig "ollama" "baseUrl" "" $env | quote }}
 - name: OLLAMA_CHAT_MODEL
-  value: {{ .Values.global.environments.ollama.chatModel | quote }}
+  value: {{ dig "ollama" "chatModel" "" $env | quote }}
 - name: OLLAMA_EMBEDDING_MODEL
-  value: {{ .Values.global.environments.ollama.embeddingModel | quote }}
-{{- with .Values.global.environments.rag.provider }}
+  value: {{ dig "ollama" "embeddingModel" "" $env | quote }}
+- name: OLLAMA_CHAT_MODELS
+  value: {{ dig "ollama" "chatModels" (dig "ollama" "chatModel" "" $env) $env | quote }}
+- name: OLLAMA_EMBEDDING_MODELS
+  value: {{ dig "ollama" "embeddingModels" (dig "ollama" "embeddingModel" "" $env) $env | quote }}
+- name: OLLAMA_RERANK_MODELS
+  value: {{ dig "ollama" "rerankModels" "" $env | quote }}
+{{- with (dig "rag" "provider" "" $env) }}
 - name: RAG_PROVIDER
   value: {{ . | quote }}
 {{- end }}
 - name: RAG_EMBEDDING_MODEL
-  value: {{ .Values.global.environments.rag.embeddingModel | quote }}
+  value: {{ dig "rag" "embeddingModel" "" $env | quote }}
 - name: RAG_ASK_LIMIT
-  value: {{ .Values.global.environments.rag.askLimit | quote }}
-{{- with .Values.global.environments.rag.ollama.chatModel }}
+  value: {{ dig "rag" "askLimit" "" $env | quote }}
+{{- with (dig "rag" "ollama" "chatModel" "" $env) }}
 - name: RAG_OLLAMA_CHAT_MODEL
   value: {{ . | quote }}
 {{- end }}
-{{- with .Values.global.environments.rag.ollama.embeddingModel }}
+{{- with (dig "rag" "ollama" "embeddingModel" "" $env) }}
 - name: RAG_OLLAMA_EMBEDDING_MODEL
   value: {{ . | quote }}
 {{- end }}

@@ -61,6 +61,12 @@ global:
     # **********************
     # AI Config
     # **********************
+    ai:
+      defaultProvider: "ollama"
+      defaultChatModel: "qwen2.5:32b"
+      defaultEmbeddingModel: "qwen3-embedding:8b"
+      defaultRerankProvider: ""
+      defaultRerankModel: ""
     llm:
       provider: "ollama" # staging default
       fallbackProvider: ""
@@ -68,11 +74,26 @@ global:
     sharifLlm:
       baseUrl: "https://alphapi.aip.sharif.ir"
       bearerToken: "" # optional for staging; set only when provider/fallback is sharif
+    sharif:
+      baseUrl: "https://alphapi.aip.sharif.ir"
+      apiKey: ""
+      chatModels: ""
+      embeddingModels: ""
+      rerankModels: ""
+    chatgpt:
+      baseUrl: "https://api.openai.com"
+      apiKey: ""
+      chatModels: "gpt-4o-mini"
+      embeddingModels: "text-embedding-3-small,text-embedding-3-large"
+      rerankModels: "gpt-4o-mini"
     # Ollama
     ollama:
       baseUrl: "http://10.16.0.110:11434"
       chatModel: "qwen2.5:32b"
       embeddingModel: "qwen3-embedding:8b"
+      chatModels: "qwen2.5:32b"
+      embeddingModels: "qwen3-embedding:8b"
+      rerankModels: ""
     # RAG
     rag:
       provider: "ollama"
