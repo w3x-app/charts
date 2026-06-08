@@ -156,6 +156,12 @@ Create the environments variable
   value: {{ .Values.global.environments.hai.cid | quote }}
 - name: HAI_DOMAIN
   value: {{ .Values.global.environments.hai.domain | quote }}
+- name: HAI_PROVIDER
+  value: {{ .Values.global.environments.hai.provider | quote }}
+- name: HAI_MODEL
+  value: {{ .Values.global.environments.hai.model | quote }}
+- name: HAI_EMBEDDING_MODEL
+  value: {{ .Values.global.environments.hai.embeddingModel | quote }}
 - name: AI_DEFAULT_PROVIDER
   value: {{ .Values.global.environments.hai.provider | quote }}
 - name: AI_DEFAULT_MODEL
