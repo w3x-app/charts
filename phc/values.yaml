@@ -77,18 +77,18 @@ global:
     # AI Config
     # **********************
     ai:
-      baseUrl: "https://rahsa.ifsh-kmu.ir"
+      baseUrl: ""
     # **********************
     # HAI API
     # **********************
     hai:
-      apiBaseUrl: "http://127.0.0.1:6053"
-      token: "apt-JvCDsTen7yUXCflZlfJLvK0n4HN"
-      cid: "696243c95c286ae81cf99283"
-      domain: "hai.behayand.ir"
-      provider: "ollama"
-      model: "qwen3.6:35b"
-      embeddingModel: "qwen3-embedding:8b"
+      apiBaseUrl: ""
+      token: ""
+      cid: ""
+      domain: ""
+      provider: ""
+      model: ""
+      embeddingModel: ""
     # **********************
     # IPG Config
     # **********************

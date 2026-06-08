@@ -62,46 +62,46 @@ global:
     # AI Config
     # **********************
     ai:
-      defaultProvider: "ollama"
-      defaultChatModel: "qwen2.5:32b"
-      defaultEmbeddingModel: "qwen3-embedding:8b"
+      defaultProvider: ""
+      defaultChatModel: ""
+      defaultEmbeddingModel: ""
       defaultRerankProvider: ""
       defaultRerankModel: ""
     llm:
-      provider: "ollama" # staging default
+      provider: ""
       fallbackProvider: ""
       fallbackOperations: ""
     sharifLlm:
-      baseUrl: "https://alphapi.aip.sharif.ir"
+      baseUrl: ""
       bearerToken: "" # optional for staging; set only when provider/fallback is sharif
     sharif:
-      baseUrl: "https://alphapi.aip.sharif.ir"
+      baseUrl: ""
       apiKey: ""
       chatModels: ""
       embeddingModels: ""
       rerankModels: ""
     chatgpt:
-      baseUrl: "https://api.openai.com"
+      baseUrl: ""
       apiKey: ""
-      chatModels: "gpt-4o-mini"
-      embeddingModels: "text-embedding-3-small,text-embedding-3-large"
-      rerankModels: "gpt-4o-mini"
+      chatModels: ""
+      embeddingModels: ""
+      rerankModels: ""
     # Ollama
     ollama:
-      baseUrl: "http://10.16.0.110:11434"
-      chatModel: "qwen2.5:32b"
-      embeddingModel: "qwen3-embedding:8b"
-      chatModels: "qwen2.5:32b"
-      embeddingModels: "qwen3-embedding:8b"
+      baseUrl: ""
+      chatModel: ""
+      embeddingModel: ""
+      chatModels: ""
+      embeddingModels: ""
       rerankModels: ""
     # RAG
     rag:
-      provider: "ollama"
-      embeddingModel: "qwen3-embedding:8b"
+      provider: ""
+      embeddingModel: ""
       askLimit: 5
       ollama:
-        chatModel: "qwen2.5:32b"
-        embeddingModel: "qwen3-embedding:8b"
+        chatModel: ""
+        embeddingModel: ""
     strictToken: true
     # Client
     uid: "696243e966914baa77f23029"
