@@ -32,6 +32,8 @@ global:
       hmacKey: "" # default: random 64 chars
     metabase:
       secretKey: "" # Metabase secret key for JWT token generation
+    survey:
+      apiKey: "" # Porsyar management API key (x-api-key)
   # **********************
   # Environment Variables
   # **********************
@@ -46,7 +48,17 @@ global:
     # **********************
     # Metabase
     metabase:
-      siteUrl: "https://metabase.wenex.tech"
+      siteUrl: "https://metabase.behnoo.net"
+    # **********************
+    # Survey Services
+    # **********************
+    # Porsyar
+    survey:
+      # Server-to-server base URL. Use the in-cluster Service to avoid public egress.
+      # Porsyar is deployed as a subchart in the same namespace (Service "porsyar", port 3000).
+      apiUrl: "http://porsyar:3000"
+      # Public, browser-facing base URL used to build survey links for end users.
+      webUrl: "https://porsyar.behnoo.net"
     # **********************
     # Internationalization
     # **********************
@@ -185,15 +197,15 @@ porsyar:
   deployment:
     replicas: 1
     image:
-      repository: "registry.wenex.tech/w3x/porsyar-enterprise"
+      repository: "registry.behnoo.net/w3x/porsyar-enterprise"
       tag: "v4"
       pullPolicy: IfNotPresent
     # Environment variables
     env:
       WEBAPP_URL:
-        value: "https://porsyar.wenex.tech"
+        value: "https://porsyar.behnoo.net"
       NEXTAUTH_URL:
-        value: "https://porsyar.wenex.tech"
+        value: "https://porsyar.behnoo.net"
       EMAIL_VERIFICATION_DISABLED:
         value: "1"
       PASSWORD_RESET_DISABLED:

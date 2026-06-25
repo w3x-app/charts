@@ -55,12 +55,12 @@ The following table lists the main configurable parameters of the Porsyar chart 
 
 | Parameter | Description | Default |
 |-----------|-------------|---------|
-| `deployment.image.registry` | Container registry | `registry.wenex.tech` |
+| `deployment.image.registry` | Container registry | `registry.behnoo.net` |
 | `deployment.image.repository` | Image repository | `porsyar-enterprise` |
 | `deployment.image.tag` | Image tag | `v4` |
 | `deployment.replicas` | Number of replicas | `1` |
-| `deployment.env.WEBAPP_URL.value` | Base URL of your application | `https://porsyar.wenex.tech` |
-| `deployment.env.NEXTAUTH_URL.value` | NextAuth URL (same as WEBAPP_URL) | `https://porsyar.wenex.tech` |
+| `deployment.env.WEBAPP_URL.value` | Base URL of your application | `https://porsyar.behnoo.net` |
+| `deployment.env.NEXTAUTH_URL.value` | NextAuth URL (same as WEBAPP_URL) | `https://porsyar.behnoo.net` |
 | `deployment.env.EMAIL_VERIFICATION_DISABLED.value` | Disable email verification | `"1"` |
 | `deployment.env.PASSWORD_RESET_DISABLED.value` | Disable password reset | `"1"` |
 | `deployment.env.TELEMETRY_DISABLED.value` | Disable telemetry | `"1"` |
@@ -254,14 +254,14 @@ kubectl delete pvc -l app.kubernetes.io/instance=porsyar
 | deployment.containerSecurityContext.readOnlyRootFilesystem | bool | `true` |  |
 | deployment.containerSecurityContext.runAsNonRoot | bool | `true` |  |
 | deployment.env.EMAIL_VERIFICATION_DISABLED.value | string | `"1"` | Disable email verification |
-| deployment.env.NEXTAUTH_URL.value | string | `"https://porsyar.wenex.tech"` | NextAuth URL (must match WEBAPP_URL) |
+| deployment.env.NEXTAUTH_URL.value | string | `"https://porsyar.behnoo.net"` | NextAuth URL (must match WEBAPP_URL) |
 | deployment.env.PASSWORD_RESET_DISABLED.value | string | `"1"` | Disable password reset |
 | deployment.env.TELEMETRY_DISABLED.value | string | `"1"` | Disable telemetry data collection |
-| deployment.env.WEBAPP_URL.value | string | `"https://porsyar.wenex.tech"` | Base URL of the application |
+| deployment.env.WEBAPP_URL.value | string | `"https://porsyar.behnoo.net"` | Base URL of the application |
 | deployment.envFrom | string | `nil` |  |
 | deployment.image.digest | string | `""` |  |
 | deployment.image.pullPolicy | string | `"IfNotPresent"` |  |
-| deployment.image.registry | string | `"registry.wenex.tech"` | Container registry |
+| deployment.image.registry | string | `"registry.behnoo.net"` | Container registry |
 | deployment.image.repository | string | `"porsyar-enterprise"` | Image repository name |
 | deployment.image.tag | string | `"v4"` | Image tag |
 | deployment.imagePullSecrets | string | `""` |  |
