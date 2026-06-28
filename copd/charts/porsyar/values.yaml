@@ -63,11 +63,11 @@ deployment:
   env:
     # REQUIRED: Base URL of your application (e.g., https://yourdomain.com)
     WEBAPP_URL:
-      value: "https://porsyar.wenex.tech"  # CHANGE THIS to your actual domain
+      value: "https://porsyar.behnoo.net"  # CHANGE THIS to your actual domain
     
     # REQUIRED: NextAuth URL (should be the same as WEBAPP_URL)
     NEXTAUTH_URL:
-      value: "https://porsyar.wenex.tech"  # CHANGE THIS to your actual domain
+      value: "https://porsyar.behnoo.net"  # CHANGE THIS to your actual domain
     
     # OPTIONAL: Public URL for surveys/public content (defaults to WEBAPP_URL if not set)
     # PUBLIC_URL:
@@ -149,8 +149,8 @@ deployment:
 
   # Application container image
   image:
-    repository: "registry.wenex.tech/w3x/porsyar-enterprise"
-    tag: "v4"
+    repository: "registry.behnoo.net/w3x/porsyar-enterprise"
+    tag: "v4.0.2"
     digest: "" # If set, digest takes precedence over the tag
     pullPolicy: IfNotPresent
 

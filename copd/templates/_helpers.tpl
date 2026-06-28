@@ -103,6 +103,15 @@ Create the secrets variable
     secretKeyRef:
       name: copd-secrets
       key: METABASE_SECRET_KEY
+# **********************
+# Survey Services
+# **********************
+# Porsyar
+- name: SURVEY_API_KEY
+  valueFrom:
+    secretKeyRef:
+      name: copd-secrets
+      key: SURVEY_API_KEY
 {{- end }}
 
 {{/*
@@ -128,6 +137,14 @@ Create the environments variable
 # Metabase
 - name: METABASE_SITE_URL
   value: {{ .Values.global.environments.metabase.siteUrl | default "https://metabase.wenex.tech" | quote }}
+# **********************
+# Survey Services
+# **********************
+# Porsyar
+- name: SURVEY_API_URL
+  value: {{ .Values.global.environments.survey.apiUrl | quote }}
+- name: SURVEY_WEB_URL
+  value: {{ .Values.global.environments.survey.webUrl | quote }}
 # **********************
 # Internationalization
 # **********************
