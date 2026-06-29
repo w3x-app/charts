@@ -163,6 +163,17 @@ Create the environments variable
 - name: HAI_EMBEDDING_MODEL
   value: {{ .Values.global.environments.hai.embeddingModel | quote }}
 {{- end }}
+{{- if .Values.global.environments.sib }}
+# **********************
+# SIB Config
+# **********************
+- name: SIB_BASE_URL
+  value: {{ .Values.global.environments.sib.baseUrl | quote }}
+- name: SIB_API_KEY
+  value: {{ .Values.global.environments.sib.apiKey | quote }}
+- name: SIB_TIMEOUT
+  value: {{ .Values.global.environments.sib.timeout | default "90000" | quote }}
+{{- end }}
 {{- if .Values.global.environments.zarinpal }}
 # **********************
 # IPG Config
