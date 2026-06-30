@@ -90,6 +90,13 @@ global:
       model: ""
       embeddingModel: ""
     # **********************
+    # SIB API
+    # **********************
+    sib:
+      baseUrl: ""
+      apiKey: ""
+      timeout: "90000"
+    # **********************
     # IPG Config
     # **********************
     zarinpal:
