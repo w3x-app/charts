@@ -3,7 +3,39 @@ entries:
   copd:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-07-05T11:07:15.376513798+03:30"
+    created: "2026-07-05T15:06:34.660977874+03:30"
+    dependencies:
+    - condition: services.enabled
+      name: services
+      repository: file://charts/services
+      version: 1.0.0
+    - condition: workers.enabled
+      name: workers
+      repository: file://charts/workers
+      version: 1.0.0
+    - condition: assets.enabled
+      name: assets
+      repository: file://charts/assets
+      version: 1.0.0
+    - condition: frontend.enabled
+      name: frontend
+      repository: file://charts/frontend
+      version: 1.0.1
+    - condition: porsyar.enabled
+      name: porsyar
+      repository: file://charts/porsyar
+      version: 1.0.2
+    description: A Helm chart for Kubernetes
+    digest: bc8a518513f65902d0556c6072f0733d1edbebab8dbbff85102c99258d22f87f
+    icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
+    name: copd
+    type: application
+    urls:
+    - https://w3x-app.github.io/charts/copd-1.0.9.tgz
+    version: 1.0.9
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-07-05T15:06:34.648166222+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -31,11 +63,11 @@ entries:
     name: copd
     type: application
     urls:
-    - copd-1.0.8.tgz
+    - https://w3x-app.github.io/charts/copd-1.0.8.tgz
     version: 1.0.8
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-07-05T11:07:15.362916083+03:30"
+    created: "2026-07-05T15:06:34.635269458+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -63,11 +95,11 @@ entries:
     name: copd
     type: application
     urls:
-    - copd-1.0.7.tgz
+    - https://w3x-app.github.io/charts/copd-1.0.7.tgz
     version: 1.0.7
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-07-05T11:07:15.349056104+03:30"
+    created: "2026-07-05T15:06:34.622558629+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -95,11 +127,11 @@ entries:
     name: copd
     type: application
     urls:
-    - copd-1.0.6.tgz
+    - https://w3x-app.github.io/charts/copd-1.0.6.tgz
     version: 1.0.6
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-07-05T11:07:15.335834391+03:30"
+    created: "2026-07-05T15:06:34.609670632+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -127,11 +159,11 @@ entries:
     name: copd
     type: application
     urls:
-    - copd-1.0.5.tgz
+    - https://w3x-app.github.io/charts/copd-1.0.5.tgz
     version: 1.0.5
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-07-05T11:07:15.321474328+03:30"
+    created: "2026-07-05T15:06:34.59703623+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -159,11 +191,11 @@ entries:
     name: copd
     type: application
     urls:
-    - copd-1.0.4.tgz
+    - https://w3x-app.github.io/charts/copd-1.0.4.tgz
     version: 1.0.4
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-07-05T11:07:15.306853976+03:30"
+    created: "2026-07-05T15:06:34.583911337+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -191,11 +223,11 @@ entries:
     name: copd
     type: application
     urls:
-    - copd-1.0.3.tgz
+    - https://w3x-app.github.io/charts/copd-1.0.3.tgz
     version: 1.0.3
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-07-05T11:07:15.293762894+03:30"
+    created: "2026-07-05T15:06:34.570945732+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -223,11 +255,11 @@ entries:
     name: copd
     type: application
     urls:
-    - copd-1.0.2.tgz
+    - https://w3x-app.github.io/charts/copd-1.0.2.tgz
     version: 1.0.2
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-07-05T11:07:15.280798372+03:30"
+    created: "2026-07-05T15:06:34.557649724+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -251,11 +283,11 @@ entries:
     name: copd
     type: application
     urls:
-    - copd-1.0.1.tgz
+    - https://w3x-app.github.io/charts/copd-1.0.1.tgz
     version: 1.0.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-07-05T11:07:15.279471215+03:30"
+    created: "2026-07-05T15:06:34.556421762+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -279,12 +311,12 @@ entries:
     name: copd
     type: application
     urls:
-    - copd-1.0.0.tgz
+    - https://w3x-app.github.io/charts/copd-1.0.0.tgz
     version: 1.0.0
   hai:
   - apiVersion: v2
     appVersion: 1.0.1
-    created: "2026-07-05T11:07:15.384394424+03:30"
+    created: "2026-07-05T15:06:34.66647151+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -304,11 +336,11 @@ entries:
     name: hai
     type: application
     urls:
-    - hai-1.0.12.tgz
+    - https://w3x-app.github.io/charts/hai-1.0.12.tgz
     version: 1.0.12
   - apiVersion: v2
     appVersion: 1.0.1
-    created: "2026-07-05T11:07:15.38258485+03:30"
+    created: "2026-07-05T15:06:34.665319611+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -328,11 +360,11 @@ entries:
     name: hai
     type: application
     urls:
-    - hai-1.0.11.tgz
+    - https://w3x-app.github.io/charts/hai-1.0.11.tgz
     version: 1.0.11
   - apiVersion: v2
     appVersion: 1.0.1
-    created: "2026-07-05T11:07:15.380751979+03:30"
+    created: "2026-07-05T15:06:34.664161481+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -352,11 +384,11 @@ entries:
     name: hai
     type: application
     urls:
-    - hai-1.0.10.tgz
+    - https://w3x-app.github.io/charts/hai-1.0.10.tgz
     version: 1.0.10
   - apiVersion: v2
     appVersion: 1.0.1
-    created: "2026-07-05T11:07:15.394888748+03:30"
+    created: "2026-07-05T15:06:34.675162099+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -376,11 +408,11 @@ entries:
     name: hai
     type: application
     urls:
-    - hai-1.0.9.tgz
+    - https://w3x-app.github.io/charts/hai-1.0.9.tgz
     version: 1.0.9
   - apiVersion: v2
     appVersion: 1.0.1
-    created: "2026-07-05T11:07:15.393745587+03:30"
+    created: "2026-07-05T15:06:34.67411076+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -400,11 +432,11 @@ entries:
     name: hai
     type: application
     urls:
-    - hai-1.0.8.tgz
+    - https://w3x-app.github.io/charts/hai-1.0.8.tgz
     version: 1.0.8
   - apiVersion: v2
     appVersion: 1.0.1
-    created: "2026-07-05T11:07:15.392630587+03:30"
+    created: "2026-07-05T15:06:34.673060371+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -424,11 +456,11 @@ entries:
     name: hai
     type: application
     urls:
-    - hai-1.0.7.tgz
+    - https://w3x-app.github.io/charts/hai-1.0.7.tgz
     version: 1.0.7
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-07-05T11:07:15.391424627+03:30"
+    created: "2026-07-05T15:06:34.672028305+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -448,11 +480,11 @@ entries:
     name: hai
     type: application
     urls:
-    - hai-1.0.6.tgz
+    - https://w3x-app.github.io/charts/hai-1.0.6.tgz
     version: 1.0.6
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-07-05T11:07:15.390244712+03:30"
+    created: "2026-07-05T15:06:34.671029718+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -472,11 +504,11 @@ entries:
     name: hai
     type: application
     urls:
-    - hai-1.0.5.tgz
+    - https://w3x-app.github.io/charts/hai-1.0.5.tgz
     version: 1.0.5
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-07-05T11:07:15.388941771+03:30"
+    created: "2026-07-05T15:06:34.66940952+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -496,11 +528,11 @@ entries:
     name: hai
     type: application
     urls:
-    - hai-1.0.4.tgz
+    - https://w3x-app.github.io/charts/hai-1.0.4.tgz
     version: 1.0.4
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-07-05T11:07:15.387779188+03:30"
+    created: "2026-07-05T15:06:34.668432336+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -520,11 +552,11 @@ entries:
     name: hai
     type: application
     urls:
-    - hai-1.0.3.tgz
+    - https://w3x-app.github.io/charts/hai-1.0.3.tgz
     version: 1.0.3
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-07-05T11:07:15.38596305+03:30"
+    created: "2026-07-05T15:06:34.66746086+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -544,11 +576,11 @@ entries:
     name: hai
     type: application
     urls:
-    - hai-1.0.2.tgz
+    - https://w3x-app.github.io/charts/hai-1.0.2.tgz
     version: 1.0.2
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-07-05T11:07:15.378986188+03:30"
+    created: "2026-07-05T15:06:34.663051959+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -568,11 +600,11 @@ entries:
     name: hai
     type: application
     urls:
-    - hai-1.0.1.tgz
+    - https://w3x-app.github.io/charts/hai-1.0.1.tgz
     version: 1.0.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-07-05T11:07:15.377785497+03:30"
+    created: "2026-07-05T15:06:34.66200164+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -592,12 +624,12 @@ entries:
     name: hai
     type: application
     urls:
-    - hai-1.0.0.tgz
+    - https://w3x-app.github.io/charts/hai-1.0.0.tgz
     version: 1.0.0
   phc:
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-07-05T11:07:15.409966587+03:30"
+    created: "2026-07-05T15:06:34.689972709+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -625,11 +657,11 @@ entries:
     name: phc
     type: application
     urls:
-    - phc-1.1.17.tgz
+    - https://w3x-app.github.io/charts/phc-1.1.17.tgz
     version: 1.1.17
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-07-05T11:07:15.408294391+03:30"
+    created: "2026-07-05T15:06:34.688431068+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -657,11 +689,11 @@ entries:
     name: phc
     type: application
     urls:
-    - phc-1.1.15.tgz
+    - https://w3x-app.github.io/charts/phc-1.1.15.tgz
     version: 1.1.15
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-07-05T11:07:15.406725923+03:30"
+    created: "2026-07-05T15:06:34.68684105+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -689,11 +721,11 @@ entries:
     name: phc
     type: application
     urls:
-    - phc-1.1.14.tgz
+    - https://w3x-app.github.io/charts/phc-1.1.14.tgz
     version: 1.1.14
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-07-05T11:07:15.404941004+03:30"
+    created: "2026-07-05T15:06:34.6847859+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -721,11 +753,11 @@ entries:
     name: phc
     type: application
     urls:
-    - phc-1.1.13.tgz
+    - https://w3x-app.github.io/charts/phc-1.1.13.tgz
     version: 1.1.13
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-07-05T11:07:15.402895176+03:30"
+    created: "2026-07-05T15:06:34.683173401+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -753,11 +785,11 @@ entries:
     name: phc
     type: application
     urls:
-    - phc-1.1.12.tgz
+    - https://w3x-app.github.io/charts/phc-1.1.12.tgz
     version: 1.1.12
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-07-05T11:07:15.401258947+03:30"
+    created: "2026-07-05T15:06:34.681667782+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -785,11 +817,11 @@ entries:
     name: phc
     type: application
     urls:
-    - phc-1.1.11.tgz
+    - https://w3x-app.github.io/charts/phc-1.1.11.tgz
     version: 1.1.11
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-07-05T11:07:15.399661214+03:30"
+    created: "2026-07-05T15:06:34.680193868+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -817,11 +849,11 @@ entries:
     name: phc
     type: application
     urls:
-    - phc-1.1.10.tgz
+    - https://w3x-app.github.io/charts/phc-1.1.10.tgz
     version: 1.1.10
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-07-05T11:07:15.424331156+03:30"
+    created: "2026-07-05T15:06:34.702601544+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -849,11 +881,11 @@ entries:
     name: phc
     type: application
     urls:
-    - phc-1.1.9.tgz
+    - https://w3x-app.github.io/charts/phc-1.1.9.tgz
     version: 1.1.9
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-07-05T11:07:15.422723678+03:30"
+    created: "2026-07-05T15:06:34.701074505+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -881,11 +913,11 @@ entries:
     name: phc
     type: application
     urls:
-    - phc-1.1.8.tgz
+    - https://w3x-app.github.io/charts/phc-1.1.8.tgz
     version: 1.1.8
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-07-05T11:07:15.420682129+03:30"
+    created: "2026-07-05T15:06:34.698980512+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -913,11 +945,11 @@ entries:
     name: phc
     type: application
     urls:
-    - phc-1.1.7.tgz
+    - https://w3x-app.github.io/charts/phc-1.1.7.tgz
     version: 1.1.7
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-07-05T11:07:15.419126239+03:30"
+    created: "2026-07-05T15:06:34.697525512+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -945,11 +977,11 @@ entries:
     name: phc
     type: application
     urls:
-    - phc-1.1.6.tgz
+    - https://w3x-app.github.io/charts/phc-1.1.6.tgz
     version: 1.1.6
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-07-05T11:07:15.417432468+03:30"
+    created: "2026-07-05T15:06:34.696078847+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -977,11 +1009,11 @@ entries:
     name: phc
     type: application
     urls:
-    - phc-1.1.5.tgz
+    - https://w3x-app.github.io/charts/phc-1.1.5.tgz
     version: 1.1.5
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-07-05T11:07:15.415743683+03:30"
+    created: "2026-07-05T15:06:34.694668696+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -1009,11 +1041,11 @@ entries:
     name: phc
     type: application
     urls:
-    - phc-1.1.4.tgz
+    - https://w3x-app.github.io/charts/phc-1.1.4.tgz
     version: 1.1.4
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-07-05T11:07:15.414084639+03:30"
+    created: "2026-07-05T15:06:34.692627849+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -1041,11 +1073,11 @@ entries:
     name: phc
     type: application
     urls:
-    - phc-1.1.3.tgz
+    - https://w3x-app.github.io/charts/phc-1.1.3.tgz
     version: 1.1.3
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-07-05T11:07:15.411214813+03:30"
+    created: "2026-07-05T15:06:34.691149032+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -1069,11 +1101,11 @@ entries:
     name: phc
     type: application
     urls:
-    - phc-1.1.2.tgz
+    - https://w3x-app.github.io/charts/phc-1.1.2.tgz
     version: 1.1.2
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-07-05T11:07:15.398056285+03:30"
+    created: "2026-07-05T15:06:34.678536793+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -1097,11 +1129,11 @@ entries:
     name: phc
     type: application
     urls:
-    - phc-1.1.1.tgz
+    - https://w3x-app.github.io/charts/phc-1.1.1.tgz
     version: 1.1.1
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-07-05T11:07:15.396237783+03:30"
+    created: "2026-07-05T15:06:34.676551415+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -1125,12 +1157,12 @@ entries:
     name: phc
     type: application
     urls:
-    - phc-1.1.0.tgz
+    - https://w3x-app.github.io/charts/phc-1.1.0.tgz
     version: 1.1.0
   rsch:
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-07-05T11:07:15.43279005+03:30"
+    created: "2026-07-05T15:06:34.710946973+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -1154,11 +1186,11 @@ entries:
     name: rsch
     type: application
     urls:
-    - rsch-1.1.5.tgz
+    - https://w3x-app.github.io/charts/rsch-1.1.5.tgz
     version: 1.1.5
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-07-05T11:07:15.43107911+03:30"
+    created: "2026-07-05T15:06:34.709013718+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -1182,11 +1214,11 @@ entries:
     name: rsch
     type: application
     urls:
-    - rsch-1.1.4.tgz
+    - https://w3x-app.github.io/charts/rsch-1.1.4.tgz
     version: 1.1.4
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-07-05T11:07:15.429566323+03:30"
+    created: "2026-07-05T15:06:34.707282001+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -1210,11 +1242,11 @@ entries:
     name: rsch
     type: application
     urls:
-    - rsch-1.1.3.tgz
+    - https://w3x-app.github.io/charts/rsch-1.1.3.tgz
     version: 1.1.3
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-07-05T11:07:15.428295104+03:30"
+    created: "2026-07-05T15:06:34.706123506+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -1238,11 +1270,11 @@ entries:
     name: rsch
     type: application
     urls:
-    - rsch-1.1.2.tgz
+    - https://w3x-app.github.io/charts/rsch-1.1.2.tgz
     version: 1.1.2
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-07-05T11:07:15.427059889+03:30"
+    created: "2026-07-05T15:06:34.704947965+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -1266,11 +1298,11 @@ entries:
     name: rsch
     type: application
     urls:
-    - rsch-1.1.1.tgz
+    - https://w3x-app.github.io/charts/rsch-1.1.1.tgz
     version: 1.1.1
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-07-05T11:07:15.425727572+03:30"
+    created: "2026-07-05T15:06:34.703741698+03:30"
     dependencies:
     - condition: services.enabled
       name: services
@@ -1294,6 +1326,6 @@ entries:
     name: rsch
     type: application
     urls:
-    - rsch-1.1.0.tgz
+    - https://w3x-app.github.io/charts/rsch-1.1.0.tgz
     version: 1.1.0
-generated: "2026-07-05T11:07:15.277890199+03:30"
+generated: "2026-07-05T15:06:34.554988499+03:30"
