@@ -149,7 +149,7 @@ Create the environments variable
 # HAI API
 # **********************
 - name: HAI_API_BASE_URL
-  value: {{ .Values.global.environments.hai.apiBaseUrl | default "http://127.0.0.1:6053" | quote }}
+  value: {{ .Values.global.environments.hai.apiBaseUrl | default "http://10.16.0.110:11434" | quote }}
 - name: HAI_API_TOKEN
   value: {{ .Values.global.environments.hai.token | quote }}
 - name: HAI_CID
