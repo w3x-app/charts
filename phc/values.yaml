@@ -33,6 +33,24 @@ ingress:
 autoscaling:
   enabled: false
 
+# The gateway spools MLH study uploads (MLH_MAX_UPLOAD_SIZE, 1GiB each) to a
+# temp file under /tmp, so it needs writable scratch space sized for the
+# expected upload concurrency (roughly N x max study size).
+resources:
+  requests:
+    ephemeral-storage: 2Gi
+  limits:
+    ephemeral-storage: 2Gi
+
+volumes:
+  - name: tmp
+    emptyDir:
+      sizeLimit: 2Gi
+
+volumeMounts:
+  - name: tmp
+    mountPath: /tmp
+
 global:
   image:
     repository: registry.wenex.org/w3x/phc-backend
@@ -46,6 +64,11 @@ global:
     aes: "" # default: random 64 chars
     altcha:
       hmacKey: "" # default: random 64 chars
+    # MLH vendor API key. REQUIRED for the MLH module; without it every call
+    # fails with an auth error. Leave empty here and supply it per environment
+    # out of band (HelmRelease values / secret store) -- never commit a real key.
+    mlh:
+      apiKey: ""
   # **********************
   # Environment Variables
   # **********************
@@ -89,6 +112,15 @@ global:
       provider: ""
       model: ""
       embeddingModel: ""
+    # **********************
+    # MLH API
+    # **********************
+    mlh:
+      baseUrl: "https://viewer.salamatdocs.ir/rest/mlh"
+      aiService: "chct"
+      timeout: "300000" # ms
+      uploadTimeout: "1800000" # ms (30m)
+      maxUploadSize: "1073741824" # bytes (1GiB)
     # **********************
     # SIB API
     # **********************

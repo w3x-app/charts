@@ -94,6 +94,14 @@ Create the secrets variable
     secretKeyRef:
       name: phc-secrets
       key: HMAC_KEY
+# **********************
+# MLH API
+# **********************
+- name: MLH_API_KEY
+  valueFrom:
+    secretKeyRef:
+      name: phc-secrets
+      key: MLH_API_KEY
 {{- end }}
 
 {{/*
@@ -162,6 +170,21 @@ Create the environments variable
   value: {{ .Values.global.environments.hai.model | quote }}
 - name: HAI_EMBEDDING_MODEL
   value: {{ .Values.global.environments.hai.embeddingModel | quote }}
+{{- end }}
+{{- if .Values.global.environments.mlh }}
+# **********************
+# MLH API
+# **********************
+- name: MLH_BASE_URL
+  value: {{ .Values.global.environments.mlh.baseUrl | default "https://viewer.salamatdocs.ir/rest/mlh" | quote }}
+- name: MLH_AI_SERVICE
+  value: {{ .Values.global.environments.mlh.aiService | default "chct" | quote }}
+- name: MLH_TIMEOUT
+  value: {{ .Values.global.environments.mlh.timeout | default "300000" | quote }}
+- name: MLH_UPLOAD_TIMEOUT
+  value: {{ .Values.global.environments.mlh.uploadTimeout | default "1800000" | quote }}
+- name: MLH_MAX_UPLOAD_SIZE
+  value: {{ .Values.global.environments.mlh.maxUploadSize | default "1073741824" | quote }}
 {{- end }}
 {{- if .Values.global.environments.sib }}
 # **********************
