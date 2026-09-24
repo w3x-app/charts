@@ -1,6 +1,6 @@
 # porsyar
 
-![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.2](https://img.shields.io/badge/Version-1.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A Helm chart for Porsyar with PostgreSQL, Redis
 
@@ -36,7 +36,7 @@ Before deploying to production, you must configure the following in your `values
 
 1. **Domain/URLs**: Update `deployment.env.WEBAPP_URL` and `deployment.env.NEXTAUTH_URL` with your actual domain
 2. **Secrets**: Generate and set secure values for `secret.NEXTAUTH_SECRET`, `secret.ENCRYPTION_KEY`, and `secret.CRON_SECRET`
-3. **Image Registry**: Update `deployment.image.registry` and `deployment.image.repository` with your container registry
+3. **Image Registry**: Update `deployment.image.repository` with your container registry (the registry host is part of the repository)
 
 ### Generating Secrets
 
@@ -55,9 +55,8 @@ The following table lists the main configurable parameters of the Porsyar chart 
 
 | Parameter | Description | Default |
 |-----------|-------------|---------|
-| `deployment.image.registry` | Container registry | `registry.behnoo.net` |
-| `deployment.image.repository` | Image repository | `porsyar-enterprise` |
-| `deployment.image.tag` | Image tag | `v4` |
+| `deployment.image.repository` | Image repository | `registry.behnoo.net/w3x/porsyar-enterprise` |
+| `deployment.image.tag` | Image tag | `v4.0.2` |
 | `deployment.replicas` | Number of replicas | `1` |
 | `deployment.env.WEBAPP_URL.value` | Base URL of your application | `https://porsyar.behnoo.net` |
 | `deployment.env.NEXTAUTH_URL.value` | NextAuth URL (same as WEBAPP_URL) | `https://porsyar.behnoo.net` |
@@ -261,9 +260,8 @@ kubectl delete pvc -l app.kubernetes.io/instance=porsyar
 | deployment.envFrom | string | `nil` |  |
 | deployment.image.digest | string | `""` |  |
 | deployment.image.pullPolicy | string | `"IfNotPresent"` |  |
-| deployment.image.registry | string | `"registry.behnoo.net"` | Container registry |
-| deployment.image.repository | string | `"porsyar-enterprise"` | Image repository name |
-| deployment.image.tag | string | `"v4"` | Image tag |
+| deployment.image.repository | string | `"registry.behnoo.net/w3x/porsyar-enterprise"` | Image repository name |
+| deployment.image.tag | string | `"v4.0.2"` | Image tag |
 | deployment.imagePullSecrets | string | `""` |  |
 | deployment.nodeSelector | object | `{}` |  |
 | deployment.ports.http.containerPort | int | `3000` |  |
