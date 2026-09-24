@@ -27,16 +27,14 @@ autoscaling:
 environments:
   nuxt:
     # *****************************
-    # Logging Services
-    # *****************************
-    sentry:
-      url: ""
-      authToken: ""
-    # *****************************
     # Public Information
     # *****************************
     public:
       apiBaseUrl: "https://api.phc.w3x.app/-"
+      # Empty follows apiBaseUrl, the app's own fallback.
+      platformApiBaseUrl: ""
+      # MQTT Over WebSocket (the app has no default of its own)
+      mqttWsUrl: "wss://emqx.wenex.org/mqtt"
       # *****************************
       # Site Information
       # *****************************
@@ -57,7 +55,3 @@ environments:
       sentry:
         dsn: ""
         tracesSampleRate: "0.8"
-      # *****************************
-      # OSM Services
-      # *****************************
-      mapTileServerPath: "https://tile.openstreetmap.org/{z}/{x}/{y}.png"

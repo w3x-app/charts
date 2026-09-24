@@ -174,6 +174,77 @@ Create the environments variable
 - name: SIB_TIMEOUT
   value: {{ .Values.global.environments.sib.timeout | default "90000" | quote }}
 {{- end }}
+{{- /*
+The IHIO, Shahkar and MLH blocks below emit a line only for a key that is set: an empty key would
+render `value: ""`, which *overrides* the backend's own fallback (charts.md → Learned facts). Integers
+go through `int64`, because a values-file number arrives as float64 and `quote` prints 1800000 as 1.8e+06.
+*/}}
+{{- with .Values.global.environments.ihio }}
+{{- /* IHIO API (e-prescription) */}}
+{{- with .baseUrl }}
+- name: IHIO_BASE_URL
+  value: {{ . | quote }}
+{{- end }}
+{{- with .terminalId }}
+- name: IHIO_TERMINAL_ID
+  value: {{ . | int64 | quote }}
+{{- end }}
+{{- with .username }}
+- name: IHIO_USERNAME
+  value: {{ . | quote }}
+{{- end }}
+{{- with .password }}
+- name: IHIO_PASSWORD
+  value: {{ . | quote }}
+{{- end }}
+{{- end }}
+{{- with .Values.global.environments.shahkar }}
+{{- /* Shahkar API (identity match) */}}
+{{- with .baseUrl }}
+- name: SHAHKAR_BASE_URL
+  value: {{ . | quote }}
+{{- end }}
+{{- with .timeout }}
+- name: SHAHKAR_TIMEOUT
+  value: {{ . | int64 | quote }}
+{{- end }}
+{{- with .apiKey }}
+- name: SHAHKAR_API_KEY
+  value: {{ . | quote }}
+{{- end }}
+{{- /* A true-default flag: `with` and `default` both swallow `false`, so it renders bare, and only when set. */}}
+{{- if and (hasKey . "mock") (not (kindIs "invalid" .mock)) }}
+- name: SHAHKAR_MOCK
+  value: {{ .mock | quote }}
+{{- end }}
+{{- end }}
+{{- with .Values.global.environments.mlh }}
+{{- /* MLH API (DICOM predictions) */}}
+{{- with .baseUrl }}
+- name: MLH_BASE_URL
+  value: {{ . | quote }}
+{{- end }}
+{{- with .apiKey }}
+- name: MLH_API_KEY
+  value: {{ . | quote }}
+{{- end }}
+{{- with .aiService }}
+- name: MLH_AI_SERVICE
+  value: {{ . | quote }}
+{{- end }}
+{{- with .timeout }}
+- name: MLH_TIMEOUT
+  value: {{ . | int64 | quote }}
+{{- end }}
+{{- with .uploadTimeout }}
+- name: MLH_UPLOAD_TIMEOUT
+  value: {{ . | int64 | quote }}
+{{- end }}
+{{- with .maxUploadSize }}
+- name: MLH_MAX_UPLOAD_SIZE
+  value: {{ . | int64 | quote }}
+{{- end }}
+{{- end }}
 {{- if .Values.global.environments.zarinpal }}
 # **********************
 # IPG Config
@@ -186,6 +257,14 @@ Create the environments variable
   value: {{ .Values.global.environments.zarinpal.callbackUrl | quote }}
 - name: ZARINPAL_REDIRECT_URL
   value: {{ .Values.global.environments.zarinpal.redirectUrl | default "https://payment.zarinpal.com/pg/StartPay/{}" | quote }}
+{{- with .Values.global.environments.zarinpal.minWage }}
+- name: ZARINPAL_MIN_WAGE
+  value: {{ . | int64 | quote }}
+{{- end }}
+{{- with .Values.global.environments.zarinpal.maxWages }}
+- name: ZARINPAL_MAX_WAGES
+  value: {{ . | int64 | quote }}
+{{- end }}
 {{- end }}
 # *****************************
 # Client Config
@@ -218,6 +297,47 @@ Create the environments variable
   value: {{ .Values.global.environments.frontend.baseUrl | default "https://phc.w3x.app" | quote }}
 - name: CLIENT_ASSETS_URL
   value: {{ .Values.global.environments.frontend.assetsUrl | default "https://assets.phc.w3x.app" | quote }}
+{{- /* Settings the backend defaults well by itself: each emits a line only once it is set. */}}
+{{- with .Values.global.environments.altcha }}
+{{- with .maxNumber }}
+- name: ALTCHA_MAX_NUMBER
+  value: {{ . | int64 | quote }}
+{{- end }}
+{{- end }}
+{{- with .Values.global.environments.auth }}
+{{- with .otpCooldownTtl }}
+- name: AUTH_OTP_COOLDOWN_TTL
+  value: {{ . | int64 | quote }}
+{{- end }}
+{{- end }}
+{{- with .Values.global.environments.sms }}
+{{- with .cooldownTtl }}
+- name: SMS_COOLDOWN_TTL
+  value: {{ . | int64 | quote }}
+{{- end }}
+{{- end }}
+{{- with .Values.global.environments.mail }}
+{{- with .noReply }}
+- name: NO_REPLY_MAIL
+  value: {{ . | quote }}
+{{- end }}
+{{- end }}
+{{- with .Values.global.environments.family }}
+{{- with .maxConcurrentCaregivers }}
+- name: MAX_CONCURRENT_CAREGIVERS
+  value: {{ . | int64 | quote }}
+{{- end }}
+{{- end }}
+{{- with .Values.global.environments.vapid }}
+{{- with .publicKey }}
+- name: VAPID_PUBLIC_KEY
+  value: {{ . | quote }}
+{{- end }}
+{{- with .privateKey }}
+- name: VAPID_PRIVATE_KEY
+  value: {{ . | quote }}
+{{- end }}
+{{- end }}
 # **********************
 # Logging Services
 # **********************

@@ -65,13 +65,17 @@ Create the name of the service account to use
 Create the environments variable
 */}}
 {{- define "landing.environments" -}}
-- name: APP_VERSION
-  value: {{ .Values.image.tag | quote }}
 - name: NUXT_PUBLIC_APP_VERSION
   value: {{ .Values.image.tag | quote }}
 # *****************************
 - name: NUXT_PUBLIC_API_BASE_URL
   value: {{ .Values.environments.nuxt.public.apiBaseUrl | quote }}
+{{- /* The app falls back to its API base when this is unset — at build time only, so the chart repeats that fallback. */}}
+- name: NUXT_PUBLIC_PLATFORM_API_BASE_URL
+  value: {{ .Values.environments.nuxt.public.platformApiBaseUrl | default .Values.environments.nuxt.public.apiBaseUrl | quote }}
+# MQTT Over WebSocket
+- name: NUXT_PUBLIC_MQTT_WS_URL
+  value: {{ .Values.environments.nuxt.public.mqttWsUrl | quote }}
 # *****************************
 # Site Information
 # *****************************
@@ -92,17 +96,8 @@ Create the environments variable
 # *****************************
 # Logging Services
 # *****************************
-- name: SENTRY_URL
-  value: {{ .Values.environments.nuxt.public.sentry.url | quote }}
-- name: SENTRY_AUTH_TOKEN
-  value: {{ .Values.environments.nuxt.public.sentry.authToken | quote }}
 - name: NUXT_PUBLIC_SENTRY_DSN
   value: {{ .Values.environments.nuxt.public.sentry.dsn | quote }}
 - name: NUXT_PUBLIC_SENTRY_TRACES_SAMPLE_RATE
   value: {{ .Values.environments.nuxt.public.sentry.tracesSampleRate | default "0.1" | quote }}
-# *****************************
-# OSM Services
-# *****************************
-- name: NUXT_PUBLIC_MAPTILE_SERVER_PATH
-  value: {{ .Values.environments.nuxt.public.mapTileServerPath | default "https://tile.openstreetmap.org/{z}/{x}/{y}.png" | quote }}
 {{- end }}

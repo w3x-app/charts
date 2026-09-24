@@ -27,12 +27,6 @@ autoscaling:
 environments:
   nuxt:
     # *****************************
-    # Logging Services
-    # *****************************
-    sentry:
-      url: ""
-      authToken: ""
-    # *****************************
     # Public Information
     # *****************************
     public:
@@ -50,8 +44,9 @@ environments:
       # *****************************
       # Client Information
       # *****************************
-      appId: ""
-      clientId: ""
+      # The subject domain is not set here: it is `global.environments.root.domain`, the backend's ROOT_DOMAIN.
+      # Uploads' owner id; empty keeps the app's own fallback.
+      fileOwnerId: ""
       # MQTT Over WebSocket
       mqttWsUrl: "wss://emqx.wenex.org/mqtt"
       # *****************************

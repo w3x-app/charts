@@ -65,8 +65,6 @@ Create the name of the service account to use
 Create the environments variable
 */}}
 {{- define "frontend.environments" -}}
-- name: APP_VERSION
-  value: {{ .Values.image.tag | quote }}
 - name: NUXT_PUBLIC_APP_VERSION
   value: {{ .Values.image.tag | quote }}
 # *****************************
@@ -87,20 +85,24 @@ Create the environments variable
 # *****************************
 # Client Information
 # *****************************
-- name: NUXT_PUBLIC_APP_ID
-  value: {{ .Values.environments.nuxt.public.appId | quote }}
-- name: NUXT_PUBLIC_CLIENT_ID
-  value: {{ .Values.environments.nuxt.public.clientId | quote }}
+{{- /*
+The subject domain the app filters a user's subjects by (`s.endsWith(domain.name)`) — the backend's
+ROOT_DOMAIN, so it is read from that one global rather than a second key that could disagree.
+*/}}
+{{- with (dig "environments" "root" "domain" "" (.Values.global | default dict)) }}
+- name: NUXT_PUBLIC_DOMAIN_NAME
+  value: {{ . | quote }}
+{{- end }}
+{{- with .Values.environments.nuxt.public.fileOwnerId }}
+- name: NUXT_PUBLIC_FILE_OWNER_ID
+  value: {{ . | quote }}
+{{- end }}
 # MQTT Over WebSocket
 - name: NUXT_PUBLIC_MQTT_WS_URL
   value: {{ .Values.environments.nuxt.public.mqttWsUrl | default "ws://emqx.wenex.org/mqtt" | quote }}
 # *****************************
 # Logging Services
 # *****************************
-- name: SENTRY_URL
-  value: {{ .Values.environments.nuxt.public.sentry.url | quote }}
-- name: SENTRY_AUTH_TOKEN
-  value: {{ .Values.environments.nuxt.public.sentry.authToken | quote }}
 - name: NUXT_PUBLIC_SENTRY_DSN
   value: {{ .Values.environments.nuxt.public.sentry.dsn | quote }}
 - name: NUXT_PUBLIC_SENTRY_TRACES_SAMPLE_RATE

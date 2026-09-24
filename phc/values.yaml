@@ -97,6 +97,29 @@ global:
       apiKey: ""
       timeout: "90000"
     # **********************
+    # IHIO / Shahkar / MLH APIs
+    # **********************
+    # Every key below renders only once set; empty keeps the backend's own default
+    # (libs/common/src/core/envs/{ihio,shahkar,mlh}.env.ts).
+    ihio:
+      baseUrl: ""
+      terminalId: ""
+      username: ""
+      password: ""
+    shahkar:
+      baseUrl: ""
+      timeout: ""
+      apiKey: ""
+      # mock: false — the backend verifies every identity as matched until this is set to false.
+      # Left absent on purpose: any value renders, `false` included, so set it only with real credentials.
+    mlh:
+      baseUrl: ""
+      apiKey: ""
+      aiService: ""
+      timeout: ""
+      uploadTimeout: ""
+      maxUploadSize: ""
+    # **********************
     # IPG Config
     # **********************
     zarinpal:
@@ -104,6 +127,9 @@ global:
       merchantId: ""
       callbackUrl: ""
       redirectUrl: "https://payment.zarinpal.com/pg/StartPay/{}"
+      # Settlement split limits; empty keeps the backend's 10000 rial floor and 10-recipient cap.
+      minWage: ""
+      maxWages: ""
     # **********************
     # Client Config
     # **********************
@@ -127,6 +153,24 @@ global:
     frontend:
       baseUrl: "https://phc.w3x.app"
       assetsUrl: "https://assets.phc.w3x.app"
+    # **********************
+    # Application Settings
+    # **********************
+    # Each renders only once set; empty keeps the backend's own default.
+    altcha:
+      maxNumber: ""                # proof-of-work ceiling (backend: 100000)
+    auth:
+      otpCooldownTtl: ""           # seconds (backend: 15)
+    sms:
+      cooldownTtl: ""              # seconds between codes to one recipient (backend: 60)
+    mail:
+      noReply: ""                  # backend: `Behayand <no-reply@$ROOT_DOMAIN>`
+    family:
+      maxConcurrentCaregivers: ""  # backend: 2
+    # Web-push keypair; empty keeps the backend's committed pair. Set both or neither.
+    vapid:
+      publicKey: ""
+      privateKey: ""
     # **********************
     # Logging Services
     # **********************
