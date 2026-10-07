@@ -94,15 +94,26 @@ Create the secrets variable
     secretKeyRef:
       name: phc-secrets
       key: HMAC_KEY
-{{- if (.Values.global.secrets.shahkar).hashKey }}
+{{- end }}
+
+{{/*
+Shahkar (Farabom) credentials, for the services deployment only: they come from a Secret created
+outside this chart (global.secrets.shahkar.existingSecret), so no value ever lands in a values file.
+Not optional: a missing Secret holds the rollout at CreateContainerConfigError instead of booting.
+*/}}
+{{- define "phc.shahkar.secrets" -}}
+{{- with (.Values.global.secrets.shahkar).existingSecret }}
+{{- $secret := . }}
 # **********************
 # Shahkar Inquiry
 # **********************
-- name: SHAHKAR_HASH_KEY
+{{- range list "SHAHKAR_APP_KEY" "SHAHKAR_DEVICE_ID" "SHAHKAR_TOKEN_ID" "SHAHKAR_HASH_KEY" }}
+- name: {{ . }}
   valueFrom:
     secretKeyRef:
-      name: phc-secrets
-      key: SHAHKAR_HASH_KEY
+      name: {{ $secret | quote }}
+      key: {{ . }}
+{{- end }}
 {{- end }}
 {{- end }}
 
@@ -218,16 +229,8 @@ go through `int64`, because a values-file number arrives as float64 and `quote` 
 - name: SHAHKAR_TIMEOUT
   value: {{ . | int64 | quote }}
 {{- end }}
-{{- with .apiKey }}
-- name: SHAHKAR_API_KEY
-  value: {{ . | quote }}
-{{- end }}
 {{- with .inquiryPath }}
 - name: SHAHKAR_INQUIRY_PATH
-  value: {{ . | quote }}
-{{- end }}
-{{- with .authHeader }}
-- name: SHAHKAR_AUTH_HEADER
   value: {{ . | quote }}
 {{- end }}
 {{- with .resultValidityDays }}

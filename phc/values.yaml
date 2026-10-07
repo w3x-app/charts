@@ -47,9 +47,12 @@ global:
     altcha:
       hmacKey: "" # default: random 64 chars
     shahkar:
-      # HMAC secret (>= 32 chars) for Shahkar lookup/rate-limit keys. Required once mock is false.
-      # No random default: rotating it resets the cache, the limits and every stored lookup_hash.
-      hashKey: ""
+      # Name of a Secret created outside git, read by the services deployment only. Its keys:
+      #   SHAHKAR_APP_KEY, SHAHKAR_DEVICE_ID, SHAHKAR_TOKEN_ID  Farabom "App key", "Device id", "Token Id"
+      #   SHAHKAR_HASH_KEY  random, >= 32 chars, unique per environment. Never rotate it casually:
+      #                     it keys the cache, the rate limits and every stored lookup_hash.
+      # All four are required once mock is false. Empty renders no reference.
+      existingSecret: ""
   # **********************
   # Environment Variables
   # **********************
@@ -111,11 +114,9 @@ global:
       username: ""
       password: ""
     shahkar:
-      baseUrl: ""
+      baseUrl: "" # Farabom, /v1 included (sandbox: https://api.sandbox.faraboom.co/v1)
       timeout: ""
-      apiKey: ""
-      inquiryPath: "" # backend default: /shahkar/verify
-      authHeader: "" # backend default: x-api-key
+      inquiryPath: "" # backend default: /mobile/national-code
       resultValidityDays: "" # backend default: 90
       rateLimitWindow: "" # seconds, backend default: 600
       attemptLimit: # every attempt counts, cache hits included (defaults 30 / 20 / 20)
@@ -127,6 +128,8 @@ global:
         user: ""
       # mock: false — the backend verifies every identity as matched until this is set to false.
       # Left absent on purpose: any value renders, `false` included, so set it only with real credentials.
+      # Outside production the backend defaults to true; with NODE_ENV prod* it defaults to false and
+      # refuses to boot on true.
     mlh:
       baseUrl: ""
       apiKey: ""
