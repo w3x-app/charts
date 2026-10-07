@@ -46,6 +46,10 @@ global:
     aes: "" # default: random 64 chars
     altcha:
       hmacKey: "" # default: random 64 chars
+    shahkar:
+      # HMAC secret (>= 32 chars) for Shahkar lookup/rate-limit keys. Required once mock is false.
+      # No random default: rotating it resets the cache, the limits and every stored lookup_hash.
+      hashKey: ""
   # **********************
   # Environment Variables
   # **********************
@@ -110,6 +114,17 @@ global:
       baseUrl: ""
       timeout: ""
       apiKey: ""
+      inquiryPath: "" # backend default: /shahkar/verify
+      authHeader: "" # backend default: x-api-key
+      resultValidityDays: "" # backend default: 90
+      rateLimitWindow: "" # seconds, backend default: 600
+      attemptLimit: # every attempt counts, cache hits included (defaults 30 / 20 / 20)
+        ip: ""
+        nationalCode: ""
+        user: ""
+      rateLimit: # only real Shahkar calls count (defaults 5 / 10)
+        nationalCode: ""
+        user: ""
       # mock: false — the backend verifies every identity as matched until this is set to false.
       # Left absent on purpose: any value renders, `false` included, so set it only with real credentials.
     mlh:

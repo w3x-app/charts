@@ -94,6 +94,16 @@ Create the secrets variable
     secretKeyRef:
       name: phc-secrets
       key: HMAC_KEY
+{{- if (.Values.global.secrets.shahkar).hashKey }}
+# **********************
+# Shahkar Inquiry
+# **********************
+- name: SHAHKAR_HASH_KEY
+  valueFrom:
+    secretKeyRef:
+      name: phc-secrets
+      key: SHAHKAR_HASH_KEY
+{{- end }}
 {{- end }}
 
 {{/*
@@ -211,6 +221,46 @@ go through `int64`, because a values-file number arrives as float64 and `quote` 
 {{- with .apiKey }}
 - name: SHAHKAR_API_KEY
   value: {{ . | quote }}
+{{- end }}
+{{- with .inquiryPath }}
+- name: SHAHKAR_INQUIRY_PATH
+  value: {{ . | quote }}
+{{- end }}
+{{- with .authHeader }}
+- name: SHAHKAR_AUTH_HEADER
+  value: {{ . | quote }}
+{{- end }}
+{{- with .resultValidityDays }}
+- name: SHAHKAR_RESULT_VALIDITY_DAYS
+  value: {{ . | int64 | quote }}
+{{- end }}
+{{- with .rateLimitWindow }}
+- name: SHAHKAR_RATE_LIMIT_WINDOW
+  value: {{ . | int64 | quote }}
+{{- end }}
+{{- with .attemptLimit }}
+{{- with .ip }}
+- name: SHAHKAR_ATTEMPT_LIMIT_IP
+  value: {{ . | int64 | quote }}
+{{- end }}
+{{- with .nationalCode }}
+- name: SHAHKAR_ATTEMPT_LIMIT_NATIONAL_CODE
+  value: {{ . | int64 | quote }}
+{{- end }}
+{{- with .user }}
+- name: SHAHKAR_ATTEMPT_LIMIT_USER
+  value: {{ . | int64 | quote }}
+{{- end }}
+{{- end }}
+{{- with .rateLimit }}
+{{- with .nationalCode }}
+- name: SHAHKAR_RATE_LIMIT_NATIONAL_CODE
+  value: {{ . | int64 | quote }}
+{{- end }}
+{{- with .user }}
+- name: SHAHKAR_RATE_LIMIT_USER
+  value: {{ . | int64 | quote }}
+{{- end }}
 {{- end }}
 {{- /* A true-default flag: `with` and `default` both swallow `false`, so it renders bare, and only when set. */}}
 {{- if and (hasKey . "mock") (not (kindIs "invalid" .mock)) }}
