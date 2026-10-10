@@ -48,6 +48,7 @@ spec:
             - name: ELASTIC_APM_SERVICE_NAME
               value: "services"
             {{- include "phc.global.secrets" . | nindent 12 }}
+            {{- include "phc.shahkar.secrets" . | nindent 12 }}
             {{- include "phc.global.environments" . | nindent 12 }}
             {{- include "phc.global.configuration" . | nindent 12 }}
           ports:
