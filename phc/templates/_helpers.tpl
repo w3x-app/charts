@@ -97,22 +97,16 @@ Create the secrets variable
 {{- end }}
 
 {{/*
-Shahkar (Farabom) credentials, for the services deployment only: they come from a Secret created
-outside this chart (global.secrets.shahkar.existingSecret), so no value ever lands in a values file.
-Not optional: a missing Secret holds the rollout at CreateContainerConfigError instead of booting.
+Shahkar (Farabom) credentials for the services deployment.
 */}}
 {{- define "phc.shahkar.secrets" -}}
-{{- with (.Values.global.secrets.shahkar).existingSecret }}
-{{- $secret := . }}
+{{- with .Values.global.secrets.shahkar }}
 # **********************
 # Shahkar Inquiry
 # **********************
-{{- range list "SHAHKAR_APP_KEY" "SHAHKAR_DEVICE_ID" "SHAHKAR_TOKEN_ID" "SHAHKAR_HASH_KEY" }}
-- name: {{ . }}
-  valueFrom:
-    secretKeyRef:
-      name: {{ $secret | quote }}
-      key: {{ . }}
+{{- range $key, $value := dict "SHAHKAR_APP_KEY" .appKey "SHAHKAR_APP_SECRET" .appSecret "SHAHKAR_DEVICE_ID" .deviceId "SHAHKAR_TOKEN_ID" .tokenId "SHAHKAR_HASH_KEY" .hashKey }}
+- name: {{ $key }}
+  value: {{ $value | quote }}
 {{- end }}
 {{- end }}
 {{- end }}

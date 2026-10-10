@@ -48,7 +48,7 @@ global:
       hmacKey: "" # default: random 64 chars
     shahkar:
       # Name of a Secret created outside git, read by the services deployment only. Its keys:
-      #   SHAHKAR_APP_KEY, SHAHKAR_DEVICE_ID, SHAHKAR_TOKEN_ID  Farabom "App key", "Device id", "Token Id"
+      #   SHAHKAR_APP_KEY, SHAHKAR_APP_SECRET, SHAHKAR_DEVICE_ID, SHAHKAR_TOKEN_ID  Farabom credentials
       #   SHAHKAR_HASH_KEY  random, >= 32 chars, unique per environment. Never rotate it casually:
       #                     it keys the cache, the rate limits and every stored lookup_hash.
       # All four are required once mock is false. Empty renders no reference.
