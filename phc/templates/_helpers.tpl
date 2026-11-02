@@ -123,7 +123,7 @@ Create the environments variable
 - name: NODE_ENV
   value: {{ .Values.global.environments.nodeEnv | default "develop" | quote }}
 - name: DEBUG
-  value: {{ .Values.global.environments.debug | default "clt:*" | quote }}
+  value: {{ .Values.global.environments.debug | default "" | quote }}
 - name: TIMEOUT
   value: {{ .Values.global.environments.timeout | default "90000" | quote }}
 - name: GRAPHQL_MUTATION_SUPPORT

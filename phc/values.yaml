@@ -11,13 +11,22 @@ service:
   port: 80
   targetPort: 6050
 
+resources:
+  requests:
+    cpu: 100m
+    memory: 256Mi
+  limits:
+    cpu: "1"
+    memory: 512Mi
+
 livenessProbe:
   httpGet:
     path: /status
     port: http
   initialDelaySeconds: 30
   periodSeconds: 10
-  failureThreshold: 3
+  timeoutSeconds: 5
+  failureThreshold: 6
 
 readinessProbe:
   httpGet:
@@ -25,6 +34,7 @@ readinessProbe:
     port: http
   initialDelaySeconds: 15
   periodSeconds: 5
+  timeoutSeconds: 5
   failureThreshold: 3
 
 ingress:
@@ -57,7 +67,7 @@ global:
   # Environment Variables
   # **********************
   environments:
-    debug: "clt:*"
+    debug: ""
     timeout: "90000"
     nodeEnv: "develop"
     # GraphQl mutation support
