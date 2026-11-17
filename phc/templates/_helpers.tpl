@@ -112,6 +112,22 @@ Shahkar (Farabom) credentials for the services deployment.
 {{- end }}
 
 {{/*
+Firebase Cloud Messaging service account for the services deployment.
+*/}}
+{{- define "phc.fcm.secrets" -}}
+{{- if (.Values.global.secrets.fcm).serviceAccount }}
+# **********************
+# Firebase Cloud Messaging
+# **********************
+- name: FCM_SERVICE_ACCOUNT
+  valueFrom:
+    secretKeyRef:
+      name: phc-secrets
+      key: FCM_SERVICE_ACCOUNT
+{{- end }}
+{{- end }}
+
+{{/*
 Create the environments variable
 */}}
 {{- define "phc.global.environments" -}}

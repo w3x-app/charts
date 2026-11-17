@@ -53,6 +53,10 @@ global:
       #                     it keys the cache, the rate limits and every stored lookup_hash.
       # All four are required once mock is false. Empty renders no reference.
       existingSecret: ""
+    fcm:
+      # Firebase service-account JSON for mobile push (FCM HTTP v1), base64 encoded (base64 -w0 key.json).
+      # Read by the services deployment only. Empty disables mobile push.
+      serviceAccount: ""
   # **********************
   # Environment Variables
   # **********************

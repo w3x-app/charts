@@ -629,6 +629,38 @@ entries:
   phc:
   - apiVersion: v2
     appVersion: 1.1.0
+    created: "2026-11-17T10:09:41.53664033+03:30"
+    dependencies:
+    - condition: services.enabled
+      name: services
+      repository: file://charts/services
+      version: 1.1.3
+    - condition: workers.enabled
+      name: workers
+      repository: file://charts/workers
+      version: 1.1.3
+    - condition: assets.enabled
+      name: assets
+      repository: file://charts/assets
+      version: 1.1.1
+    - condition: frontend.enabled
+      name: frontend
+      repository: file://charts/frontend
+      version: 1.1.4
+    - condition: landing.enabled
+      name: landing
+      repository: file://charts/landing
+      version: 1.0.4
+    description: A Helm chart for Kubernetes
+    digest: 3c902c5705fc91ed557f5ee37481ad2ef16ffccce40ab59ba8d283c7b57ce060
+    icon: https://avatars.githubusercontent.com/u/207422183?s=200&v=4
+    name: phc
+    type: application
+    urls:
+    - https://w3x-app.github.io/charts/phc-1.1.21.tgz
+    version: 1.1.21
+  - apiVersion: v2
+    appVersion: 1.1.0
     created: "2026-10-14T15:24:43.876969498+03:30"
     dependencies:
     - condition: services.enabled
@@ -1360,4 +1392,4 @@ entries:
     urls:
     - https://w3x-app.github.io/charts/rsch-1.1.0.tgz
     version: 1.1.0
-generated: "2026-10-14T15:24:43.669129959+03:30"
+generated: "2026-11-17T10:09:41.534242+03:30"
