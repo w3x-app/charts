@@ -57,6 +57,9 @@ global:
       # Firebase service-account JSON for mobile push (FCM HTTP v1), base64 encoded (base64 -w0 key.json).
       # Read by the services deployment only. Empty disables mobile push.
       serviceAccount: ""
+    behdashtSso:
+      # Secret in the release namespace with BEHDASHT_SSO_CLIENT_SECRET and/or BEHDASHT_SSO_LEGAL_CLIENT_SECRET.
+      existingSecret: ""
   # **********************
   # Environment Variables
   # **********************
@@ -107,6 +110,13 @@ global:
       baseUrl: ""
       apiKey: ""
       timeout: "90000"
+    behdashtSso:
+      baseUrl: "https://ssocore.behdasht.gov.ir"
+      clientId: ""
+      redirectUri: ""
+      legalClientId: ""
+      legalRedirectUri: ""
+      mock: false
     # **********************
     # IHIO / Shahkar / MLH APIs
     # **********************

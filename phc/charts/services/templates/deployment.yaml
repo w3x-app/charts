@@ -50,6 +50,7 @@ spec:
             {{- include "phc.global.secrets" . | nindent 12 }}
             {{- include "phc.shahkar.secrets" . | nindent 12 }}
             {{- include "phc.fcm.secrets" . | nindent 12 }}
+            {{- include "phc.behdashtSso.environments" . | nindent 12 }}
             {{- include "phc.global.environments" . | nindent 12 }}
             {{- include "phc.global.configuration" . | nindent 12 }}
           ports:

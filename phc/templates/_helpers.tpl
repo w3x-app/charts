@@ -128,6 +128,38 @@ Firebase Cloud Messaging service account for the services deployment.
 {{- end }}
 
 {{/*
+Behdasht SSO configuration for the services deployment.
+*/}}
+{{- define "phc.behdashtSso.environments" -}}
+{{- $config := .Values.global.environments.behdashtSso }}
+{{- $secretName := .Values.global.secrets.behdashtSso.existingSecret }}
+- name: BEHDASHT_SSO_BASE_URL
+  value: {{ $config.baseUrl | quote }}
+- name: BEHDASHT_SSO_CLIENT_ID
+  value: {{ $config.clientId | quote }}
+- name: BEHDASHT_SSO_REDIRECT_URI
+  value: {{ $config.redirectUri | quote }}
+- name: BEHDASHT_SSO_LEGAL_CLIENT_ID
+  value: {{ $config.legalClientId | quote }}
+- name: BEHDASHT_SSO_LEGAL_REDIRECT_URI
+  value: {{ $config.legalRedirectUri | quote }}
+- name: BEHDASHT_SSO_MOCK
+  value: {{ $config.mock | quote }}
+{{- range $key := list "BEHDASHT_SSO_CLIENT_SECRET" "BEHDASHT_SSO_LEGAL_CLIENT_SECRET" }}
+- name: {{ $key }}
+  {{- if $secretName }}
+  valueFrom:
+    secretKeyRef:
+      name: {{ $secretName | quote }}
+      key: {{ $key }}
+      optional: true
+  {{- else }}
+  value: ""
+  {{- end }}
+{{- end }}
+{{- end }}
+
+{{/*
 Create the environments variable
 */}}
 {{- define "phc.global.environments" -}}
